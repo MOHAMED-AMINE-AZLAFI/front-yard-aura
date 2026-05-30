@@ -1,0 +1,13 @@
+---
+const items = ['Static & fast', 'Editorial SEO ready', 'Mobile-first UX', 'Pinterest optimized'];
+---
+
+<section class="border-y border-aura-linen bg-aura-forest text-aura-ivory">
+  <div class="container-page grid gap-3 py-5 sm:grid-cols-2 lg:grid-cols-4">
+    {items.map((item) => (
+      <div class="rounded-full border border-white/10 bg-white/5 px-4 py-3 text-center text-xs font-bold uppercase text-aura-ivory/80">
+        {item}
+      </div>
+    ))}
+  </div>
+</section>

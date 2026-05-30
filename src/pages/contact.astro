@@ -1,0 +1,279 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const inquiryTypes = [
+  {
+    title: 'Editorial Inquiries',
+    description:
+      'Questions about front yard landscaping ideas, editorial corrections, source suggestions, image context, or topic requests for future guides.'
+  },
+  {
+    title: 'Business Partnerships',
+    description:
+      'Partnership opportunities with landscaping brands, home improvement companies, garden product teams, exterior design services, and premium outdoor living businesses.'
+  },
+  {
+    title: 'Advertising Inquiries',
+    description:
+      'Advertising, sponsorship, display placement, brand visibility, and future media kit requests for Front Yard Aura.'
+  },
+  {
+    title: 'Pinterest Collaborations',
+    description:
+      'Pinterest content partnerships, visual campaigns, seasonal landscaping boards, pin strategy collaborations, and image-forward editorial opportunities.'
+  },
+  {
+    title: 'Guest Content Policy',
+    description:
+      'We review guest content selectively. Submissions must be original, practical, useful for American homeowners, and aligned with our premium landscaping editorial standards.'
+  }
+];
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact Front Yard Aura for editorial inquiries, business partnerships, advertising, Pinterest collaborations, and landscaping content questions."
+  path="/contact/"
+>
+  <section class="bg-aura-forest text-aura-ivory">
+    <div class="container-page py-14 md:py-20">
+      <p class="eyebrow text-aura-brass">Contact</p>
+      <h1 class="mt-4 max-w-4xl font-serif text-5xl font-bold leading-tight md:text-7xl">
+        Contact Front Yard Aura
+      </h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-aura-ivory/78">
+        Reach our editorial team for landscaping topic suggestions, business partnerships, advertising conversations, Pinterest collaborations, and premium front yard content inquiries.
+      </p>
+      <div class="mt-8 grid gap-3 text-sm font-bold text-aura-ivory/76 sm:grid-cols-3">
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Brand</p>
+          <p class="mt-1">Front Yard Aura</p>
+        </div>
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Website</p>
+          <p class="mt-1">frontyardaura.com</p>
+        </div>
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Response Time</p>
+          <p class="mt-1">2-5 business days</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 md:py-16">
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_24rem]">
+      <div>
+        <div class="rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-6 shadow-soft md:p-8">
+          <p class="eyebrow">Editorial Team</p>
+          <h2 class="mt-3 font-serif text-4xl font-bold leading-tight text-aura-pine">
+            Built for thoughtful landscaping conversations.
+          </h2>
+          <p class="mt-4 text-base leading-8 text-aura-ink/82">
+            Front Yard Aura is an editorial destination for front yard landscaping ideas, curb appeal inspiration, flower beds, walkway landscaping, rock gardens, low-maintenance yards, and premium exterior design guidance for American homes.
+          </p>
+          <p class="mt-4 text-base leading-8 text-aura-ink/82">
+            We welcome concise, relevant messages from readers, landscaping professionals, home brands, garden companies, media partners, and Pinterest-focused collaborators.
+          </p>
+        </div>
+
+        <form
+          class="mt-8 rounded-[1.25rem] border border-aura-linen bg-white/80 p-6 shadow-premium md:p-8"
+          name="contact"
+          method="POST"
+          action="/contact/?success=true"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          data-contact-form
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label>
+              Do not fill this out if you are human:
+              <input name="bot-field" tabindex="-1" autocomplete="off" />
+            </label>
+          </p>
+          <div>
+            <p class="eyebrow">Send A Message</p>
+            <h2 class="mt-3 font-serif text-4xl font-bold leading-tight text-aura-pine">Contact form</h2>
+            <p class="mt-3 text-sm leading-7 text-aura-ink/72">
+              This Netlify-ready form routes editorial, business, advertising, and collaboration messages to the Front Yard Aura team on static hosting.
+            </p>
+          </div>
+
+          <div
+            class="mt-6 hidden rounded-[0.9rem] border border-aura-brass/40 bg-aura-sand/60 px-4 py-3 text-sm font-bold leading-6 text-aura-pine"
+            data-form-loading
+            role="status"
+            aria-live="polite"
+          >
+            Sending your message...
+          </div>
+          <div
+            class="mt-6 hidden rounded-[0.9rem] border border-emerald-700/20 bg-emerald-50 px-4 py-3 text-sm font-bold leading-6 text-emerald-900"
+            data-form-success
+            role="status"
+            aria-live="polite"
+          >
+            Thank you. Your message has been sent successfully, and our editorial team will review it soon.
+          </div>
+          <div
+            class="mt-6 hidden rounded-[0.9rem] border border-red-800/20 bg-red-50 px-4 py-3 text-sm font-bold leading-6 text-red-900"
+            data-form-error
+            role="alert"
+            aria-live="assertive"
+          >
+            Something went wrong while sending your message. Please try again in a moment.
+          </div>
+
+          <div class="mt-7 grid gap-5 md:grid-cols-2">
+            <label class="block">
+              <span class="text-sm font-bold text-aura-pine">Name</span>
+              <input
+                class="mt-2 min-h-12 w-full rounded-[0.9rem] border border-aura-linen bg-aura-ivory px-4 text-sm text-aura-ink outline-none transition focus:border-aura-clay focus:ring-2 focus:ring-aura-clay/20"
+                type="text"
+                name="name"
+                autocomplete="name"
+                required
+              />
+            </label>
+            <label class="block">
+              <span class="text-sm font-bold text-aura-pine">Email</span>
+              <input
+                class="mt-2 min-h-12 w-full rounded-[0.9rem] border border-aura-linen bg-aura-ivory px-4 text-sm text-aura-ink outline-none transition focus:border-aura-clay focus:ring-2 focus:ring-aura-clay/20"
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+              />
+            </label>
+          </div>
+
+          <label class="mt-5 block">
+            <span class="text-sm font-bold text-aura-pine">Subject</span>
+            <input
+              class="mt-2 min-h-12 w-full rounded-[0.9rem] border border-aura-linen bg-aura-ivory px-4 text-sm text-aura-ink outline-none transition focus:border-aura-clay focus:ring-2 focus:ring-aura-clay/20"
+              type="text"
+              name="subject"
+              required
+            />
+          </label>
+
+          <label class="mt-5 block">
+            <span class="text-sm font-bold text-aura-pine">Message</span>
+            <textarea
+              class="mt-2 min-h-40 w-full rounded-[0.9rem] border border-aura-linen bg-aura-ivory px-4 py-3 text-sm leading-7 text-aura-ink outline-none transition focus:border-aura-clay focus:ring-2 focus:ring-aura-clay/20"
+              name="message"
+              required
+            ></textarea>
+          </label>
+
+          <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <button class="btn-primary w-full disabled:cursor-wait disabled:opacity-70 sm:w-auto" type="submit" data-submit-button>
+              Send Message
+            </button>
+            <p class="text-xs leading-6 text-aura-ink/62">
+              Business email placeholder: <span class="font-bold text-aura-pine">hello@frontyardaura.com</span>
+            </p>
+          </div>
+
+          <p class="mt-5 border-t border-aura-linen pt-5 text-xs leading-6 text-aura-ink/65">
+            Privacy notice: Please do not submit sensitive personal information. Information sent through this form may be used only to respond to your inquiry, evaluate partnership relevance, or maintain necessary communication records. Review our <a class="font-bold text-aura-clay hover:text-aura-pine" href="/privacy/">Privacy Policy</a> for more details.
+          </p>
+        </form>
+      </div>
+
+      <aside class="space-y-5">
+        {inquiryTypes.map((item) => (
+          <section class="rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-5 shadow-soft">
+            <h2 class="font-serif text-2xl font-semibold leading-tight text-aura-pine">{item.title}</h2>
+            <p class="mt-3 text-sm leading-7 text-aura-ink/78">{item.description}</p>
+          </section>
+        ))}
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-aura-pine py-12 text-aura-ivory md:py-16">
+    <div class="container-page">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <p class="eyebrow text-aura-brass">Work With Us</p>
+          <h2 class="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight md:text-5xl">
+            Let’s create useful, beautiful landscaping content for homeowners.
+          </h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-aura-ivory/74">
+            Send a focused message with your topic, brand, collaboration idea, or editorial question. The clearer the request, the faster our team can review it.
+          </p>
+        </div>
+        <a class="btn-primary bg-aura-brass text-aura-forest hover:bg-aura-sand" href="/blog/">Explore The Blog</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const encodeFormData = (form: HTMLFormElement) => {
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+
+      formData.forEach((value, key) => {
+        params.append(key, String(value));
+      });
+
+      return params.toString();
+    };
+
+    const initContactForm = () => {
+      const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+      if (!form || form.dataset.ready === 'true') return;
+
+      form.dataset.ready = 'true';
+
+      const loading = form.querySelector<HTMLElement>('[data-form-loading]');
+      const success = form.querySelector<HTMLElement>('[data-form-success]');
+      const error = form.querySelector<HTMLElement>('[data-form-error]');
+      const submitButton = form.querySelector<HTMLButtonElement>('[data-submit-button]');
+      const originalButtonText = submitButton?.textContent?.trim() || 'Send Message';
+
+      const setState = (state: 'idle' | 'loading' | 'success' | 'error') => {
+        loading?.classList.toggle('hidden', state !== 'loading');
+        success?.classList.toggle('hidden', state !== 'success');
+        error?.classList.toggle('hidden', state !== 'error');
+
+        if (submitButton) {
+          submitButton.disabled = state === 'loading';
+          submitButton.textContent = state === 'loading' ? 'Sending...' : originalButtonText;
+        }
+      };
+
+      if (new URLSearchParams(window.location.search).get('success') === 'true') {
+        setState('success');
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        setState('loading');
+
+        try {
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encodeFormData(form)
+          });
+
+          if (!response.ok) {
+            throw new Error('Form submission failed');
+          }
+
+          form.reset();
+          setState('success');
+        } catch {
+          setState('error');
+        }
+      });
+    };
+
+    document.addEventListener('astro:page-load', initContactForm);
+    initContactForm();
+  </script>
+</BaseLayout>

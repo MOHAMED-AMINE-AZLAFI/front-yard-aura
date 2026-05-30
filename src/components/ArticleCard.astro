@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, getReadingTime } from '@/lib/posts';
+import { getImageForPost } from '@/data/images';
+
+interface Props {
+  article: CollectionEntry<'blog'>;
+  imageIndex?: number;
+  avoidImages?: string[];
+  variant?: 'standard' | 'featured' | 'compact';
+}
+
+const { article, imageIndex, avoidImages = [], variant = 'standard' } = Astro.props;
+const matchedImage = getImageForPost(article, imageIndex, avoidImages);
+const imageSrc = matchedImage.src;
+const imageAlt = matchedImage.alt;
+const readingTime = getReadingTime(article.body);
+const isFeatured = variant === 'featured';
+const isCompact = variant === 'compact';
+---
+
+<article class:list={[
+  'group overflow-hidden border border-aura-linen bg-aura-porcelain shadow-soft transition-all duration-300 ease-out hover:-translate-y-1 hover:border-aura-brass hover:shadow-premium',
+  isFeatured ? 'rounded-[1.4rem]' : 'rounded-[1rem]',
+  isCompact && 'md:grid md:grid-cols-[0.9fr_1.1fr]'
+]}>
+  <a href={`/blog/${article.slug}/`} class:list={['block h-full', isCompact && 'md:contents']}>
+    {imageSrc && (
+      <div class:list={[
+        'article-image-shell relative overflow-hidden bg-aura-sand',
+        isFeatured ? 'aspect-[5/4] md:aspect-[16/10]' : isCompact ? 'aspect-[4/3] md:aspect-auto md:min-h-56' : 'aspect-[2/3]'
+      ]}>
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          width="800"
+          height="1200"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+        />
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-aura-forest/85 via-aura-forest/25 to-transparent p-4 md:p-5">
+          <span class="inline-flex rounded-full bg-aura-ivory/94 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-aura-forest shadow-soft">
+            {article.data.category}
+          </span>
+        </div>
+      </div>
+    )}
+    <div class:list={[isFeatured ? 'p-5 md:p-7' : 'p-5', isCompact && 'md:flex md:flex-col md:justify-center']}>
+      {!imageSrc && <p class="eyebrow">{article.data.category}</p>}
+      <div class="flex flex-wrap items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-aura-moss">
+        <time datetime={article.data.publishDate.toISOString()}>{formatDate(article.data.publishDate)}</time>
+        <span aria-hidden="true">/</span>
+        <span>{readingTime} min read</span>
+      </div>
+      <h2 class:list={[
+        'mt-3 font-serif font-semibold leading-tight text-aura-pine transition group-hover:text-aura-clay',
+        isFeatured ? 'text-3xl md:text-4xl' : isCompact ? 'text-2xl' : 'text-2xl'
+      ]}>
+        {article.data.title}
+      </h2>
+      <p class:list={['mt-3 leading-6 text-aura-ink/85', isFeatured ? 'text-base' : 'text-sm']}>{article.data.description}</p>
+    </div>
+  </a>
+</article>

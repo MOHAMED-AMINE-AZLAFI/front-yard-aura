@@ -1,0 +1,40 @@
+---
+import type { OverlayPosition } from '@/data/images';
+
+interface Props {
+  src: string;
+  alt: string;
+  title: string;
+  label?: string;
+  description?: string;
+  position?: OverlayPosition;
+  href?: string;
+  loading?: 'eager' | 'lazy';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  title,
+  label,
+  description,
+  position = 'bottom',
+  href,
+  loading = 'lazy',
+  class: className = ''
+} = Astro.props;
+
+const align = position === 'top' ? 'items-start' : position === 'center' ? 'items-center' : 'items-end';
+const Tag = href ? 'a' : 'article';
+---
+
+<Tag href={href} class={`premium-card image-zoom group relative flex aspect-[2/3] overflow-hidden p-5 ${align} ${className}`}>
+  <img class="absolute inset-0 h-full w-full object-cover" src={src} alt={alt} width="1000" height="1500" loading={loading} decoding="async" />
+  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.08)_0%,rgba(12,33,24,0.34)_45%,rgba(12,33,24,0.82)_100%)]" aria-hidden="true"></div>
+  <div class="relative max-w-md rounded-[1rem] border border-white/15 bg-aura-forest/58 p-5 text-aura-ivory shadow-soft backdrop-blur-sm">
+    {label && <p class="text-xs font-bold uppercase text-aura-brass">{label}</p>}
+    <h3 class="mt-2 font-serif text-3xl font-semibold leading-tight">{title}</h3>
+    {description && <p class="mt-3 text-sm leading-6 text-aura-ivory/78">{description}</p>}
+  </div>
+</Tag>

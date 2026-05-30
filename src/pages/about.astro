@@ -1,0 +1,175 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const aboutSections = [
+  {
+    title: 'Brand Story',
+    body: [
+      'Front Yard Aura was created as a calm, design-focused destination for homeowners who want their front yard to feel more intentional, welcoming, and beautiful without turning a simple search for landscaping ideas into a confusing project.',
+      'The name reflects the quiet impression a front yard creates before anyone reaches the door. A clean walkway, layered planting bed, thoughtful lighting, or well-placed tree can change the feeling of a home in a way that is practical, personal, and lasting.',
+      'Our editorial direction is rooted in American curb appeal, luxury home inspiration, Pinterest-friendly visual planning, and realistic landscaping choices that can work for everyday homeowners.'
+    ]
+  },
+  {
+    title: 'Mission',
+    body: [
+      'Our mission is to help readers discover front yard landscaping ideas that are beautiful, useful, and realistic. We focus on clear inspiration, practical design thinking, and approachable guidance for homeowners planning small updates or larger curb appeal improvements.',
+      'We aim to make landscaping content easier to browse, easier to compare, and easier to act on. A reader should be able to leave a Front Yard Aura guide with a stronger sense of what style they like, what details matter, and what questions to ask before starting a project.'
+    ]
+  },
+  {
+    title: 'What We Publish',
+    body: [
+      'Front Yard Aura publishes editorial guides about small front yard landscaping, modern front yard design, budget-friendly curb appeal, flower beds, rock landscaping, low-maintenance yards, walkway landscaping, driveway edges, porch planting, seasonal refreshes, and exterior design details.',
+      'Our articles are designed for visual planning and search discovery. That means we care about useful headings, descriptive image context, Pinterest-friendly ideas, internal links to related topics, and structured answers to common homeowner questions.',
+      'We do not publish medical, legal, financial, or construction engineering advice. Landscaping projects can involve drainage, grading, permits, utilities, local codes, HOA rules, and regional plant performance, so readers should consult qualified local professionals when a project requires expert review.'
+    ]
+  },
+  {
+    title: 'Who The Website Helps',
+    body: [
+      'Front Yard Aura is built for homeowners, renters with permission to improve outdoor spaces, first-time landscape planners, design-conscious readers, Pinterest users, and anyone comparing curb appeal ideas before hiring a professional or starting a weekend project.',
+      'The site is especially useful for people who want to understand style direction before spending money. Readers may be choosing between gravel and mulch, formal and relaxed planting, simple and layered flower beds, or traditional and modern walkway materials.',
+      'We also serve landscapers, garden brands, exterior product companies, and media partners who want to understand how homeowners search for front yard inspiration.'
+    ]
+  },
+  {
+    title: 'Editorial Standards',
+    body: [
+      'Our editorial standards prioritize clarity, usefulness, and honest presentation. We avoid exaggerated promises and do not claim that one idea will work perfectly for every home, climate, soil type, budget, or neighborhood.',
+      'When we describe landscaping concepts, we try to explain why an idea works visually and practically. We consider scale, maintenance, seasonality, curb appeal, walkway flow, foundation planting, budget constraints, and the way a front yard looks from the street.',
+      'We revise content as the site grows, especially when pages need clearer internal links, stronger image relevance, better reader guidance, or updated monetization disclosures.'
+    ]
+  },
+  {
+    title: 'Image And Inspiration Policy',
+    body: [
+      'Front Yard Aura is a highly visual publication, so images are used to help readers understand style, texture, scale, plant layering, hardscape materials, and curb appeal composition.',
+      'Our image system is organized around article topics, categories, and keywords so that a post about rock landscaping shows relevant stone, gravel, boulder, and border ideas, while a post about flower beds shows planting inspiration, blooms, and front yard garden context.',
+      'Images are intended for inspiration and editorial illustration. Readers should adapt ideas to their own property conditions, climate, budget, local plant availability, and maintenance preferences.'
+    ]
+  },
+  {
+    title: 'Monetization Transparency',
+    body: [
+      'Front Yard Aura is a content website and may earn revenue through advertising, sponsorships, affiliate links, or other commercial partnerships. Monetization helps support content production, technical maintenance, image systems, and ongoing editorial improvements.',
+      'The site may use Monetag advertising placements and may apply for Google AdSense in the future. Advertising partners may use cookies or similar technologies as described in our Privacy Policy.',
+      'Commercial opportunities do not remove the need for reader trust. Sponsored placements, affiliate relationships, or advertising features should be handled in a way that preserves editorial usefulness and does not intentionally mislead readers.'
+    ]
+  },
+  {
+    title: 'Why Trust Front Yard Aura',
+    body: [
+      'Readers can trust Front Yard Aura as an editorial planning resource because the site is organized around clear landscaping categories, search-friendly topics, practical homeowner questions, and visual inspiration that matches the subject of each guide.',
+      'We are careful not to present inspiration as a substitute for local professional judgment. Instead, we help readers build taste, compare options, understand design tradeoffs, and prepare better questions before investing in their front yard.',
+      'Our goal is not to make every yard look the same. It is to help each reader find a front yard direction that feels polished, realistic, and appropriate for the home they actually have.'
+    ]
+  }
+];
+
+const trustPoints = [
+  'Static, fast, reader-focused publishing',
+  'Clear editorial categories and internal links',
+  'Image matching by topic and landscaping intent',
+  'Transparent advertising and affiliate positioning',
+  'Practical guidance without unrealistic promises'
+];
+---
+
+<BaseLayout
+  title="About"
+  description="About Front Yard Aura, a premium editorial website for front yard landscaping ideas, curb appeal inspiration, and practical exterior design guidance."
+  path="/about/"
+>
+  <section class="bg-aura-forest text-aura-ivory">
+    <div class="container-page py-14 md:py-20">
+      <p class="eyebrow text-aura-brass">About Front Yard Aura</p>
+      <h1 class="mt-4 max-w-4xl font-serif text-5xl font-bold leading-tight md:text-7xl">
+        Premium front yard landscaping inspiration, edited for real homes.
+      </h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-aura-ivory/78">
+        Front Yard Aura is an American editorial website focused on front yard landscaping ideas, curb appeal, planting inspiration, walkway design, low-maintenance yards, and practical exterior style guidance.
+      </p>
+      <div class="mt-8 grid gap-3 text-sm font-bold text-aura-ivory/76 sm:grid-cols-3">
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Brand</p>
+          <p class="mt-1">Front Yard Aura</p>
+        </div>
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Domain</p>
+          <p class="mt-1">frontyardaura.com</p>
+        </div>
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Focus</p>
+          <p class="mt-1">Front yard landscaping ideas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 md:py-16">
+    <div class="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)]">
+      <aside class="hidden lg:block">
+        <div class="sticky top-28 rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-5 shadow-soft">
+          <p class="eyebrow">On This Page</p>
+          <nav class="mt-4 space-y-2 text-sm font-bold text-aura-ink/75">
+            {aboutSections.map((section) => (
+              <a class="block rounded-lg px-3 py-2 transition hover:bg-aura-sand hover:text-aura-pine" href={`#${section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+                {section.title}
+              </a>
+            ))}
+            <a class="block rounded-lg px-3 py-2 transition hover:bg-aura-sand hover:text-aura-pine" href="#contact-front-yard-aura">
+              Contact
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="max-w-4xl">
+        <div class="rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-6 shadow-soft md:p-8">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-aura-clay">Editorial Position</p>
+          <h2 class="mt-3 font-serif text-4xl font-bold leading-tight text-aura-pine">
+            Design inspiration with practical homeowner context.
+          </h2>
+          <p class="mt-4 text-base leading-8 text-aura-ink/82">
+            We publish visual, search-friendly landscaping content for readers who want beautiful ideas without losing sight of maintenance, budget, climate, materials, and the real decisions that shape a front yard.
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          {trustPoints.map((point) => (
+            <div class="rounded-[1rem] border border-aura-linen bg-white/75 p-5 shadow-soft">
+              <p class="text-sm font-bold leading-6 text-aura-pine">{point}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8 space-y-6">
+          {aboutSections.map((section) => (
+            <section id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} class="scroll-mt-28 rounded-[1.25rem] border border-aura-linen bg-white/72 p-6 shadow-soft md:p-8">
+              <h2 class="font-serif text-3xl font-bold leading-tight text-aura-pine md:text-4xl">{section.title}</h2>
+              <div class="mt-5 space-y-4">
+                {section.body.map((paragraph) => (
+                  <p class="text-base leading-8 text-aura-ink/82">{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <section id="contact-front-yard-aura" class="mt-8 scroll-mt-28 rounded-[1.25rem] border border-aura-linen bg-aura-pine p-6 text-aura-ivory shadow-premium md:p-8">
+          <p class="eyebrow text-aura-brass">Contact</p>
+          <h2 class="mt-3 font-serif text-4xl font-bold leading-tight">
+            Questions, corrections, partnerships, or editorial inquiries?
+          </h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-aura-ivory/76">
+            We welcome focused messages from readers, landscaping professionals, home brands, advertising partners, and Pinterest collaborators. Use the Contact page to reach the Front Yard Aura team.
+          </p>
+          <a class="btn-primary mt-6 inline-flex bg-aura-brass text-aura-forest hover:bg-aura-sand" href="/contact/">
+            Visit Contact Page
+          </a>
+        </section>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

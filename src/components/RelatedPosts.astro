@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
+import { getImageForPost, getImageIntent } from '@/data/images';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  currentArticle?: CollectionEntry<'blog'>;
+}
+
+const { posts, currentArticle } = Astro.props;
+const currentImage = currentArticle ? getImageForPost(currentArticle).src : undefined;
+const usedImages = new Set(currentImage ? [currentImage] : []);
+const intentCounts = new Map<string, number>();
+const relatedCards = posts.map((post) => {
+  const intent = getImageIntent([post.data.title, post.slug, post.data.category, ...(post.data.tags ?? [])].join(' '), post.data.category);
+  const count = intentCounts.get(intent) ?? 0;
+  const imageIndex = count + 31;
+  const avoidImages = [...usedImages];
+  const image = getImageForPost(post, imageIndex, avoidImages);
+  usedImages.add(image.src);
+  intentCounts.set(intent, count + 1);
+  return { post, imageIndex, avoidImages };
+});
+---
+
+{posts.length > 0 && (
+  <section class="mt-14 border-t border-aura-linen pt-10">
+    <p class="eyebrow">Related Posts</p>
+    <h2 class="mt-3 font-serif text-4xl font-bold leading-tight text-aura-pine">Keep reading next</h2>
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      {relatedCards.map(({ post, imageIndex, avoidImages }) => <ArticleCard article={post} imageIndex={imageIndex} avoidImages={avoidImages} />)}
+    </div>
+  </section>
+)}

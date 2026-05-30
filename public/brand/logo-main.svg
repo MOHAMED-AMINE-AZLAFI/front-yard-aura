@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="96" viewBox="0 0 420 96" role="img" aria-labelledby="title desc">
+  <title id="title">Front Yard Aura</title>
+  <desc id="desc">Premium landscaping logo with a modern home and botanical leaf mark.</desc>
+  <rect width="420" height="96" fill="none"/>
+  <g transform="translate(10 10)">
+    <path d="M35 12 7 34v34h56V34L35 12Z" fill="#173426"/>
+    <path d="M18 39 35 25l17 14v20H18V39Z" fill="#f8f4ec"/>
+    <path d="M30 59V44h12v15H30Z" fill="#173426"/>
+    <path d="M59 23c17 6 24 20 18 35-16-2-27-10-31-25 7 1 14 5 20 11-1-8-4-15-7-21Z" fill="#7c8a68"/>
+    <path d="M48 31c12 5 20 13 25 25" fill="none" stroke="#c5a46a" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="35" cy="35" r="2.7" fill="#c5a46a"/>
+  </g>
+  <g fill="#173426">
+    <text x="104" y="45" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-weight="700">Front Yard Aura</text>
+    <text x="106" y="68" font-family="Manrope, Inter, Arial, sans-serif" font-size="11" font-weight="700">PREMIUM LANDSCAPE INSPIRATION</text>
+  </g>
+  <path d="M104 76h214" stroke="#c5a46a" stroke-width="2" stroke-linecap="round"/>
+</svg>

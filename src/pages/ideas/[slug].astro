@@ -1,0 +1,222 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import { CATEGORIES, getRelatedCategories } from '@/data/categories';
+import { getImageForText } from '@/data/images';
+import { SITE } from '@/lib/site';
+
+export function getStaticPaths() {
+  return CATEGORIES.map((category) => ({
+    params: { slug: category.slug },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props;
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+const categoryPosts = posts.filter(
+  (post) => post.data.categorySlug === category.slug || post.data.category === category.name
+);
+const related = getRelatedCategories(category.slug, 4);
+const canonicalPath = `/ideas/${category.slug}/`;
+const canonicalUrl = new URL(canonicalPath, SITE.url).toString();
+const usedCategoryImages = new Set<string>();
+
+function categoryImage(text: string, seed: string) {
+  const image = getImageForText(text, seed, category.name, undefined, [...usedCategoryImages]);
+  usedCategoryImages.add(image.src);
+  return image;
+}
+
+const heroImage = categoryImage(
+  `${category.name} ${category.intro} luxury American front yard landscaping exterior`,
+  `ideas-detail-${category.slug}-hero`
+);
+const visualCards = category.cards.map((card, index) => ({
+  ...card,
+  image: categoryImage(
+    `${category.name} ${card.title} ${card.description} front yard landscaping exterior`,
+    `ideas-detail-${category.slug}-card-${index}`
+  ).src
+}));
+const featuredPosts = categoryPosts.slice(0, 3);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Ideas', href: '/ideas/' },
+  { label: category.shortName, href: canonicalPath }
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: new URL(item.href, SITE.url).toString()
+  }))
+};
+
+const categorySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: category.name,
+  description: category.seoDescription,
+  url: canonicalUrl,
+  image: heroImage.src,
+  numberOfItems: categoryPosts.length,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url
+  },
+  about: {
+    '@type': 'Thing',
+    name: category.name
+  },
+  hasPart: categoryPosts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    url: new URL(`/blog/${post.slug}/`, SITE.url).toString()
+  }))
+};
+---
+
+<BaseLayout
+  title={category.seoTitle}
+  description={category.seoDescription}
+  path={canonicalPath}
+  image={heroImage.src}
+>
+  <JsonLd data={[breadcrumbSchema, categorySchema]} />
+
+  <section class="relative overflow-hidden bg-aura-forest text-aura-ivory">
+    <img
+      class="absolute inset-0 h-full w-full object-cover opacity-62"
+      src={heroImage.src}
+      alt={heroImage.alt}
+      width="1400"
+      height="1000"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,33,24,0.94)_0%,rgba(12,33,24,0.70)_54%,rgba(12,33,24,0.30)_100%)]" aria-hidden="true"></div>
+    <div class="container-page relative py-12 md:py-20">
+      <Breadcrumbs items={breadcrumbItems} />
+      <div class="mt-12 max-w-4xl">
+        <p class="eyebrow text-aura-brass">{category.accent}</p>
+        <h1 class="mt-4 font-serif text-5xl font-bold leading-none text-aura-ivory md:text-7xl">
+          {category.name}
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-aura-ivory/80">
+          {category.intro}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn-primary bg-aura-brass text-aura-forest hover:bg-aura-sand" href="#articles">View {categoryPosts.length} Articles</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-bold text-aura-ivory backdrop-blur transition hover:border-aura-brass hover:text-aura-brass" href="#ideas">Explore Ideas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aura-ivory py-12 md:py-16">
+    <div class="container-page grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+      <div>
+        <p class="eyebrow">SEO Overview</p>
+        <h2 class="mt-3 font-serif text-4xl font-bold leading-tight text-aura-pine md:text-5xl">
+          Premium inspiration for {category.shortName.toLowerCase()}.
+        </h2>
+        <p class="mt-5 text-base leading-8 text-aura-ink/85">{category.intro}</p>
+      </div>
+      <div class="premium-card image-zoom overflow-hidden p-3">
+        <img class="aspect-[2/3] w-full rounded-[1rem] object-cover" src={heroImage.src} alt={heroImage.alt} width="1000" height="1500" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <section id="ideas" class="section-band py-12 md:py-16">
+    <div class="container-page">
+      <p class="eyebrow">Pinterest Style Ideas</p>
+      <h2 class="mt-3 max-w-4xl font-serif text-4xl font-bold leading-tight text-aura-pine md:text-6xl">
+        Visual ideas curated for saving, scanning, and choosing your next article.
+      </h2>
+      <div class="masonry-grid mt-10">
+        {visualCards.map((card) => (
+          <a class={`masonry-item premium-card image-zoom group relative flex aspect-[2/3] overflow-hidden p-5 ${card.placement === 'top' ? 'items-start' : card.placement === 'center' ? 'items-center' : 'items-end'}`} href="#articles">
+            <img class="absolute inset-0 h-full w-full object-cover" src={card.image} alt={card.title} width="1000" height="1500" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.04),rgba(12,33,24,0.78))]" aria-hidden="true"></div>
+            <div class="relative rounded-[1rem] bg-aura-forest/62 p-5 text-aura-ivory backdrop-blur-sm">
+              <p class="text-xs font-bold uppercase text-aura-brass">{category.shortName}</p>
+              <h3 class="mt-2 font-serif text-3xl font-semibold leading-tight">{card.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-aura-ivory/78">{card.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="articles" class="bg-aura-porcelain py-12 md:py-16">
+    <div class="container-page">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="eyebrow">Featured Articles</p>
+          <h2 class="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight text-aura-pine md:text-5xl">
+            {categoryPosts.length} published guides for {category.shortName.toLowerCase()}.
+          </h2>
+        </div>
+        <a class="btn-secondary w-fit" href="/blog/">View Blog</a>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {featuredPosts.map((post, index) => (
+          <ArticleCard article={post} imageIndex={index} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aura-ivory py-12 md:py-16" aria-labelledby="all-category-articles">
+    <div class="container-page">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="eyebrow">All Articles</p>
+          <h2 id="all-category-articles" class="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight text-aura-pine md:text-5xl">
+            Browse every {category.shortName.toLowerCase()} article.
+          </h2>
+        </div>
+        <p class="text-sm font-bold uppercase tracking-[0.14em] text-aura-clay">{categoryPosts.length} articles</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {categoryPosts.map((post, index) => (
+          <ArticleCard article={post} imageIndex={index + 3} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band py-12 md:py-16">
+    <div class="container-page">
+      <p class="eyebrow">Related Categories</p>
+      <h2 class="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight text-aura-pine md:text-5xl">
+        Continue exploring front yard landscaping ideas.
+      </h2>
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {related.map((item) => (
+          <a class="premium-card p-5" href={`/ideas/${item.slug}/`}>
+            <p class="text-xs font-bold uppercase text-aura-clay">{item.accent}</p>
+            <h3 class="mt-3 font-serif text-2xl font-semibold leading-tight text-aura-pine">{item.shortName}</h3>
+            <p class="mt-2 text-sm leading-6 text-aura-ink/85">{item.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

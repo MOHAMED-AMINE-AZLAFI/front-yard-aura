@@ -1,0 +1,494 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import ImageOverlayCard from '@/components/ImageOverlayCard.astro';
+import TrustStrip from '@/components/TrustStrip.astro';
+import { getImageForText, photo } from '@/data/images';
+import type { OverlayPosition } from '@/data/images';
+
+type HomeImageCard = {
+  title: string;
+  label: string;
+  image: string;
+  position: OverlayPosition;
+  copy: string;
+};
+
+type HomeIdeaSection = {
+  title: string;
+  subtitle: string;
+  image: string;
+  tag: string;
+  align: OverlayPosition;
+};
+
+const usedHomeImages = new Set<string>();
+
+function homeImage(text: string, seed: string, category = '') {
+  const image = getImageForText(text, seed, category, undefined, [...usedHomeImages]);
+  usedHomeImages.add(image.src);
+  return image.src;
+}
+
+const homeImages = {
+  curbAppeal: homeImage(
+    'luxury curb appeal front yard landscaping American home stone entry shrubs',
+    'home-curb-appeal',
+    'Curb Appeal Landscaping Ideas'
+  ),
+  walkwayTrend: homeImage(
+    'front walkway landscaping pavers border plants path lights American home',
+    'home-walkway-trend',
+    'Walkway Landscaping Ideas'
+  ),
+  porchGarden: homeImage(
+    'front porch garden curb appeal planters flower beds foundation shrubs',
+    'home-porch-garden',
+    'Curb Appeal Landscaping Ideas'
+  ),
+  modern: homeImage(
+    'modern front yard landscaping clean lines pavers architectural planting American home',
+    'home-modern-yard',
+    'Modern Front Yard Landscaping'
+  ),
+  budget: homeImage(
+    'budget front yard landscaping mulch edging affordable curb appeal flower bed',
+    'home-budget-yard',
+    'Front Yard Landscaping On A Budget'
+  ),
+  small: homeImage(
+    'small front yard landscaping compact curb appeal walkway border planting',
+    'home-small-yard',
+    'Small Front Yard Landscaping Ideas'
+  ),
+  flowerBeds: homeImage(
+    'front yard flower bed hydrangeas roses curb appeal American home',
+    'home-flower-beds',
+    'Front Yard Flower Bed Ideas'
+  ),
+  rocks: homeImage(
+    'front yard rock landscaping gravel boulders shrubs low water curb appeal',
+    'home-rock-landscaping',
+    'Front Yard Landscaping With Rocks'
+  ),
+  walkwayGuide: homeImage(
+    'curved front walkway landscaping flowers pavers garden border',
+    'home-walkway-guide',
+    'Walkway Landscaping Ideas'
+  ),
+  lowMaintenance: homeImage(
+    'low maintenance front yard evergreen shrubs mulch gravel no grass landscaping',
+    'home-low-maintenance',
+    'Low Maintenance Front Yard Landscaping'
+  ),
+  transformationEntry: homeImage(
+    'front yard curb appeal framed entry landscaping flower beds walkway American home exterior',
+    'home-transformation-entry',
+    'Curb Appeal Landscaping Ideas'
+  ),
+  transformationWalkway: homeImage(
+    'front walkway garden arrival after landscaping border plants pavers',
+    'home-transformation-walkway',
+    'Walkway Landscaping Ideas'
+  ),
+  galleryModern: homeImage(
+    'modern front yard pavers ornamental grasses clean exterior landscaping',
+    'home-gallery-modern',
+    'Modern Front Yard Landscaping'
+  ),
+  galleryRocks: homeImage(
+    'front yard rock garden boulders gravel shrubs American home',
+    'home-gallery-rocks',
+    'Front Yard Landscaping With Rocks'
+  ),
+  galleryFlowers: homeImage(
+    'front yard flower border along walkway colorful curb appeal',
+    'home-gallery-flowers',
+    'Front Yard Flower Bed Ideas'
+  ),
+  galleryBudget: homeImage(
+    'affordable front yard landscaping mulch edging porch planters',
+    'home-gallery-budget',
+    'Front Yard Landscaping On A Budget'
+  ),
+  gallerySmall: homeImage(
+    'small front yard landscaping townhome compact walkway flower beds',
+    'home-gallery-small',
+    'Small Front Yard Landscaping Ideas'
+  ),
+  galleryCurb: homeImage(
+    'classic American home curb appeal foundation beds shrubs walkway',
+    'home-gallery-curb',
+    'Curb Appeal Landscaping Ideas'
+  ),
+  galleryLowMaintenance: homeImage(
+    'low maintenance front yard drought tolerant shrubs gravel mulch',
+    'home-gallery-low-maintenance',
+    'Low Maintenance Front Yard Landscaping'
+  ),
+  newsletter: photo('photo-1564013799919-ab600027ffc6', 1000, 1500, 84)
+};
+
+const trendingIdeas: HomeImageCard[] = [
+  {
+    title: 'Layered Modern Entry',
+    label: 'Trending',
+    image: homeImages.curbAppeal,
+    position: 'bottom',
+    copy: 'Clean architecture softened with clipped greens, stone texture, and warm path lighting.'
+  },
+  {
+    title: 'Estate Walkway Borders',
+    label: 'Walkways',
+    image: homeImages.walkwayTrend,
+    position: 'top',
+    copy: 'A save-worthy approach with structured planting and calm symmetry.'
+  },
+  {
+    title: 'Soft Porch Garden',
+    label: 'Porches',
+    image: homeImages.porchGarden,
+    position: 'center',
+    copy: 'Planters, hedges, and flower color that feel polished without trying too hard.'
+  }
+];
+
+const ideaSections: HomeIdeaSection[] = [
+  {
+    title: 'Modern Front Yard Landscaping',
+    subtitle: 'Architectural planting, confident negative space, and crisp curb appeal.',
+    image: homeImages.modern,
+    tag: 'Modern',
+    align: 'bottom'
+  },
+  {
+    title: 'Budget Landscaping Ideas',
+    subtitle: 'High-impact upgrades using mulch discipline, edging, lighting, and repeatable planting.',
+    image: homeImages.budget,
+    tag: 'Smart Spend',
+    align: 'top'
+  },
+  {
+    title: 'Small Front Yard Ideas',
+    subtitle: 'Compact designs with layered depth, entry framing, and no wasted square footage.',
+    image: homeImages.small,
+    tag: 'Small Yard',
+    align: 'center'
+  },
+  {
+    title: 'Flower Bed Inspiration',
+    subtitle: 'Editorial flower beds with seasonal rhythm, texture, and curb appeal color.',
+    image: homeImages.flowerBeds,
+    tag: 'Flowers',
+    align: 'bottom'
+  },
+  {
+    title: 'Rock Landscaping',
+    subtitle: 'Natural stone, gravel contrast, and sculptural planting for low-water polish.',
+    image: homeImages.rocks,
+    tag: 'Stone',
+    align: 'top'
+  },
+  {
+    title: 'Walkway Landscaping',
+    subtitle: 'Paths that guide the eye with lighting, borders, and elegant planting layers.',
+    image: homeImages.walkwayGuide,
+    tag: 'Pathways',
+    align: 'center'
+  },
+  {
+    title: 'Low Maintenance Landscaping',
+    subtitle: 'Evergreen structure, restrained palettes, and practical front yard beauty.',
+    image: homeImages.lowMaintenance,
+    tag: 'Easy Care',
+    align: 'bottom'
+  }
+];
+
+const transformations = [
+  {
+    title: 'Unstyled Entry to Layered Curb Appeal',
+    image: homeImages.transformationEntry
+  },
+  {
+    title: 'Bare Path to Garden Walkway',
+    image: homeImages.transformationWalkway
+  }
+];
+
+const featured = [
+  '25 Front Yard Landscaping Ideas That Look Expensive',
+  'How to Design a Modern Front Yard With Timeless Curb Appeal',
+  'Small Front Yard Upgrades That Photograph Beautifully on Pinterest'
+];
+
+const masonryPins: HomeImageCard[] = [
+  {
+    title: 'Clean Modern Paver Entry',
+    label: 'Modern',
+    image: homeImages.galleryModern,
+    position: 'bottom',
+    copy: 'Linear paving, soft grasses, and a polished front approach.'
+  },
+  {
+    title: 'Rock Garden Curb Appeal',
+    label: 'Rocks',
+    image: homeImages.galleryRocks,
+    position: 'top',
+    copy: 'Stone texture, hardy shrubs, and a low-water front yard mood.'
+  },
+  {
+    title: 'Flower Border Walkway',
+    label: 'Flower Beds',
+    image: homeImages.galleryFlowers,
+    position: 'center',
+    copy: 'Layered blooms that make the entry path feel intentional.'
+  },
+  {
+    title: 'Affordable Porch Refresh',
+    label: 'Budget',
+    image: homeImages.galleryBudget,
+    position: 'bottom',
+    copy: 'Simple mulch, edging, and planters with strong curb appeal.'
+  },
+  {
+    title: 'Small Yard Entry Layers',
+    label: 'Small Yards',
+    image: homeImages.gallerySmall,
+    position: 'top',
+    copy: 'Compact planting and path definition without visual clutter.'
+  },
+  {
+    title: 'Classic American Curb Appeal',
+    label: 'Curb Appeal',
+    image: homeImages.galleryCurb,
+    position: 'center',
+    copy: 'Foundation beds, shrubs, and a polished home exterior.'
+  },
+  {
+    title: 'Easy Care Front Yard',
+    label: 'Low Maintenance',
+    image: homeImages.galleryLowMaintenance,
+    position: 'bottom',
+    copy: 'Evergreen structure and practical materials for repeatable beauty.'
+  }
+];
+
+const trustCards = [
+  {
+    label: 'Editorial',
+    title: 'Editorial landscaping guides',
+    copy: 'Every guide is organized around real front yard decisions: curb appeal, planting structure, walkways, budget, and maintenance.'
+  },
+  {
+    label: 'Visual',
+    title: 'Pinterest-friendly inspiration',
+    copy: 'The homepage is curated like a save-worthy magazine feed with exterior-only images and clear visual categories.'
+  },
+  {
+    label: 'Practical',
+    title: 'Practical ideas for American homeowners',
+    copy: 'Ideas stay grounded in American home styles, approachable materials, realistic yard sizes, and outdoor exterior design.'
+  }
+];
+---
+
+<BaseLayout
+  title="Luxury Front Yard Landscaping Ideas"
+  description="Premium front yard landscaping ideas for American homes, including modern curb appeal, small yards, flower beds, rock landscaping, walkways, and low maintenance designs."
+>
+  <section class="relative min-h-[760px] overflow-hidden bg-aura-forest text-aura-ivory">
+    <img
+      class="absolute inset-0 h-full w-full object-cover opacity-72"
+      src={photo('photo-1600585154340-be6161a56a0c', 2200, 1500)}
+      alt="Luxury American home with refined front yard landscaping"
+      width="2200"
+      height="1500"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,33,24,0.92)_0%,rgba(12,33,24,0.62)_46%,rgba(12,33,24,0.18)_100%)]" aria-hidden="true"></div>
+    <div class="container-page relative flex min-h-[760px] items-center py-16">
+      <div class="max-w-4xl">
+        <p class="eyebrow text-aura-brass">Luxury Front Yard Landscaping Ideas</p>
+        <h1 class="mt-5 font-serif text-6xl font-bold leading-none text-aura-ivory md:text-8xl lg:text-9xl">
+          Front Yard Aura
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-8 text-aura-ivory/82 md:text-xl">
+          A premium visual magazine for modern curb appeal, elegant planting plans, walkways, flower beds, and save-worthy American front yards.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a class="btn-primary bg-aura-brass text-aura-forest hover:bg-aura-sand" href="#trending">Explore Trending Ideas</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-aura-ivory backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-aura-brass hover:text-aura-brass" href="#gallery">View Pinterest Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustStrip />
+
+  <section id="trending" class="bg-aura-ivory py-14 md:py-20">
+    <div class="container-page">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="eyebrow">Trending Landscaping Ideas</p>
+          <h2 class="mt-3 max-w-3xl font-serif text-5xl font-bold leading-tight text-aura-pine md:text-6xl">
+            Ideas designed to feel expensive, natural, and instantly saveable.
+          </h2>
+        </div>
+        <a class="btn-secondary w-fit" href="/ideas/">Browse Ideas</a>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {trendingIdeas.map((card) => (
+          <ImageOverlayCard src={card.image} alt={card.title} title={card.title} label={card.label} description={card.copy} position={card.position} href="/ideas/" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <AdSlot id="home-after-trending" class="container-page" />
+
+  <section class="section-band py-14 md:py-20">
+    <div class="container-page">
+      <p class="eyebrow">Editorial Guides</p>
+      <h2 class="mt-3 max-w-4xl font-serif text-5xl font-bold leading-tight text-aura-pine md:text-6xl">
+        Explore every major front yard style from modern to low maintenance.
+      </h2>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {ideaSections.map((item, index) => (
+          <a class={`premium-card group overflow-hidden ${index === 0 ? 'lg:col-span-2' : ''}`} href="/ideas/">
+            <div class="image-zoom relative aspect-[2/3]">
+              <img class="h-full w-full object-cover" src={item.image} alt={item.title} width="1000" height="1500" loading="lazy" decoding="async" />
+              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.04),rgba(12,33,24,0.72))]" aria-hidden="true"></div>
+              <div class={`absolute inset-0 flex p-5 ${item.align === 'top' ? 'items-start' : item.align === 'center' ? 'items-center' : 'items-end'}`}>
+                <div class="max-w-md rounded-[1rem] bg-aura-porcelain/92 p-5 text-aura-ink shadow-soft backdrop-blur">
+                  <p class="text-xs font-bold uppercase text-aura-clay">{item.tag}</p>
+                  <h3 class="mt-2 font-serif text-3xl font-semibold leading-tight text-aura-pine">{item.title}</h3>
+                  <p class="mt-3 text-sm leading-6 text-aura-ink/85">{item.subtitle}</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aura-forest py-14 text-aura-ivory md:py-20">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div class="lg:sticky lg:top-28">
+          <p class="eyebrow text-aura-brass">Before / After Transformations</p>
+          <h2 class="mt-3 font-serif text-5xl font-bold leading-tight md:text-6xl">
+            Clear front yard makeover concepts with one connected visual story.
+          </h2>
+          <p class="mt-5 text-sm leading-7 text-aura-ivory/70">
+            Each comparison uses the same exterior scene as a concept preview, so the before and after feel related instead of random.
+          </p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          {transformations.map((item) => (
+            <article class="premium-card overflow-hidden bg-aura-porcelain text-aura-ink">
+              <div class="grid grid-cols-2">
+                <div class="relative aspect-[2/3] overflow-hidden">
+                  <img class="h-full w-full scale-105 object-cover grayscale brightness-75 contrast-90 saturate-50" src={item.image} alt={`${item.title} before concept`} loading="lazy" decoding="async" />
+                  <div class="absolute inset-0 bg-aura-forest/20" aria-hidden="true"></div>
+                  <span class="absolute left-3 top-3 rounded-full bg-aura-forest/80 px-3 py-1 text-xs font-bold uppercase text-aura-ivory">Before</span>
+                </div>
+                <div class="relative aspect-[2/3] overflow-hidden">
+                  <img class="h-full w-full object-cover transition duration-500 hover:scale-105" src={item.image} alt={`${item.title} after concept`} loading="lazy" decoding="async" />
+                  <span class="absolute right-3 top-3 rounded-full bg-aura-brass px-3 py-1 text-xs font-bold uppercase text-aura-forest">After</span>
+                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="font-serif text-3xl font-semibold text-aura-pine">{item.title}</h3>
+                <p class="mt-2 text-sm leading-6 text-aura-ink/85">A front-yard-only concept card for cleaner curb appeal planning and Pinterest-friendly inspiration.</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aura-ivory py-14 md:py-20">
+    <div class="container-page">
+      <p class="eyebrow">Featured Articles</p>
+      <h2 class="mt-3 max-w-4xl font-serif text-5xl font-bold leading-tight text-aura-pine md:text-6xl">
+        Start with editor-picked front yard ideas built for saving and planning.
+      </h2>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {featured.map((title, index) => (
+          <article class="premium-card p-6">
+            <p class="text-xs font-bold uppercase text-aura-clay">Featured 0{index + 1}</p>
+            <h3 class="mt-4 font-serif text-3xl font-semibold leading-tight text-aura-pine">{title}</h3>
+            <p class="mt-4 text-sm leading-6 text-aura-ink/85">Use these editorial themes as a starting point for polished curb appeal, practical planting decisions, and Pinterest-ready front yard planning.</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="bg-aura-porcelain py-14 md:py-20">
+    <div class="container-page">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="eyebrow">Pinterest Masonry Gallery</p>
+          <h2 class="mt-3 max-w-3xl font-serif text-5xl font-bold leading-tight text-aura-pine md:text-6xl">
+            A visual feed built for browsing, saving, and returning.
+          </h2>
+        </div>
+        <a class="btn-secondary w-fit" href="/blog/">Browse Articles</a>
+      </div>
+      <div class="masonry-grid mt-10">
+        {masonryPins.map((pin) => (
+          <ImageOverlayCard class="masonry-item" src={pin.image} alt={pin.title} title={pin.title} label={pin.label} position={pin.position} href="/ideas/" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band py-14 md:py-20" aria-labelledby="home-trust-heading">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div>
+          <p class="eyebrow">Why Trust Front Yard Aura</p>
+          <h2 id="home-trust-heading" class="mt-3 max-w-3xl font-serif text-5xl font-bold leading-tight text-aura-pine md:text-6xl">
+            Editorial curb appeal inspiration with practical homeowner sense.
+          </h2>
+          <p class="mt-5 max-w-2xl text-sm leading-7 text-aura-ink/72">
+            Front Yard Aura focuses on exterior landscaping ideas that look polished, photograph beautifully, and still feel realistic for American homes.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-3">
+          {trustCards.map((card) => (
+            <article class="rounded-[1rem] border border-aura-linen bg-aura-porcelain p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-aura-brass hover:shadow-premium">
+              <p class="text-xs font-bold uppercase text-aura-clay">{card.label}</p>
+              <h3 class="mt-3 font-serif text-2xl font-semibold leading-tight text-aura-pine">{card.title}</h3>
+              <p class="mt-3 text-sm leading-6 text-aura-ink/78">{card.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aura-ivory py-14 md:py-20">
+    <div class="container-page">
+      <div class="overflow-hidden rounded-[1.5rem] bg-aura-forest shadow-premium md:grid md:grid-cols-[0.95fr_1.05fr]">
+        <div class="p-8 text-aura-ivory md:p-12">
+          <p class="eyebrow text-aura-brass">Newsletter</p>
+          <h2 class="mt-3 font-serif text-5xl font-bold leading-tight md:text-6xl">Get the next wave of luxury curb appeal ideas.</h2>
+          <p class="mt-5 text-sm leading-7 text-aura-ivory/70">A static-ready signup block prepared for a future email provider integration.</p>
+          <form class="mt-8 flex flex-col gap-3 sm:flex-row" action="/contact/" method="get">
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" class="min-h-12 min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-5 text-sm text-white placeholder:text-white/50" placeholder="you@example.com" />
+            <button class="btn-primary bg-aura-brass text-aura-forest hover:bg-aura-sand" type="submit">Join List</button>
+          </form>
+        </div>
+        <img class="h-full min-h-[360px] w-full object-cover" src={homeImages.newsletter} alt="Premium landscaped front yard with natural light" width="1000" height="1500" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

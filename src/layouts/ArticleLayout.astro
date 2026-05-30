@@ -1,0 +1,227 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import PinterestSave from '@/components/PinterestSave.astro';
+import ShareButtons from '@/components/ShareButtons.astro';
+import AuthorBox from '@/components/AuthorBox.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+import RelatedPosts from '@/components/RelatedPosts.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import { SITE } from '@/lib/site';
+import { formatDate } from '@/lib/posts';
+import { getImageForPost, getImagesForArticleSections, getResolvedArticleImage } from '@/data/images';
+
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+const { article, headings = [], relatedPosts = [], readingTime = 1 } = Astro.props;
+const frontmatter = article.data;
+const articlePath = `/blog/${article.slug}/`;
+const articleUrl = new URL(articlePath, SITE.url).toString();
+const matchedImage = getImageForPost(article);
+const imageUrl = matchedImage.src;
+const imageAlt = frontmatter.imageAlt ?? matchedImage.alt;
+const existingContentImages = (article.body.match(/<ArticleImage\b/g) ?? []).length;
+
+function getMdxProp(block: string, prop: string) {
+  return block.match(new RegExp(`${prop}="([^"]*)"`, 's'))?.[1] ?? '';
+}
+
+const mdxImageSources = [...article.body.matchAll(/<ArticleImage\b[\s\S]*?\/>/g)]
+  .map((match) => {
+    const block = match[0];
+    const src = getMdxProp(block, 'src');
+    const alt = getMdxProp(block, 'alt');
+    const caption = getMdxProp(block, 'caption');
+    const overlay = getMdxProp(block, 'overlay');
+    const position = getMdxProp(block, 'position') || 'bottom';
+    const imageText = [overlay, alt, caption, src].filter(Boolean).join(' ');
+    const imageSeed = [src, alt, caption, overlay, position].filter(Boolean).join('|');
+    return getResolvedArticleImage(src, imageText, imageSeed, frontmatter.category).src;
+  });
+
+const supplementalImages = getImagesForArticleSections(
+  article,
+  Math.max(0, 5 - existingContentImages),
+  [imageUrl, ...mdxImageSources]
+);
+const faqs: FaqItem[] = frontmatter.faqs ?? [];
+const adviceByCategory = {
+  rocks: {
+    title: 'Practical Rock Landscaping Notes',
+    steps: ['Choose one main stone color before adding plants.', 'Use landscape fabric only where it will not block future planting.', 'Mix large anchor stones with smaller gravel for a natural scale.'],
+    mistakes: ['Using too many stone colors in one small yard.', 'Letting gravel spill into lawn edges without a firm border.', 'Skipping plants, which can make rock beds feel harsh.'],
+    budget: 'Spend first on edging and a few larger accent stones, then fill with affordable gravel and tough low shrubs.'
+  },
+  flowers: {
+    title: 'Practical Flower Bed Notes',
+    steps: ['Place evergreen structure first, then add seasonal color.', 'Repeat two or three flower colors for a calmer curb appeal look.', 'Keep taller plants near the house and lower blooms near the edge.'],
+    mistakes: ['Buying only peak-bloom flowers without year-round structure.', 'Planting beds too narrow to layer properly.', 'Ignoring water needs and sun exposure.'],
+    budget: 'Use perennials and divided plants for long-term value, then add annuals only where color matters most.'
+  },
+  walkway: {
+    title: 'Practical Walkway Notes',
+    steps: ['Keep the walking surface wide enough for two people near the entry.', 'Use low border plants so the path feels open.', 'Add lighting at turns, steps, and the porch landing.'],
+    mistakes: ['Making the path too narrow for daily use.', 'Planting tall shrubs where they crowd the walkway.', 'Mixing too many paving materials.'],
+    budget: 'Refresh the path edge, lighting, and border planting before replacing the entire walkway.'
+  },
+  default: {
+    title: 'Practical Design Notes',
+    steps: ['Start with clean edges, visible entry flow, and one focal point.', 'Repeat materials so the yard feels intentional.', 'Choose plants that match your climate and maintenance level.'],
+    mistakes: ['Adding too many unrelated features at once.', 'Ignoring the view from the street and driveway.', 'Choosing plants before deciding the structure of the bed.'],
+    budget: 'Spend on the pieces that improve first impressions: mulch, edging, lighting, and healthy foundation plants.'
+  }
+};
+const categoryText = `${frontmatter.title} ${frontmatter.category} ${article.slug}`.toLowerCase();
+const advice = categoryText.includes('rock') || categoryText.includes('gravel') || categoryText.includes('stone')
+  ? adviceByCategory.rocks
+  : categoryText.includes('flower') || categoryText.includes('hydrangea') || categoryText.includes('rose') || categoryText.includes('bloom')
+    ? adviceByCategory.flowers
+    : categoryText.includes('walkway') || categoryText.includes('path') || categoryText.includes('paver') || categoryText.includes('steps')
+      ? adviceByCategory.walkway
+      : adviceByCategory.default;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: frontmatter.seoTitle ?? frontmatter.title,
+  description: frontmatter.description,
+  image: new URL(imageUrl, SITE.url).toString(),
+  datePublished: frontmatter.publishDate.toISOString(),
+  dateModified: (frontmatter.updatedDate ?? frontmatter.publishDate).toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: frontmatter.author
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE.url}/brand/mark.svg`
+    }
+  },
+  mainEntityOfPage: articleUrl
+};
+
+const faqSchema = faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+} : null;
+---
+
+<BaseLayout
+  title={frontmatter.seoTitle ?? frontmatter.title}
+  description={frontmatter.description}
+  path={articlePath}
+  image={imageUrl}
+  type="article"
+  publishedTime={frontmatter.publishDate?.toISOString()}
+  modifiedTime={(frontmatter.updatedDate ?? frontmatter.publishDate)?.toISOString()}
+>
+  <JsonLd data={faqSchema ? [articleSchema, faqSchema] : articleSchema} />
+
+  <article>
+    <header class="relative overflow-hidden bg-aura-forest text-aura-ivory">
+      <img class="absolute inset-0 h-full w-full object-cover opacity-50" src={imageUrl} alt={imageAlt} width="1000" height="1500" loading="eager" decoding="async" fetchpriority="high" />
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,33,24,0.95),rgba(12,33,24,0.62),rgba(12,33,24,0.28))]" aria-hidden="true"></div>
+      <div class="container-page relative py-14 md:py-20">
+        <p class="eyebrow text-aura-brass">{frontmatter.category}</p>
+        <h1 class="mt-4 max-w-4xl font-serif text-5xl font-bold leading-none md:text-7xl">{frontmatter.title}</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-aura-ivory/80">{frontmatter.description}</p>
+        <div class="mt-7 flex flex-wrap items-center gap-3 text-sm font-bold text-aura-ivory/72">
+          <span>{formatDate(frontmatter.publishDate)}</span>
+          <span class="text-aura-brass">/</span>
+          <span>{readingTime} min read</span>
+          <span class="text-aura-brass">/</span>
+          <span>{frontmatter.author}</span>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <PinterestSave description={frontmatter.pinterestDescription ?? frontmatter.description} media={new URL(imageUrl, SITE.url).toString()} />
+          <ShareButtons title={frontmatter.title} url={articleUrl} />
+        </div>
+      </div>
+    </header>
+
+    <div class="container-page py-10 md:py-14">
+      <figure class="mx-auto mb-10 max-w-4xl">
+        <div class="image-zoom relative aspect-[2/3] overflow-hidden rounded-[1.5rem] shadow-premium md:aspect-[16/10]">
+          <img class="h-full w-full object-cover" src={imageUrl} alt={imageAlt} width="1000" height="1500" loading="eager" decoding="async" fetchpriority="high" />
+          <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.04),rgba(12,33,24,0.68))]" aria-hidden="true"></div>
+          <div class="absolute bottom-5 left-5 max-w-xl rounded-[1rem] border border-white/15 bg-aura-forest/60 p-5 text-aura-ivory shadow-soft backdrop-blur-sm">
+            <p class="eyebrow text-aura-brass">{frontmatter.category}</p>
+            <p class="mt-2 font-serif text-3xl font-semibold leading-tight">{frontmatter.pinterestTitle ?? frontmatter.title}</p>
+          </div>
+          <PinterestSave media={new URL(imageUrl, SITE.url).toString()} description={frontmatter.pinterestDescription ?? frontmatter.description} class="absolute right-5 top-5 px-3 py-2 text-xs" />
+        </div>
+        <figcaption class="mt-3 text-center text-sm text-aura-ink/60">{imageAlt}</figcaption>
+      </figure>
+      <AdSlot id="article-top" />
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
+        <div>
+          <div class="prose prose-lg max-w-none prose-a:text-aura-clay prose-headings:font-serif prose-headings:text-aura-pine prose-img:rounded-[1.25rem]">
+            <slot />
+          </div>
+          {supplementalImages.length > 0 && (
+            <section class="not-prose mt-10 grid gap-6 md:grid-cols-2">
+              {supplementalImages.map((image, index) => (
+                <figure class="premium-card overflow-hidden">
+                  <div class="image-zoom relative aspect-[2/3]">
+                    <img class="h-full w-full object-cover" src={image.src} alt={image.alt} width="1000" height="1500" loading="lazy" decoding="async" />
+                    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.03),rgba(12,33,24,0.64))]" aria-hidden="true"></div>
+                    {(index % 2 === 0) && (
+                      <div class="absolute bottom-4 left-4 right-4 rounded-[1rem] border border-white/15 bg-aura-forest/62 p-4 text-aura-ivory shadow-soft backdrop-blur-sm">
+                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-aura-brass">{frontmatter.category}</p>
+                        <p class="mt-2 font-serif text-2xl font-semibold leading-tight">{image.overlayText}</p>
+                      </div>
+                    )}
+                    <PinterestSave media={new URL(image.src, SITE.url).toString()} description={image.overlayText} class="absolute right-4 top-4 px-3 py-2 text-xs" />
+                  </div>
+                  <figcaption class="p-4 text-sm leading-6 text-aura-ink/70">{image.alt}</figcaption>
+                </figure>
+              ))}
+            </section>
+          )}
+          <section class="not-prose mt-10 rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-6 shadow-soft">
+            <p class="eyebrow">Field Notes</p>
+            <h2 class="mt-3 font-serif text-3xl font-bold leading-tight text-aura-pine">{advice.title}</h2>
+            <div class="mt-6 grid gap-5 md:grid-cols-3">
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-aura-pine">What to do first</h3>
+                <ul class="mt-3 space-y-2 text-sm leading-6 text-aura-ink/85">
+                  {advice.steps.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-aura-pine">Common mistakes</h3>
+                <ul class="mt-3 space-y-2 text-sm leading-6 text-aura-ink/85">
+                  {advice.mistakes.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-aura-pine">Budget tip</h3>
+                <p class="mt-3 text-sm leading-6 text-aura-ink/85">{advice.budget}</p>
+              </div>
+            </div>
+          </section>
+          <AdSlot id="article-mid" />
+          <AuthorBox author={frontmatter.author} />
+          <RelatedPosts posts={relatedPosts} currentArticle={article} />
+        </div>
+        <div>
+          <TableOfContents headings={headings} />
+        </div>
+      </div>
+      <AdSlot id="article-bottom" />
+    </div>
+  </article>
+</BaseLayout>

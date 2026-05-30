@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  url?: string;
+}
+
+const { title, url = Astro.url.href } = Astro.props;
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+---
+
+<div class="flex flex-wrap gap-2" aria-label="Share article">
+  <a class="btn-secondary min-h-10 px-4 py-2 text-xs" href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`} target="_blank" rel="noopener">Facebook</a>
+  <a class="btn-secondary min-h-10 px-4 py-2 text-xs" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener">X</a>
+  <a class="btn-secondary min-h-10 px-4 py-2 text-xs" href={`mailto:?subject=${encodedTitle}&body=${encodedUrl}`}>Email</a>
+</div>

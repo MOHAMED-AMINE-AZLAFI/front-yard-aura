@@ -1,0 +1,209 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Search" description="Search Front Yard Aura landscaping ideas and blog articles.">
+  <section class="bg-aura-forest text-aura-ivory">
+    <div class="container-page py-12 md:py-20">
+      <p class="eyebrow text-aura-brass">Search</p>
+      <h1 class="mt-3 max-w-4xl font-serif text-5xl font-bold leading-tight md:text-7xl">Search Front Yard Aura</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-aura-ivory/75">
+        Find premium front yard landscaping ideas, rock gardens, flower beds, walkway designs, curb appeal guides, and low-maintenance inspiration.
+      </p>
+      <form id="search-form" class="mt-8 flex max-w-2xl flex-col gap-3 sm:flex-row" action="/search" method="get" role="search">
+        <label class="sr-only" for="q">Search articles</label>
+        <input
+          id="q"
+          name="q"
+          class="min-h-12 min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-5 text-sm text-white placeholder:text-white/50 shadow-soft outline-none transition focus:border-aura-brass focus:ring-2 focus:ring-aura-brass/30"
+          placeholder="Search rock landscaping, flower beds, curb appeal..."
+          autocomplete="off"
+        />
+        <button class="btn-primary bg-aura-brass text-aura-forest hover:bg-aura-sand" type="submit">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="container-page py-12 md:py-16">
+    <div class="mb-8 flex flex-col gap-2">
+      <p id="search-kicker" class="eyebrow">Article Search</p>
+      <h2 id="search-title" class="font-serif text-3xl font-bold text-aura-pine md:text-4xl">Enter a search term to begin</h2>
+      <p id="search-summary" class="max-w-3xl text-aura-ink/85">
+        Search across every published Front Yard Aura guide.
+      </p>
+    </div>
+
+    <div id="empty-state" class="rounded-2xl border border-aura-linen bg-aura-porcelain p-6 text-aura-ink/85 shadow-soft">
+      Type a topic above to search the full landscaping library.
+    </div>
+
+    <div id="results-grid" class="hidden grid gap-5 md:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <script is:inline>
+    const form = document.querySelector('#search-form');
+    const input = document.querySelector('#q');
+    const title = document.querySelector('#search-title');
+    const summary = document.querySelector('#search-summary');
+    const emptyState = document.querySelector('#empty-state');
+    const grid = document.querySelector('#results-grid');
+
+    const params = new URLSearchParams(window.location.search);
+    const query = (params.get('q') || '').trim();
+    input.value = query;
+
+    const escapeHtml = (value) =>
+      String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+    const formatDate = (value) =>
+      new Intl.DateTimeFormat('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      }).format(new Date(value));
+
+    const buildHaystack = (post) =>
+      [
+        post.title,
+        post.description,
+        post.excerpt,
+        post.category,
+        Array.isArray(post.tags) ? post.tags.join(' ') : '',
+        post.content
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+
+    const scorePost = (post, terms, phrase) => {
+      const titleText = String(post.title || '').toLowerCase();
+      const descriptionText = String(post.description || '').toLowerCase();
+      const categoryText = String(post.category || '').toLowerCase();
+      const tagsText = Array.isArray(post.tags) ? post.tags.join(' ').toLowerCase() : '';
+      const contentText = String(post.content || '').toLowerCase();
+      let score = 0;
+
+      if (titleText.includes(phrase)) score += 80;
+      if (descriptionText.includes(phrase)) score += 45;
+      if (categoryText.includes(phrase)) score += 35;
+      if (tagsText.includes(phrase)) score += 30;
+      if (contentText.includes(phrase)) score += 15;
+
+      terms.forEach((term) => {
+        if (titleText.includes(term)) score += 20;
+        if (descriptionText.includes(term)) score += 12;
+        if (categoryText.includes(term)) score += 10;
+        if (tagsText.includes(term)) score += 8;
+        if (contentText.includes(term)) score += 2;
+      });
+
+      return score;
+    };
+
+    const renderCard = (post) => `
+      <article class="premium-card group overflow-hidden">
+        <a class="block" href="${escapeHtml(post.url)}" aria-label="${escapeHtml(post.title)}">
+          <div class="relative aspect-[2/3] overflow-hidden bg-aura-linen">
+            <img
+              class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              src="${escapeHtml(post.image)}"
+              alt="${escapeHtml(post.imageAlt || post.title)}"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-aura-forest/75 via-aura-forest/10 to-transparent"></div>
+            <span class="absolute left-4 top-4 rounded-full bg-aura-ivory/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-aura-forest">
+              ${escapeHtml(post.category)}
+            </span>
+          </div>
+          <div class="p-5">
+            <div class="mb-3 flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-aura-moss">
+              <time datetime="${escapeHtml(post.publishDate)}">${escapeHtml(formatDate(post.publishDate))}</time>
+              <span aria-hidden="true">/</span>
+              <span>${escapeHtml(post.readingTime)}</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold leading-snug text-aura-pine transition group-hover:text-aura-clay">
+              ${escapeHtml(post.title)}
+            </h3>
+            <p class="mt-3 line-clamp-3 text-sm leading-6 text-aura-ink/85">
+              ${escapeHtml(post.excerpt || post.description)}
+            </p>
+          </div>
+        </a>
+      </article>
+    `;
+
+    const showEmptyQuery = () => {
+      title.textContent = 'Enter a search term to begin';
+      summary.textContent = 'Search across every published Front Yard Aura guide.';
+      emptyState.textContent = 'Type a topic above to search the full landscaping library.';
+      emptyState.classList.remove('hidden');
+      grid.classList.add('hidden');
+      grid.innerHTML = '';
+    };
+
+    const showNoResults = (searchTerm) => {
+      title.textContent = `No results for "${searchTerm}"`;
+      summary.textContent = 'Try a broader phrase such as rock landscaping, curb appeal, flower beds, walkway ideas, or small front yard.';
+      emptyState.textContent = 'No matching articles were found.';
+      emptyState.classList.remove('hidden');
+      grid.classList.add('hidden');
+      grid.innerHTML = '';
+    };
+
+    const runSearch = async (searchTerm) => {
+      const phrase = searchTerm.toLowerCase();
+      const terms = phrase.split(/\s+/).filter(Boolean);
+
+      if (!terms.length) {
+        showEmptyQuery();
+        return;
+      }
+
+      try {
+        const response = await fetch('/search.json');
+        const posts = await response.json();
+        const results = posts
+          .map((post) => ({
+            post,
+            haystack: buildHaystack(post),
+            score: scorePost(post, terms, phrase)
+          }))
+          .filter(({ haystack, score }) => terms.every((term) => haystack.includes(term)) || score >= 40)
+          .sort((a, b) => b.score - a.score || new Date(b.post.publishDate) - new Date(a.post.publishDate))
+          .map(({ post }) => post);
+
+        if (!results.length) {
+          showNoResults(searchTerm);
+          return;
+        }
+
+        title.textContent = `${results.length} result${results.length === 1 ? '' : 's'} for "${searchTerm}"`;
+        summary.textContent = 'Browse matching landscaping guides from the full Front Yard Aura editorial library.';
+        emptyState.classList.add('hidden');
+        grid.classList.remove('hidden');
+        grid.innerHTML = results.map(renderCard).join('');
+      } catch (error) {
+        title.textContent = 'Search is temporarily unavailable';
+        summary.textContent = 'Please refresh the page and try again.';
+        emptyState.textContent = 'The static search index could not be loaded.';
+        emptyState.classList.remove('hidden');
+        grid.classList.add('hidden');
+      }
+    };
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const nextQuery = input.value.trim();
+      const nextUrl = nextQuery ? `/search?q=${encodeURIComponent(nextQuery)}` : '/search';
+      window.location.assign(nextUrl);
+    });
+
+    runSearch(query);
+  </script>
+</BaseLayout>

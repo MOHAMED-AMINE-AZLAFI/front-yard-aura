@@ -1,0 +1,11 @@
+---
+interface Props {
+  variant?: 'main' | 'dark' | 'light';
+  class?: string;
+}
+
+const { variant = 'main', class: className = 'h-12 w-auto' } = Astro.props;
+const src = `/brand/logo-${variant}.svg`;
+---
+
+<img src={src} alt="Front Yard Aura" class={className} width="420" height="96" decoding="async" />

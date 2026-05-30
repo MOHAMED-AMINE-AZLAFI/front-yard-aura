@@ -1,0 +1,178 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const updatedDate = 'May 27, 2026';
+
+const sections = [
+  {
+    title: 'Introduction',
+    body: [
+      'Front Yard Aura is an editorial website focused on front yard landscaping ideas, curb appeal inspiration, planting guidance, exterior design tips, and related home improvement content for readers in the United States and other regions.',
+      'This Privacy Policy explains how Front Yard Aura, available at frontyardaura.com, may collect, use, disclose, and safeguard information when you visit our website. By using this website, you agree to the practices described in this policy.'
+    ]
+  },
+  {
+    title: 'Information We Collect',
+    body: [
+      'We do not require visitors to create an account, log in, or submit sensitive personal information in order to read our content.',
+      'We may collect limited information that you voluntarily provide, such as your name, email address, message content, or partnership inquiry details if you contact us directly or use a future newsletter or contact form.',
+      'We may also collect non-personal technical information automatically, including browser type, device type, operating system, referring pages, pages viewed, approximate location derived from IP address, interaction events, and timestamps. This information helps us understand how visitors use the site and how we can improve performance and content quality.'
+    ]
+  },
+  {
+    title: 'How We Use Information',
+    body: [
+      'We may use collected information to operate, maintain, and improve Front Yard Aura; respond to reader inquiries; evaluate content performance; monitor site security; troubleshoot technical issues; understand audience interests; and prepare advertising, analytics, and affiliate features.',
+      'We may use aggregated or anonymized information to guide editorial decisions, improve internal linking, optimize page speed, and create a better user experience for readers researching landscaping ideas.'
+    ]
+  },
+  {
+    title: 'Cookies',
+    body: [
+      'Cookies are small text files placed on your device by websites you visit. Front Yard Aura may use cookies and similar technologies to remember preferences, support analytics, measure site performance, improve navigation, and enable advertising features.',
+      'You can disable or delete cookies through your browser settings. Please note that some features may not function as intended if cookies are disabled.'
+    ]
+  },
+  {
+    title: 'Analytics',
+    body: [
+      'Front Yard Aura may use analytics tools now or in the future to understand how visitors discover and interact with our content. Analytics tools may collect information such as pages visited, time on page, referring websites, browser type, device category, and approximate geographic region.',
+      'Analytics data is used in aggregate whenever possible. We do not use analytics to identify individual readers personally.'
+    ]
+  },
+  {
+    title: 'Advertising Partners',
+    body: [
+      'Front Yard Aura may work with advertising partners to display ads on the website. Advertising partners may use cookies, pixels, scripts, or similar technologies to deliver relevant ads, measure ad performance, prevent fraud, and comply with advertising policies.',
+      'These advertising partners may collect information about your visits to this and other websites in order to provide interest-based advertising. Front Yard Aura does not control every cookie or tracking technology used by third-party advertising partners.'
+    ]
+  },
+  {
+    title: 'Google AdSense Future Notice',
+    body: [
+      'Front Yard Aura may apply for and use Google AdSense in the future. If Google AdSense is enabled, Google and its partners may use cookies or mobile identifiers to serve ads based on your prior visits to this website or other websites.',
+      'Google may use advertising cookies to help serve personalized or non-personalized ads. Users may be able to manage Google ad personalization through Google Ads Settings or other tools provided by Google.',
+      'This notice is included to prepare the website for future AdSense compatibility and transparency. If AdSense is activated, this Privacy Policy may be updated with additional details as required.'
+    ]
+  },
+  {
+    title: 'Monetag Advertising Notice',
+    body: [
+      'Front Yard Aura may use Monetag advertising services as part of its monetization strategy. Monetag or its demand partners may use cookies, scripts, browser signals, device information, and other technologies to deliver ads, measure performance, prevent invalid traffic, and improve ad relevance.',
+      'Monetag-related technologies may collect information such as IP address, browser type, operating system, device identifiers where applicable, pages visited, ad interactions, and approximate location. These practices are generally governed by Monetag policies and the policies of its advertising partners.'
+    ]
+  },
+  {
+    title: 'Affiliate Disclosure',
+    body: [
+      'Front Yard Aura may include affiliate links in the future. This means we may earn a commission if you click a link and purchase a product or service, at no additional cost to you.',
+      'Affiliate relationships will not determine our editorial opinions. Our goal is to provide useful, practical, and trustworthy landscaping inspiration. When affiliate links are used, we aim to disclose them clearly and appropriately.'
+    ]
+  },
+  {
+    title: 'Third-Party Links',
+    body: [
+      'Our website may link to third-party websites, services, products, images, social platforms, or resources. These external websites are not operated by Front Yard Aura.',
+      'We are not responsible for the privacy practices, content, policies, or security of third-party websites. We encourage you to review the privacy policies of any external site you visit.'
+    ]
+  },
+  {
+    title: 'Data Security',
+    body: [
+      'We use reasonable technical and organizational measures to help protect information associated with the website. However, no website, server, or internet transmission can be guaranteed to be completely secure.',
+      'Because Front Yard Aura is a static content website without user accounts, backend user profiles, or a customer database, we intentionally limit the amount of personal information collected through the site.'
+    ]
+  },
+  {
+    title: 'Children’s Privacy',
+    body: [
+      'Front Yard Aura is intended for a general audience and is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13.',
+      'If you believe a child has provided personal information to us, please contact us so we can take appropriate steps to delete that information.'
+    ]
+  },
+  {
+    title: 'User Rights',
+    body: [
+      'Depending on your location, you may have rights regarding personal information, including the right to request access, correction, deletion, or limitation of certain data.',
+      'Because this website does not currently maintain user accounts or a user database, many requests may relate only to information voluntarily submitted through direct communication. To make a privacy-related request, contact us using the information below.'
+    ]
+  },
+  {
+    title: 'Contact Information',
+    body: [
+      'If you have questions about this Privacy Policy, advertising disclosures, affiliate disclosures, or data practices, you may contact Front Yard Aura through the contact page on frontyardaura.com.',
+      'Website: https://frontyardaura.com',
+      'Contact page: https://frontyardaura.com/contact/'
+    ]
+  },
+  {
+    title: 'Policy Updates',
+    body: [
+      'We may update this Privacy Policy from time to time to reflect changes in our website, advertising partners, analytics tools, legal requirements, or business practices.',
+      'When we update this policy, we will revise the “Last updated” date. Your continued use of Front Yard Aura after any changes means you accept the updated policy.'
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="Privacy Policy for Front Yard Aura, including cookies, analytics, advertising partners, Monetag, future Google AdSense, affiliate disclosure, and user rights."
+  path="/privacy/"
+>
+  <section class="bg-aura-forest text-aura-ivory">
+    <div class="container-page py-14 md:py-20">
+      <p class="eyebrow text-aura-brass">Privacy Policy</p>
+      <h1 class="mt-4 max-w-4xl font-serif text-5xl font-bold leading-tight md:text-7xl">Privacy Policy</h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-aura-ivory/78">
+        How Front Yard Aura handles privacy, cookies, analytics, advertising, affiliate disclosures, and reader information.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3 text-sm font-bold text-aura-ivory/70">
+        <span>Front Yard Aura</span>
+        <span class="text-aura-brass">/</span>
+        <span>frontyardaura.com</span>
+        <span class="text-aura-brass">/</span>
+        <span>Last updated: {updatedDate}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 md:py-16">
+    <div class="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)]">
+      <aside class="hidden lg:block">
+        <div class="sticky top-28 rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-5 shadow-soft">
+          <p class="eyebrow">On This Page</p>
+          <nav class="mt-4 space-y-2 text-sm font-bold text-aura-ink/75">
+            {sections.map((section) => (
+              <a class="block rounded-lg px-3 py-2 transition hover:bg-aura-sand hover:text-aura-pine" href={`#${section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+                {section.title}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </aside>
+
+      <div class="max-w-4xl">
+        <div class="rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-6 shadow-soft md:p-8">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-aura-clay">Important Notice</p>
+          <p class="mt-3 text-sm leading-7 text-aura-ink/85">
+            This Privacy Policy is provided for transparency and general informational purposes. It is designed for a static editorial content website and should be reviewed periodically as advertising, analytics, or affiliate tools are added or changed.
+          </p>
+        </div>
+
+        <div class="mt-8 space-y-6">
+          {sections.map((section) => (
+            <section id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} class="scroll-mt-28 rounded-[1.25rem] border border-aura-linen bg-white/72 p-6 shadow-soft md:p-8">
+              <h2 class="font-serif text-3xl font-bold leading-tight text-aura-pine md:text-4xl">{section.title}</h2>
+              <div class="mt-5 space-y-4">
+                {section.body.map((paragraph) => (
+                  <p class="text-base leading-8 text-aura-ink/82">{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

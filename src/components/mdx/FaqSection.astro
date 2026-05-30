@@ -1,0 +1,25 @@
+---
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: Faq[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="not-prose my-12">
+  <p class="eyebrow">FAQ</p>
+  <h2 class="mt-3 font-serif text-4xl font-bold text-aura-pine">Frequently Asked Questions</h2>
+  <div class="mt-6 space-y-3">
+    {items.map((item) => (
+      <details class="premium-card p-5">
+        <summary class="cursor-pointer font-serif text-2xl font-semibold text-aura-pine">{item.question}</summary>
+        <p class="mt-3 text-sm leading-7 text-aura-ink/85">{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>

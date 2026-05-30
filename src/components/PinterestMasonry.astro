@@ -1,0 +1,70 @@
+---
+import { LANDSCAPE_PHOTOS } from '@/data/images';
+
+const pins = [
+  {
+    title: 'Formal Entry Layers',
+    description: 'Symmetry, clipped shrubs, and softened planting around a modern American facade.',
+    height: 'h-72',
+    image: LANDSCAPE_PHOTOS.luxuryCurbAppeal
+  },
+  {
+    title: 'Warm Walkway Borders',
+    description: 'Stone edges, low perennials, and brass-toned lighting for an elevated approach.',
+    height: 'h-96',
+    image: LANDSCAPE_PHOTOS.walkway
+  },
+  {
+    title: 'Low Maintenance Luxe',
+    description: 'Evergreen structure, mulch discipline, and quiet seasonal accents.',
+    height: 'h-80',
+    image: LANDSCAPE_PHOTOS.gardenDetail
+  },
+  {
+    title: 'Porch Garden Mood',
+    description: 'Planters, layered textures, and polished curb appeal for front porch moments.',
+    height: 'h-64',
+    image: LANDSCAPE_PHOTOS.porchGarden
+  },
+  {
+    title: 'Modern Lawn Contrast',
+    description: 'Crisp lawn planes balanced with natural borders and architectural planting.',
+    height: 'h-96',
+    image: LANDSCAPE_PHOTOS.modernHome
+  },
+  {
+    title: 'Seasonal First Impression',
+    description: 'Front yard ideas designed to look saved, shared, and remembered.',
+    height: 'h-72',
+    image: LANDSCAPE_PHOTOS.flowerBeds
+  }
+];
+---
+
+<section class="bg-aura-porcelain py-12 md:py-16">
+  <div class="container-page">
+    <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="eyebrow">Pinterest Inspired</p>
+        <h2 class="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight text-aura-pine md:text-5xl">
+          Save-worthy layouts for a visual landscaping magazine.
+        </h2>
+      </div>
+      <a class="btn-secondary w-fit" href="/ideas/">View Idea Hubs</a>
+    </div>
+
+    <div class="masonry-grid mt-10">
+      {pins.map((pin) => (
+        <article class="masonry-item premium-card overflow-hidden">
+          <div class={`image-zoom ${pin.height}`}>
+            <img class="h-full w-full object-cover" src={pin.image} alt={pin.title} width="1000" height="1500" loading="lazy" decoding="async" />
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-2xl font-semibold leading-tight text-aura-pine">{pin.title}</h3>
+            <p class="mt-2 text-sm leading-6 text-aura-ink/85">{pin.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

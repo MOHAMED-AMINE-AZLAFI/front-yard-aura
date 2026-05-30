@@ -1,0 +1,18 @@
+---
+interface Props {
+  url?: string;
+  media?: string;
+  description?: string;
+  class?: string;
+}
+
+const url = Astro.props.url ?? Astro.url.href;
+const media = Astro.props.media;
+const description = Astro.props.description ?? 'Front yard landscaping idea from Front Yard Aura';
+const className = Astro.props.class ?? '';
+const href = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}${media ? `&media=${encodeURIComponent(media)}` : ''}&description=${encodeURIComponent(description)}`;
+---
+
+<a class={`inline-flex items-center justify-center rounded-full bg-[#bd081c] px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#a00618] ${className}`} href={href} target="_blank" rel="noopener">
+  Save to Pinterest
+</a>

@@ -1,0 +1,229 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import { CATEGORIES } from '@/data/categories';
+import { getImageForText } from '@/data/images';
+import { SITE } from '@/lib/site';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Ideas', href: '/ideas/' }
+];
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+const categoryGuidance = {
+  'small-front-yard-landscaping-ideas': {
+    description:
+      'Use this hub when space is tight and every planting bed, walkway edge, porch detail, or focal point needs to earn its place.',
+    bestFor: ['Tiny lawns', 'Narrow entries', 'Townhomes']
+  },
+  'modern-front-yard-landscaping': {
+    description:
+      'A focused category for clean lines, simple planting, premium hardscape materials, structured lighting, and contemporary curb appeal.',
+    bestFor: ['Clean lines', 'New builds', 'Minimal planting']
+  },
+  'front-yard-landscaping-on-a-budget': {
+    description:
+      'Start here when you want visible curb appeal improvements through mulch, edging, planters, lighting, gravel, and simple weekend upgrades.',
+    bestFor: ['Weekend projects', 'DIY upgrades', 'Low-cost curb appeal']
+  },
+  'front-yard-flower-bed-ideas': {
+    description:
+      'Browse this category for foundation beds, seasonal blooms, hydrangeas, roses, cottage color, and polished front yard planting combinations.',
+    bestFor: ['Seasonal color', 'Foundation beds', 'Pinterest flowers']
+  },
+  'front-yard-landscaping-with-rocks': {
+    description:
+      'Use rock landscaping for gravel beds, boulder accents, stone borders, dry creek beds, and drought-smart front yard structure.',
+    bestFor: ['Gravel beds', 'Boulders', 'Dry climates']
+  },
+  'low-maintenance-front-yard-landscaping': {
+    description:
+      'A practical hub for simple front yards with evergreen shrubs, gravel, mulch, groundcovers, drought-tolerant planting, and fewer chores.',
+    bestFor: ['Easy upkeep', 'No-grass ideas', 'Evergreen structure']
+  },
+  'walkway-landscaping-ideas': {
+    description:
+      'Explore path-focused ideas for pavers, stepping stones, brick walkways, border planting, lighting, porch landings, and entry flow.',
+    bestFor: ['Paver paths', 'Entry walks', 'Path lighting']
+  },
+  'curb-appeal-landscaping-ideas': {
+    description:
+      'The broadest hub for making the full exterior feel cared for, from foundation beds and porch planters to lighting and symmetry.',
+    bestFor: ['Home exterior', 'First impression', 'Selling appeal']
+  }
+} as const;
+
+const categories = CATEGORIES.map((category, index) => {
+  const categoryPosts = posts.filter(
+    (post) => post.data.categorySlug === category.slug || post.data.category === category.name
+  );
+  const image = getImageForText(
+    `${category.name} ${category.slug} ${category.intro} ${categoryGuidance[category.slug as keyof typeof categoryGuidance]?.bestFor.join(' ')}`,
+    `ideas-hub-${category.slug}`,
+    category.name,
+    900 + index * 17
+  );
+
+  return {
+    ...category,
+    image: image.src,
+    imageAlt: image.alt,
+    articleCount: categoryPosts.length,
+    strongDescription: categoryGuidance[category.slug as keyof typeof categoryGuidance]?.description ?? category.description,
+    bestFor: categoryGuidance[category.slug as keyof typeof categoryGuidance]?.bestFor ?? [],
+    topArticles: categoryPosts.slice(0, 3)
+  };
+});
+
+const featuredInternalLinks = posts.slice(0, 8);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Front Yard Landscaping Ideas',
+  description:
+    'Browse premium front yard landscaping idea categories for American homes, with guidance by yard size, budget, maintenance level, walkway design, flower beds, rocks, and curb appeal.',
+  url: `${SITE.url}/ideas/`,
+  numberOfItems: categories.length,
+  hasPart: categories.map((category) => ({
+    '@type': 'CollectionPage',
+    name: category.name,
+    description: category.seoDescription,
+    url: `${SITE.url}/ideas/${category.slug}/`,
+    image: category.image
+  }))
+};
+---
+
+<BaseLayout
+  title="Front Yard Landscaping Ideas"
+  description="Browse premium front yard landscaping ideas by category, including small yards, modern designs, budget landscaping, flower beds, rocks, walkways, low-maintenance yards, and curb appeal."
+  path="/ideas/"
+>
+  <JsonLd data={schema} />
+
+  <section class="bg-aura-forest text-aura-ivory">
+    <div class="container-page py-12 md:py-20">
+      <Breadcrumbs items={breadcrumbItems} />
+      <p class="eyebrow mt-12 text-aura-brass">Ideas Hub</p>
+      <h1 class="mt-3 max-w-4xl font-serif text-5xl font-bold leading-tight md:text-7xl">
+        Front yard landscaping ideas by category.
+      </h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-aura-ivory/75">
+        Browse premium front yard landscaping categories by space, style, budget, maintenance level, planting type, walkway design, and curb appeal goal.
+      </p>
+      <div class="mt-8 grid gap-3 text-sm font-bold text-aura-ivory/76 sm:grid-cols-3">
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Categories</p>
+          <p class="mt-1">{categories.length} idea hubs</p>
+        </div>
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Articles</p>
+          <p class="mt-1">{posts.length} published guides</p>
+        </div>
+        <div class="rounded-[1rem] border border-white/12 bg-white/8 p-4">
+          <p class="text-aura-brass">Best Use</p>
+          <p class="mt-1">Plan, compare, and save ideas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aura-ivory py-12 md:py-16">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+        <div>
+          <p class="eyebrow">How To Use This Page</p>
+          <h2 class="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight text-aura-pine md:text-5xl">
+            Start with the problem your front yard needs to solve.
+          </h2>
+          <p class="mt-5 max-w-4xl text-base leading-8 text-aura-ink/82">
+            If your yard is small, begin with compact layouts. If upkeep is the issue, choose low-maintenance ideas. If the entry feels unfinished, compare walkway landscaping and curb appeal categories. Each hub groups related front yard articles so you can move from broad inspiration to practical details without searching from scratch.
+          </p>
+        </div>
+        <aside class="rounded-[1.25rem] border border-aura-linen bg-aura-porcelain p-5 shadow-soft">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-aura-clay">SEO Guide</p>
+          <p class="mt-3 text-sm leading-7 text-aura-ink/78">
+            These categories are organized around common homeowner searches: front yard landscaping ideas, rock landscaping, flower beds, budget curb appeal, walkway design, modern front yards, and low-maintenance landscaping.
+          </p>
+        </aside>
+      </div>
+
+      <div class="mt-10 masonry-grid">
+        {categories.map((item) => (
+          <a class="masonry-item premium-card image-zoom group overflow-hidden" href={`/ideas/${item.slug}/`}>
+            <div class="relative aspect-[2/3]">
+              <img class="absolute inset-0 h-full w-full object-cover" src={item.image} alt={item.imageAlt} width="1000" height="1500" loading="lazy" decoding="async" />
+              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.02),rgba(12,33,24,0.82))]" aria-hidden="true"></div>
+              <div class="absolute left-4 top-4 rounded-full bg-aura-ivory/92 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-aura-forest shadow-soft">
+                {item.articleCount} articles
+              </div>
+              <div class="absolute inset-x-0 bottom-0 p-5 text-aura-ivory">
+                <p class="text-xs font-bold uppercase text-aura-brass">{item.accent}</p>
+                <h2 class="mt-2 font-serif text-3xl font-semibold leading-tight">{item.name}</h2>
+                <p class="mt-3 text-sm leading-6 text-aura-ivory/82">{item.strongDescription}</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {item.bestFor.map((label) => (
+                    <span class="rounded-full border border-white/18 bg-white/12 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-aura-ivory/88">
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band py-12 md:py-16">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[22rem_minmax(0,1fr)]">
+        <div>
+          <p class="eyebrow">Internal Guide</p>
+          <h2 class="mt-3 font-serif text-4xl font-bold leading-tight text-aura-pine">
+            Popular starting points.
+          </h2>
+          <p class="mt-4 text-sm leading-7 text-aura-ink/76">
+            Use these article links when you already know the direction you want, or jump into a category card above for a broader visual scan.
+          </p>
+          <a class="btn-primary mt-6 inline-flex" href="/blog/">Explore The Blog</a>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          {featuredInternalLinks.map((post) => (
+            <a class="rounded-[1rem] border border-aura-linen bg-white/75 p-5 shadow-soft transition hover:-translate-y-1 hover:border-aura-clay/40 hover:shadow-premium" href={`/blog/${post.slug}/`}>
+              <p class="text-xs font-bold uppercase tracking-[0.14em] text-aura-clay">{post.data.category}</p>
+              <h3 class="mt-3 font-serif text-2xl font-semibold leading-tight text-aura-pine">{post.data.title}</h3>
+              <p class="mt-3 text-sm leading-7 text-aura-ink/76">{post.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aura-pine py-12 text-aura-ivory md:py-16">
+    <div class="container-page">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <p class="eyebrow text-aura-brass">Next Step</p>
+          <h2 class="mt-3 max-w-3xl font-serif text-4xl font-bold leading-tight md:text-5xl">
+            Ready to browse the full front yard library?
+          </h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-aura-ivory/74">
+            The blog includes detailed guides across all eight landscaping categories, with matched images, practical tips, FAQ sections, and related posts.
+          </p>
+        </div>
+        <a class="btn-primary bg-aura-brass text-aura-forest hover:bg-aura-sand" href="/blog/">Explore The Blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

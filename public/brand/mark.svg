@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Front Yard Aura mark</title>
+  <rect width="96" height="96" rx="22" fill="#173426"/>
+  <path d="M43 18 17 39v35h52V39L43 18Z" fill="#f8f4ec"/>
+  <path d="M29 44 43 32l14 12v18H29V44Z" fill="#173426"/>
+  <path d="M39 62V49h10v13H39Z" fill="#f8f4ec"/>
+  <path d="M66 27c15 6 21 19 16 32-15-1-25-9-29-23 7 1 13 5 18 10-1-8-3-14-5-19Z" fill="#7c8a68"/>
+  <path d="M55 35c10 4 18 12 23 23" fill="none" stroke="#c5a46a" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="43" cy="41" r="2.5" fill="#c5a46a"/>
+</svg>
