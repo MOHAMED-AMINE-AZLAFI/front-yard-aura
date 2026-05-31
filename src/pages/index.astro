@@ -212,7 +212,9 @@ const transformations = [
   },
   {
     title: 'Bare Path to Garden Walkway',
-    image: homeImages.transformationWalkway
+    image: homeImages.transformationWalkway,
+    beforeImage: '/images/bare-path-before.png',
+    afterImage: '/images/garden-walkway-after.png'
   }
 ];
 
@@ -392,12 +394,12 @@ const trustCards = [
             <article class="premium-card overflow-hidden bg-aura-porcelain text-aura-ink">
               <div class="grid grid-cols-2">
                 <div class="relative aspect-[2/3] overflow-hidden">
-                  <img class="h-full w-full scale-105 object-cover grayscale brightness-75 contrast-90 saturate-50" src={item.image} alt={`${item.title} before concept`} loading="lazy" decoding="async" />
+                  <img class="h-full w-full scale-105 object-cover grayscale brightness-75 contrast-90 saturate-50" src={item.beforeImage ?? item.image} alt={`${item.title} before concept`} loading="lazy" decoding="async" />
                   <div class="absolute inset-0 bg-aura-forest/20" aria-hidden="true"></div>
                   <span class="absolute left-3 top-3 rounded-full bg-aura-forest/80 px-3 py-1 text-xs font-bold uppercase text-aura-ivory">Before</span>
                 </div>
                 <div class="relative aspect-[2/3] overflow-hidden">
-                  <img class="h-full w-full object-cover transition duration-500 hover:scale-105" src={item.image} alt={`${item.title} after concept`} loading="lazy" decoding="async" />
+                  <img class="h-full w-full object-cover transition duration-500 hover:scale-105" src={item.afterImage ?? item.image} alt={`${item.title} after concept`} loading="lazy" decoding="async" />
                   <span class="absolute right-3 top-3 rounded-full bg-aura-brass px-3 py-1 text-xs font-bold uppercase text-aura-forest">After</span>
                 </div>
               </div>
