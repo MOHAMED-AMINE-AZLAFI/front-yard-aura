@@ -1,11 +1,6 @@
 ---
-const monetagZoneId = import.meta.env.PUBLIC_MONETAG_ZONE_ID;
 const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT;
 ---
-
-{monetagZoneId && (
-  <script is:inline set:html={`(function(){var s=document.createElement('script');s.async=true;s.src='https://fpyf8.com/88/tag.min.js?z=${monetagZoneId}';document.head.appendChild(s);})();`} />
-)}
 
 {adsenseClient && (
   <script is:inline async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossorigin="anonymous"></script>
