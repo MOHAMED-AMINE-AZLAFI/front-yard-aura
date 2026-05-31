@@ -123,7 +123,6 @@ const pageReports = htmlFiles.map((file) => {
     .map(normalizeInternalHref)
     .filter(Boolean)
     .filter((href) => !existsRoute(href, existingRoutes));
-  const monetagSlots = (html.match(/data-monetag-placeholder="true"/g) ?? []).length;
   const adsenseSlots = (html.match(/data-adsense-placeholder="true"/g) ?? []).length;
 
   return {
@@ -139,7 +138,6 @@ const pageReports = htmlFiles.map((file) => {
     schemas,
     imagesMissingAlt,
     brokenLinks,
-    monetagSlots,
     adsenseSlots,
     hasViewport: /<meta\b[^>]*name="viewport"[^>]*content="[^"]*width=device-width/i.test(html)
   };
@@ -159,7 +157,6 @@ const sitemapSet = new Set(sitemapUrls.map((url) => new URL(url).pathname));
 const pagesMissingFromSitemap = [...existingRoutes].filter((route) => !sitemapSet.has(route));
 const jsFiles = walk(path.join(dist, '_astro'), (file) => file.endsWith('.js'));
 const totalJsBytes = jsFiles.reduce((total, file) => total + fs.statSync(file).size, 0);
-const monetagSlots = pageReports.reduce((total, report) => total + report.monetagSlots, 0);
 const adsenseSlots = pageReports.reduce((total, report) => total + report.adsenseSlots, 0);
 
 const result = {
@@ -180,7 +177,6 @@ const result = {
   imageAltMissingCount: imagesMissingAlt.length,
   pagesMissingViewportCount: pagesMissingViewport.length,
   pagesMissingFromSitemapCount: pagesMissingFromSitemap.length,
-  monetagPlaceholderSlots: monetagSlots,
   adsensePlaceholderSlots: adsenseSlots,
   totalClientJsBytes: totalJsBytes,
   coreWebVitalsStaticChecks: {
@@ -216,7 +212,6 @@ if (missingSchema.length) failures.push(`${missingSchema.length} article pages h
 if (imagesMissingAlt.length) failures.push(`${imagesMissingAlt.length} images are missing alt text.`);
 if (pagesMissingViewport.length) failures.push(`${pagesMissingViewport.length} pages are missing mobile viewport meta.`);
 if (pagesMissingFromSitemap.length) failures.push(`${pagesMissingFromSitemap.length} pages are missing from sitemap.xml.`);
-if (!monetagSlots) failures.push('No Monetag placeholders found.');
 if (!adsenseSlots) failures.push('No Future AdSense placeholders found.');
 if (totalJsBytes >= 50000) failures.push(`Client JS bundle is too large for this static site: ${totalJsBytes} bytes.`);
 

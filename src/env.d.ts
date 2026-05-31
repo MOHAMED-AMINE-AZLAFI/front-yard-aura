@@ -3,7 +3,6 @@
 interface ImportMetaEnv {
   readonly PUBLIC_SITE_URL: string;
   readonly PUBLIC_BRAND_NAME: string;
-  readonly PUBLIC_MONETAG_ZONE_ID?: string;
   readonly PUBLIC_ADSENSE_CLIENT?: string;
 }
 
