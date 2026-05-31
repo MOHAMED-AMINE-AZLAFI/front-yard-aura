@@ -5,7 +5,7 @@ import ArticleCard from '@/components/ArticleCard.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import JsonLd from '@/components/JsonLd.astro';
 import { CATEGORIES, getRelatedCategories } from '@/data/categories';
-import { getImageForText } from '@/data/images';
+import { getImageForText, hashText } from '@/data/images';
 import { SITE } from '@/lib/site';
 
 export function getStaticPaths() {
@@ -29,21 +29,40 @@ const canonicalUrl = new URL(canonicalPath, SITE.url).toString();
 const usedCategoryImages = new Set<string>();
 
 function categoryImage(text: string, seed: string) {
-  const image = getImageForText(text, seed, category.name, undefined, [...usedCategoryImages]);
+  const image = getImageForText(text, seed, category.name, hashText(seed), [...usedCategoryImages]);
   usedCategoryImages.add(image.src);
   return image;
 }
 
 const heroImage = categoryImage(
-  `${category.name} ${category.intro} luxury American front yard landscaping exterior`,
+  [
+    category.name,
+    category.shortName,
+    category.slug,
+    category.description,
+    category.seoTitle,
+    category.seoDescription,
+    category.intro,
+    category.imageAlt,
+    category.accent,
+    ...category.cards.flatMap((card) => [card.title, card.description])
+  ].join(' '),
   `ideas-detail-${category.slug}-hero`
 );
 const visualCards = category.cards.map((card, index) => ({
   ...card,
-  image: categoryImage(
-    `${category.name} ${card.title} ${card.description} front yard landscaping exterior`,
+  imageMatch: categoryImage(
+    [
+      category.name,
+      category.shortName,
+      category.slug,
+      category.accent,
+      category.intro,
+      card.title,
+      card.description
+    ].join(' '),
     `ideas-detail-${category.slug}-card-${index}`
-  ).src
+  )
 }));
 const featuredPosts = categoryPosts.slice(0, 3);
 const breadcrumbItems = [
@@ -151,7 +170,7 @@ const categorySchema = {
       <div class="masonry-grid mt-10">
         {visualCards.map((card) => (
           <a class={`masonry-item premium-card image-zoom group relative flex aspect-[2/3] overflow-hidden p-5 ${card.placement === 'top' ? 'items-start' : card.placement === 'center' ? 'items-center' : 'items-end'}`} href="#articles">
-            <img class="absolute inset-0 h-full w-full object-cover" src={card.image} alt={card.title} width="1000" height="1500" loading="lazy" decoding="async" />
+            <img class="absolute inset-0 h-full w-full object-cover" src={card.imageMatch.src} alt={card.imageMatch.alt} width="1000" height="1500" loading="lazy" decoding="async" />
             <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.04),rgba(12,33,24,0.78))]" aria-hidden="true"></div>
             <div class="relative rounded-[1rem] bg-aura-forest/62 p-5 text-aura-ivory backdrop-blur-sm">
               <p class="text-xs font-bold uppercase text-aura-brass">{category.shortName}</p>

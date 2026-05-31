@@ -1,19 +1,49 @@
 ---
 import PinterestSave from '@/components/PinterestSave.astro';
-import { getResolvedArticleImage } from '@/data/images';
+import { getImageForArticleSection } from '@/data/images';
 
 interface Props {
   src: string;
   alt: string;
   caption?: string;
   overlay?: string;
+  context?: string;
+  category?: string;
+  title?: string;
+  slug?: string;
+  heading?: string;
+  previousParagraph?: string;
+  nextParagraph?: string;
   position?: 'top' | 'center' | 'bottom';
 }
 
-const { src, alt, caption, overlay, position = 'bottom' } = Astro.props;
-const imageText = [overlay, alt, caption, src].filter(Boolean).join(' ');
-const imageSeed = [src, alt, caption, overlay, position].filter(Boolean).join('|');
-const imageMatch = getResolvedArticleImage(src, imageText, imageSeed);
+const {
+  src,
+  alt,
+  caption,
+  overlay,
+  context,
+  category,
+  title,
+  slug,
+  heading,
+  previousParagraph,
+  nextParagraph,
+  position = 'bottom'
+} = Astro.props;
+const imageSeed = [context, src, alt, caption, overlay, position].filter(Boolean).join('|');
+const imageMatch = getImageForArticleSection({
+  title: title ?? context,
+  category,
+  slug,
+  heading: heading ?? context,
+  previousParagraph: previousParagraph ?? context,
+  nextParagraph,
+  alt,
+  caption,
+  overlay,
+  seed: imageSeed
+});
 const imageSrc = imageMatch.src;
 const imageAlt = alt || imageMatch.alt;
 const align = position === 'top' ? 'items-start' : position === 'center' ? 'items-center' : 'items-end';

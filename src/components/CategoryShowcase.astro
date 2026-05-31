@@ -1,6 +1,30 @@
 ---
 import { CATEGORIES } from '@/data/categories';
-import { getFallbackImageForCategory } from '@/data/images';
+import { getImageForText } from '@/data/images';
+
+const usedShowcaseImages = new Set<string>();
+const categories = CATEGORIES.map((item, index) => {
+  const image = getImageForText(
+    [
+      item.name,
+      item.shortName,
+      item.slug,
+      item.description,
+      item.seoTitle,
+      item.seoDescription,
+      item.intro,
+      item.imageAlt,
+      item.accent,
+      ...item.cards.flatMap((card) => [card.title, card.description])
+    ].join(' '),
+    `category-showcase-${item.slug}`,
+    item.name,
+    1200 + index * 29,
+    [...usedShowcaseImages]
+  );
+  usedShowcaseImages.add(image.src);
+  return { ...item, imageMatch: image };
+});
 ---
 
 <section class="bg-aura-ivory py-12 md:py-16">
@@ -16,13 +40,13 @@ import { getFallbackImageForCategory } from '@/data/images';
         </p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
-        {CATEGORIES.map((item, index) => (
+        {categories.map((item, index) => (
           <a class={`premium-card group overflow-hidden p-5 ${index % 2 === 1 ? 'sm:mt-10' : ''}`} href={`/ideas/${item.slug}/`}>
             <div class="image-zoom aspect-[4/3]">
               <img
                 class="h-full w-full object-cover"
-                src={getFallbackImageForCategory(item.name).src}
-                alt={`${item.name} front yard landscaping inspiration`}
+                src={item.imageMatch.src}
+                alt={item.imageMatch.alt}
                 width="1000"
                 height="750"
                 loading="lazy"

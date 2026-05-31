@@ -19,10 +19,26 @@ export type ImageCandidate = {
   keywords: string[];
   overlayText: string;
   credit: string;
+  score?: number;
+  fallback?: boolean;
 };
 
 type PostLike = Pick<CollectionEntry<'blog'>, 'slug'> & {
   data: Pick<CollectionEntry<'blog'>['data'], 'title' | 'category' | 'tags' | 'imageAlt'>;
+};
+
+export type ArticleSectionImageContext = {
+  title?: string;
+  category?: string;
+  slug?: string;
+  heading?: string;
+  previousParagraph?: string;
+  nextParagraph?: string;
+  alt?: string;
+  caption?: string;
+  overlay?: string;
+  usedUrls?: string[];
+  seed?: string;
 };
 
 const KEYWORDS: Record<ImageIntent, string[]> = {
@@ -375,6 +391,53 @@ const TOPICS: Record<ImageIntent, string[]> = {
   ]
 };
 
+const BROAD_INTENT_KEYWORDS: Record<ImageIntent, string[]> = {
+  rocks: ['rock landscaping', 'stone landscaping', 'gravel bed', 'hardscape', 'dry landscape'],
+  'flower-beds': ['flower bed', 'front yard flowers', 'foundation planting', 'blooms', 'curb appeal flowers'],
+  walkways: ['front walkway', 'pathway', 'entry path', 'walkway border', 'paver path'],
+  'low-maintenance': ['low maintenance', 'easy care', 'simple landscaping', 'durable planting', 'clean curb appeal'],
+  modern: ['modern home', 'contemporary home', 'clean lines', 'architectural landscaping', 'luxury exterior'],
+  budget: ['budget landscaping', 'affordable curb appeal', 'diy front yard', 'low cost upgrade', 'weekend project'],
+  'small-yards': ['small front yard', 'narrow front yard', 'compact yard', 'limited space', 'urban front yard'],
+  'curb-appeal': ['curb appeal', 'front entry', 'front porch', 'home exterior', 'foundation beds']
+};
+
+const PRIORITY_KEYWORD_GROUPS = {
+  plants: ['hydrangea', 'rose', 'roses', 'tulip', 'tulips', 'peony', 'peonies', 'iris', 'lavender', 'salvia'],
+  walkways: ['walkway', 'walkways', 'paver', 'pavers', 'stepping stone', 'stepping stones', 'path', 'paths', 'pathway', 'pathways'],
+  rocks: ['rock', 'rocks', 'gravel', 'boulder', 'boulders', 'stone', 'stones', 'river rock', 'basalt', 'slate', 'granite', 'limestone', 'flagstone'],
+  modern: ['modern', 'luxury', 'contemporary'],
+  small: ['small yard', 'small front yard', 'narrow yard', 'narrow front yard', 'townhouse', 'townhome', 'row house', 'row houses']
+} as const;
+
+const SEMANTIC_ALIASES: Record<string, string[]> = {
+  hydrangea: ['hydrangeas', 'blue flowers', 'soft blooms', 'flower bed'],
+  rose: ['roses', 'rose garden', 'summer flowers', 'flower bed'],
+  tulip: ['tulips', 'spring flowers', 'bulbs', 'flower bed'],
+  peony: ['peonies', 'romantic blooms', 'pink flowers', 'flower bed'],
+  iris: ['irises', 'purple flowers', 'spring blooms', 'flower bed'],
+  lavender: ['lavender border', 'purple flowers', 'fragrant plants', 'walkway border'],
+  salvia: ['purple perennial', 'ornamental grasses', 'pollinator flowers', 'flower bed'],
+  yucca: ['yuccas', 'desert plants', 'spiky plants', 'rocks'],
+  agave: ['agaves', 'desert plants', 'succulents', 'rocks'],
+  cactus: ['cacti', 'desert landscaping', 'succulents', 'rocks'],
+  walkway: ['walkways', 'entry path', 'pathway', 'front path'],
+  paver: ['pavers', 'paver path', 'paver walkway'],
+  gravel: ['pea gravel', 'decomposed granite', 'gravel path', 'rock landscaping'],
+  rock: ['rocks', 'stone', 'boulder', 'gravel'],
+  modern: ['contemporary', 'clean lines', 'luxury home', 'architectural'],
+  luxury: ['premium', 'estate exterior', 'high end', 'modern home'],
+  'row house': ['row houses', 'small front yard'],
+  townhome: ['townhouse', 'small front yard'],
+  lighting: ['path lights', 'low voltage lighting', 'exterior lighting', 'evening curb appeal'],
+  water: ['water feature', 'fountain', 'reflecting pool', 'modern home']
+};
+
+const STOP_WORDS = new Set([
+  'a', 'an', 'and', 'are', 'around', 'for', 'from', 'front', 'ideas', 'into', 'landscaping',
+  'of', 'on', 'or', 'that', 'the', 'to', 'with', 'yard', 'home', 'homes', 'house', 'houses'
+]);
+
 export const IMAGE_STYLE_GUIDE = {
   ratio: '2:3',
   direction:
@@ -524,22 +587,6 @@ export function isRealPhotographyUrl(src = '') {
   return /^https:\/\/images\.unsplash\.com\/photo-/.test(src);
 }
 
-function getUnsplashPhotoId(src = '') {
-  return src.match(/images\.unsplash\.com\/(photo-[^?]+)/)?.[1] ?? '';
-}
-
-function isBlockedPhotographyUrl(src = '') {
-  const photoId = getUnsplashPhotoId(src);
-  return photoId ? BLOCKED_PHOTO_IDS.has(photoId) : false;
-}
-
-function normalizedUnsplashPhoto(src: string, signature: number, width = 1000, height = 1500, quality = 84) {
-  const photoId = getUnsplashPhotoId(src);
-  if (!photoId) return src;
-  const [fpX, fpY] = FOCAL_POINTS[signature % FOCAL_POINTS.length];
-  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&crop=focalpoint&fp-x=${fpX}&fp-y=${fpY}&w=${width}&h=${height}&q=${quality}&fya=${signature}`;
-}
-
 export function hashText(value: string) {
   let hash = 0;
   for (let index = 0; index < value.length; index += 1) {
@@ -548,12 +595,209 @@ export function hashText(value: string) {
   return hash;
 }
 
+function scoreKeywordMatch(queryKeyword: string, imageKeyword: string) {
+  if (queryKeyword === imageKeyword) return queryKeyword.includes(' ') ? 10 : 6;
+  if (queryKeyword.includes(imageKeyword) || imageKeyword.includes(queryKeyword)) {
+    return queryKeyword.includes(' ') || imageKeyword.includes(' ') ? 5 : 2;
+  }
+  return 0;
+}
+
+function groupMatches(group: readonly string[], keywords: string[]) {
+  return group.some((keyword) => keywords.includes(normalizeText(keyword)));
+}
+
+function scoreImageCandidate(image: ImageCandidate, queryKeywords: string[], categoryIntent: ImageIntent, excluded: Set<string>) {
+  if (excluded.has(image.src)) return Number.NEGATIVE_INFINITY;
+
+  let score = image.category === categoryIntent ? 5 : 0;
+  const imageKeywords = image.keywords;
+  const imageKeywordSet = new Set(imageKeywords);
+
+  for (const queryKeyword of queryKeywords) {
+    if (imageKeywordSet.has(queryKeyword)) {
+      score += queryKeyword.includes(' ') ? 10 : 6;
+      continue;
+    }
+    score += imageKeywords.reduce((best, imageKeyword) => Math.max(best, scoreKeywordMatch(queryKeyword, imageKeyword)), 0);
+  }
+
+  const priorityRules = [
+    { group: PRIORITY_KEYWORD_GROUPS.plants, exact: 18, category: 'flower-beds' as ImageIntent },
+    { group: PRIORITY_KEYWORD_GROUPS.walkways, exact: 14, category: 'walkways' as ImageIntent },
+    { group: PRIORITY_KEYWORD_GROUPS.rocks, exact: 14, category: 'rocks' as ImageIntent },
+    { group: PRIORITY_KEYWORD_GROUPS.modern, exact: 10, category: 'modern' as ImageIntent },
+    { group: PRIORITY_KEYWORD_GROUPS.small, exact: 12, category: 'small-yards' as ImageIntent }
+  ];
+
+  for (const rule of priorityRules) {
+    if (!groupMatches(rule.group, queryKeywords)) continue;
+    if (image.category === rule.category) score += 8;
+    if (groupMatches(rule.group, imageKeywords)) score += rule.exact;
+    else score -= 14;
+  }
+
+  return score;
+}
+
+function getKeywordIntent(keyword: string): ImageIntent | null {
+  for (const [intent, keywords] of Object.entries(KEYWORDS)) {
+    if (keywords.some((candidate) => normalizeText(candidate) === keyword)) return intent as ImageIntent;
+  }
+  for (const [intent, keywords] of Object.entries(BROAD_INTENT_KEYWORDS)) {
+    if (keywords.some((candidate) => normalizeText(candidate) === keyword)) return intent as ImageIntent;
+  }
+  return null;
+}
+
+function hasExactKeywordMatch(image: ImageCandidate, keywords: string[]) {
+  const imageKeywords = new Set(image.keywords.map((keyword) => normalizeText(keyword)));
+  const imageText = normalizeText([image.alt, image.overlayText, ...image.keywords].join(' '));
+  return keywords.some((keyword) => imageKeywords.has(keyword) || imageText.includes(keyword));
+}
+
+function prepareSectionImageScore(context: ArticleSectionImageContext) {
+  const sectionKeywords = getSectionKeywords(context.heading, context.previousParagraph, context.nextParagraph);
+  const titleKeywords = getSectionKeywords(context.title);
+  const slugKeywords = getSectionKeywords(context.slug);
+  const categoryKeywords = getSectionKeywords(context.category);
+  const descriptiveKeywords = getSectionKeywords(context.alt, context.caption, context.overlay);
+  const articleIntent = getImageIntent([context.title, context.slug].filter(Boolean).join(' '), context.category);
+  const sectionIntent = getImageIntent(
+    [context.heading, context.previousParagraph, context.nextParagraph, context.alt, context.caption, context.overlay].filter(Boolean).join(' '),
+    context.category
+  );
+  const strictKeywordIntents = sectionKeywords
+    .map(getKeywordIntent)
+    .filter((intent): intent is ImageIntent => Boolean(intent));
+  const strictIntent = strictKeywordIntents[0] ?? sectionIntent;
+  const allKeywords = uniqueValues([...sectionKeywords, ...descriptiveKeywords, ...titleKeywords, ...slugKeywords, ...categoryKeywords]);
+
+  return {
+    sectionKeywords,
+    titleKeywords,
+    slugKeywords,
+    categoryKeywords,
+    descriptiveKeywords,
+    articleIntent,
+    sectionIntent,
+    strictIntent,
+    allKeywords
+  };
+}
+
+function scorePreparedImageForSection(
+  image: ImageCandidate,
+  prepared: ReturnType<typeof prepareSectionImageScore>,
+  excludedUrls: string[] = []
+) {
+  if (excludedUrls.includes(image.src)) return Number.NEGATIVE_INFINITY;
+
+  let score = 0;
+  if (hasExactKeywordMatch(image, prepared.sectionKeywords)) score += 15;
+  if (hasExactKeywordMatch(image, prepared.titleKeywords)) score += 10;
+  if (hasExactKeywordMatch(image, prepared.slugKeywords)) score += 8;
+  if (image.category === prepared.articleIntent || image.category === prepared.sectionIntent || hasExactKeywordMatch(image, prepared.categoryKeywords)) score += 5;
+  if (hasExactKeywordMatch(image, prepared.descriptiveKeywords)) score += 5;
+
+  if (prepared.strictIntent && image.category !== prepared.strictIntent) score -= 20;
+  if (image.fallback) score -= 10;
+
+  score += scoreImageCandidate(image, prepared.allKeywords, prepared.strictIntent, new Set(excludedUrls)) / 3;
+
+  return score;
+}
+
+export function getSectionKeywords(...values: Array<string | string[] | undefined>) {
+  return extractSemanticKeywords(...values).filter((keyword) => {
+    const normalized = normalizeText(keyword);
+    if (!normalized || normalized.length < 3) return false;
+    if (STOP_WORDS.has(normalized)) return false;
+    return true;
+  });
+}
+
+export function scoreImageForSection(
+  image: ImageCandidate,
+  context: ArticleSectionImageContext,
+  excludedUrls: string[] = context.usedUrls ?? []
+) {
+  return scorePreparedImageForSection(image, prepareSectionImageScore(context), excludedUrls);
+}
+
 function titleCase(value: string) {
   return value
     .split(' ')
     .filter(Boolean)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+function normalizeText(value = '') {
+  return value
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[-_/]/g, ' ')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function uniqueValues(values: string[]) {
+  return [...new Set(values.map((value) => normalizeText(value)).filter(Boolean))];
+}
+
+function getWords(value = '') {
+  return normalizeText(value)
+    .split(' ')
+    .filter((word) => word.length > 2 && !STOP_WORDS.has(word));
+}
+
+function getPhrases(value = '') {
+  const words = getWords(value);
+  const phrases: string[] = [];
+  for (let index = 0; index < words.length; index += 1) {
+    phrases.push(words[index]);
+    if (words[index + 1]) phrases.push(`${words[index]} ${words[index + 1]}`);
+    if (words[index + 2]) phrases.push(`${words[index]} ${words[index + 1]} ${words[index + 2]}`);
+  }
+  return phrases;
+}
+
+function expandSemanticKeywords(keywords: string[]) {
+  const expanded = [...keywords];
+  for (const keyword of keywords) {
+    const normalized = normalizeText(keyword);
+    expanded.push(...(SEMANTIC_ALIASES[normalized] ?? []));
+    for (const [source, aliases] of Object.entries(SEMANTIC_ALIASES)) {
+      if (aliases.map((alias) => normalizeText(alias)).includes(normalized)) expanded.push(source);
+    }
+  }
+  return uniqueValues(expanded);
+}
+
+export function extractSemanticKeywords(...values: Array<string | string[] | undefined>) {
+  const text = values.flatMap((value) => Array.isArray(value) ? value : [value]).filter(Boolean).join(' ');
+  const normalized = normalizeText(text);
+  const directMatches = [
+    ...Object.values(PRIORITY_KEYWORD_GROUPS).flat(),
+    ...Object.keys(SEMANTIC_ALIASES),
+    ...Object.values(SEMANTIC_ALIASES).flat()
+  ].filter((keyword) => normalized.includes(normalizeText(keyword)));
+
+  return expandSemanticKeywords([...directMatches, ...getPhrases(normalized)]).slice(0, 80);
+}
+
+function buildImageKeywords(topic: string, intent: ImageIntent) {
+  const topicKeywords = getPhrases(topic);
+  const exactPriorityMatches = Object.values(PRIORITY_KEYWORD_GROUPS)
+    .flat()
+    .filter((keyword) => normalizeText(topic).includes(normalizeText(keyword)));
+  return expandSemanticKeywords([
+    ...BROAD_INTENT_KEYWORDS[intent],
+    ...topicKeywords,
+    ...exactPriorityMatches
+  ]);
 }
 
 function buildPool(intent: ImageIntent, baseSignature: number): ImageCandidate[] {
@@ -566,7 +810,7 @@ function buildPool(intent: ImageIntent, baseSignature: number): ImageCandidate[]
     src: curatedUnsplashPhoto(intent, index + baseSignature, variantIndex),
     alt: `${titleCase(topic)} for a realistic American front yard`,
     category: intent,
-    keywords: [...KEYWORDS[intent], ...topic.split(/\s+/).filter((word) => word.length > 3)],
+    keywords: buildImageKeywords(topic, intent),
     overlayText: titleCase(topic.replace(/\b(front|yard|landscaping|ideas)\b/g, '').replace(/\s+/g, ' ').trim()),
     credit: 'Curated Unsplash photography URL, cropped for a Pinterest 2:3 editorial layout'
   })));
@@ -582,6 +826,18 @@ export const IMAGE_POOLS: Record<ImageIntent, ImageCandidate[]> = {
   'small-yards': buildPool('small-yards', 7000),
   'curb-appeal': buildPool('curb-appeal', 8000)
 };
+
+export const IMAGE_KEYWORD_DATABASE: ImageCandidate[] = Object.values(IMAGE_POOLS)
+  .flat()
+  .map((image) => ({
+    src: image.src,
+    alt: image.alt,
+    category: image.category,
+    keywords: image.keywords,
+    overlayText: image.overlayText,
+    credit: image.credit,
+    score: 0
+  }));
 
 export const LANDSCAPE_PHOTOS = {
   luxuryCurbAppeal: IMAGE_POOLS['curb-appeal'][0].src,
@@ -613,7 +869,7 @@ function getIntentFromCategory(category = ''): ImageIntent {
 }
 
 export function getImageIntent(text = '', category = ''): ImageIntent {
-  const normalized = `${text} ${category}`.toLowerCase().replace(/[-_/]/g, ' ');
+  const normalized = normalizeText(`${text} ${category}`);
   const categoryIntent = getIntentFromCategory(category);
 
   const priorityOrder: ImageIntent[] = [
@@ -641,23 +897,74 @@ export function getImageIntent(text = '', category = ''): ImageIntent {
   return scores[0]?.score > 0 ? scores[0].intent : categoryIntent;
 }
 
-function chooseFromPool(intent: ImageIntent, seed: string, text = '', variant?: number, excluded = new Set<string>()) {
-  const pool = IMAGE_POOLS[intent];
-  const normalized = text.toLowerCase();
-  const keywordOffset = pool.reduce((offset, image, index) => {
-    const score = image.keywords.reduce((total, keyword) => total + (normalized.includes(keyword) ? 1 : 0), 0);
-    return offset + score * (index + 3);
-  }, 0);
-  const start = typeof variant === 'number'
-    ? (variant * 7) % pool.length
-    : (hashText(`${intent}:${seed}`) + keywordOffset) % pool.length;
+function chooseBestImage(text: string, seed: string, category = '', variant?: number, excludedUrls: string[] = []) {
+  const queryKeywords = extractSemanticKeywords(text, category);
+  const categoryIntent = getImageIntent(text, category);
+  const excluded = new Set(excludedUrls);
+  const seedHash = hashText(`${seed}:${variant ?? 'primary'}`);
 
-  for (let step = 0; step < pool.length; step += 1) {
-    const image = pool[(start + step * 7) % pool.length];
-    if (!excluded.has(image.src)) return image;
-  }
+  const scored = IMAGE_KEYWORD_DATABASE
+    .map((image, index) => {
+      const semanticScore = scoreImageCandidate(image, queryKeywords, categoryIntent, excluded);
+      const tieBreaker = ((seedHash + index * 17) % 997) / 10000;
+      return { image, score: semanticScore + tieBreaker };
+    })
+    .filter((entry) => Number.isFinite(entry.score))
+    .sort((a, b) => b.score - a.score);
 
-  return pool[start];
+  const fallback = IMAGE_POOLS[categoryIntent][seedHash % IMAGE_POOLS[categoryIntent].length];
+  const selected = scored[0]?.image ?? fallback;
+  const selectedScore = Math.floor(scored[0]?.score ?? 0);
+
+  return {
+    ...selected,
+    score: selectedScore,
+    fallback: selectedScore <= 0,
+    intent: selected.category
+  };
+}
+
+export function getImageForArticleSection(context: ArticleSectionImageContext) {
+  const sectionText = [
+    context.title,
+    context.category,
+    context.slug,
+    context.heading,
+    context.previousParagraph,
+    context.nextParagraph,
+    context.alt,
+    context.caption,
+    context.overlay
+  ].filter(Boolean).join(' ');
+  const sectionIntent = getImageIntent(
+    [context.heading, context.previousParagraph, context.nextParagraph, context.alt, context.caption, context.overlay].filter(Boolean).join(' '),
+    context.category
+  );
+  const seed = context.seed ?? sectionText;
+  const seedHash = hashText(seed);
+  const preparedScore = prepareSectionImageScore(context);
+  const excludedUrls = context.usedUrls ?? [];
+
+  const scored = IMAGE_KEYWORD_DATABASE
+    .map((image, index) => {
+      const sectionScore = scorePreparedImageForSection(image, preparedScore, excludedUrls);
+      const tieBreaker = ((seedHash + index * 19) % 997) / 10000;
+      return { image, score: sectionScore + tieBreaker };
+    })
+    .filter((entry) => Number.isFinite(entry.score))
+    .sort((a, b) => b.score - a.score);
+
+  const fallback = IMAGE_POOLS[sectionIntent][seedHash % IMAGE_POOLS[sectionIntent].length];
+  const selected = scored[0]?.image ?? fallback;
+  const selectedScore = Math.floor(scored[0]?.score ?? 0);
+
+  return {
+    ...selected,
+    score: selectedScore,
+    fallback: selectedScore <= 0,
+    intent: selected.category,
+    src: withVariantSignature(selected.src, hashText(`${seed}:${selected.src}`))
+  };
 }
 
 function withVariantSignature(src: string, variant?: number) {
@@ -667,58 +974,59 @@ function withVariantSignature(src: string, variant?: number) {
   return src;
 }
 
-export function getResolvedArticleImage(src: string, text: string, seed = text, category = '') {
-  const signature = hashText(seed);
-  if (isRealPhotographyUrl(src) && !isBlockedPhotographyUrl(src)) {
-    return {
-      src: normalizedUnsplashPhoto(src, signature),
-      alt: text,
-      category: getImageIntent(text, category),
-      keywords: text.toLowerCase().split(/\s+/).filter((word) => word.length > 3),
-      overlayText: titleCase(text.split(/\s+/).slice(0, 6).join(' ')),
-      credit: 'Original MDX Unsplash photography URL',
-      intent: getImageIntent(text, category)
-    };
-  }
-
-  return getImageForText(text, seed, category, hashText(seed));
+export function getResolvedArticleImage(_src: string, text: string, seed = text, category = '') {
+  return getImageForArticleSection({
+    title: text,
+    category,
+    heading: text,
+    previousParagraph: text,
+    alt: text,
+    overlay: text,
+    seed
+  });
 }
 
 export function getImageForPost(post: PostLike, variant?: number, excludedUrls: string[] = []) {
   const text = [post.data.title, post.slug, post.data.category, ...(post.data.tags ?? [])].join(' ');
-  const intent = getImageIntent(text, post.data.category);
-  const image = chooseFromPool(intent, post.slug, text, variant, new Set(excludedUrls));
+  const image = chooseBestImage(text, post.slug, post.data.category, variant, excludedUrls);
   return {
     ...image,
     src: withVariantSignature(image.src, typeof variant === 'number' ? hashText(`${post.slug}:${variant}`) : undefined),
     alt: post.data.imageAlt ?? image.alt,
-    intent
+    intent: image.intent
   };
 }
 
 export function getImageForText(text: string, seed = text, category = '', variant?: number, excludedUrls: string[] = []) {
-  const intent = getImageIntent(text, category);
-  const image = chooseFromPool(intent, seed, text, variant, new Set(excludedUrls));
+  const image = chooseBestImage(text, seed, category, variant, excludedUrls);
   return {
     ...image,
     src: withVariantSignature(image.src, variant),
-    intent
+    intent: image.intent
   };
 }
 
-export function getImagesForArticleSections(post: PostLike, count = 8, excludedUrls: string[] = []) {
+export function getImagesForArticleSections(post: PostLike, count = 8, excludedUrls: string[] = [], sectionContexts: string[] = []) {
   const baseText = [post.data.title, post.slug, post.data.category, ...(post.data.tags ?? [])].join(' ');
-  const intent = getImageIntent(baseText, post.data.category);
-  const pool = IMAGE_POOLS[intent];
   const used = new Set(excludedUrls);
-  const start = hashText(post.slug) % pool.length;
   const images: Array<ImageCandidate & { intent: ImageIntent }> = [];
 
-  for (let step = 0; images.length < count && step < pool.length * 2; step += 1) {
-    const image = pool[(start + step * 9) % pool.length];
+  for (let step = 0; images.length < count && step < count * 8 + 8; step += 1) {
+    const sectionText = sectionContexts[step % Math.max(1, sectionContexts.length)] ?? baseText;
+    const image = getImageForArticleSection({
+      title: post.data.title,
+      slug: post.slug,
+      category: post.data.category,
+      heading: sectionText,
+      previousParagraph: sectionText,
+      alt: sectionText,
+      overlay: sectionText,
+      usedUrls: [...used],
+      seed: `${post.slug}:supplemental:${step}`
+    });
     if (!used.has(image.src)) {
       used.add(image.src);
-      images.push({ ...image, intent });
+      images.push({ ...image, intent: image.intent });
     }
   }
 

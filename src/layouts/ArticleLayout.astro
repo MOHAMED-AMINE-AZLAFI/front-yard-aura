@@ -29,15 +29,42 @@ function getMdxProp(block: string, prop: string) {
   return block.match(new RegExp(`${prop}="([^"]*)"`, 's'))?.[1] ?? '';
 }
 
+function cleanMdxText(value: string) {
+  return value
+    .replace(/---[\s\S]*?---/, '')
+    .replace(/import\s.+?;/g, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function getNearbyMdxContext(body: string, blockStart: number) {
+  const before = body.slice(0, blockStart);
+  const heading = [...before.matchAll(/^#{2,3}\s+(.+)$/gm)].at(-1)?.[1] ?? '';
+  const paragraphs = before
+    .split(/\n{2,}/)
+    .map((part) => cleanMdxText(part))
+    .filter((part) => part && !part.startsWith('title:') && !part.includes('ArticleImage'));
+  const previousParagraph = paragraphs.at(-1) ?? '';
+  return [frontmatter.title, article.slug, frontmatter.category, ...(frontmatter.tags ?? []), heading, previousParagraph]
+    .filter(Boolean)
+    .join(' ');
+}
+
+const sectionContexts = headings
+  .map((heading: { text: string }) => [frontmatter.title, article.slug, frontmatter.category, ...(frontmatter.tags ?? []), heading.text].join(' '))
+  .filter(Boolean);
+
 const mdxImageSources = [...article.body.matchAll(/<ArticleImage\b[\s\S]*?\/>/g)]
   .map((match) => {
     const block = match[0];
+    const context = getMdxProp(block, 'context') || getNearbyMdxContext(article.body, match.index ?? 0);
     const src = getMdxProp(block, 'src');
     const alt = getMdxProp(block, 'alt');
     const caption = getMdxProp(block, 'caption');
     const overlay = getMdxProp(block, 'overlay');
     const position = getMdxProp(block, 'position') || 'bottom';
-    const imageText = [overlay, alt, caption, src].filter(Boolean).join(' ');
+    const imageText = [context, overlay, alt, caption].filter(Boolean).join(' ');
     const imageSeed = [src, alt, caption, overlay, position].filter(Boolean).join('|');
     return getResolvedArticleImage(src, imageText, imageSeed, frontmatter.category).src;
   });
@@ -45,7 +72,8 @@ const mdxImageSources = [...article.body.matchAll(/<ArticleImage\b[\s\S]*?\/>/g)
 const supplementalImages = getImagesForArticleSections(
   article,
   Math.max(0, 5 - existingContentImages),
-  [imageUrl, ...mdxImageSources]
+  [imageUrl, ...mdxImageSources],
+  sectionContexts
 );
 const faqs: FaqItem[] = frontmatter.faqs ?? [];
 const adviceByCategory = {
