@@ -123,7 +123,7 @@ const pageReports = htmlFiles.map((file) => {
     .map(normalizeInternalHref)
     .filter(Boolean)
     .filter((href) => !existsRoute(href, existingRoutes));
-  const adsenseSlots = (html.match(/data-adsense-placeholder="true"/g) ?? []).length;
+  const adPlaceholderSlots = (html.match(/data-adsense-placeholder="true"/g) ?? []).length;
 
   return {
     route,
@@ -138,7 +138,7 @@ const pageReports = htmlFiles.map((file) => {
     schemas,
     imagesMissingAlt,
     brokenLinks,
-    adsenseSlots,
+    adPlaceholderSlots,
     hasViewport: /<meta\b[^>]*name="viewport"[^>]*content="[^"]*width=device-width/i.test(html)
   };
 });
@@ -157,7 +157,7 @@ const sitemapSet = new Set(sitemapUrls.map((url) => new URL(url).pathname));
 const pagesMissingFromSitemap = [...existingRoutes].filter((route) => !sitemapSet.has(route));
 const jsFiles = walk(path.join(dist, '_astro'), (file) => file.endsWith('.js'));
 const totalJsBytes = jsFiles.reduce((total, file) => total + fs.statSync(file).size, 0);
-const adsenseSlots = pageReports.reduce((total, report) => total + report.adsenseSlots, 0);
+const adPlaceholderSlots = pageReports.reduce((total, report) => total + report.adPlaceholderSlots, 0);
 
 const result = {
   totalPosts: mdxFiles.length,
@@ -177,7 +177,7 @@ const result = {
   imageAltMissingCount: imagesMissingAlt.length,
   pagesMissingViewportCount: pagesMissingViewport.length,
   pagesMissingFromSitemapCount: pagesMissingFromSitemap.length,
-  adsensePlaceholderSlots: adsenseSlots,
+  adPlaceholderSlots,
   totalClientJsBytes: totalJsBytes,
   coreWebVitalsStaticChecks: {
     staticOutput: true,
@@ -212,7 +212,7 @@ if (missingSchema.length) failures.push(`${missingSchema.length} article pages h
 if (imagesMissingAlt.length) failures.push(`${imagesMissingAlt.length} images are missing alt text.`);
 if (pagesMissingViewport.length) failures.push(`${pagesMissingViewport.length} pages are missing mobile viewport meta.`);
 if (pagesMissingFromSitemap.length) failures.push(`${pagesMissingFromSitemap.length} pages are missing from sitemap.xml.`);
-if (!adsenseSlots) failures.push('No Future AdSense placeholders found.');
+if (adPlaceholderSlots) failures.push(`${adPlaceholderSlots} ad placeholder slots found.`);
 if (totalJsBytes >= 50000) failures.push(`Client JS bundle is too large for this static site: ${totalJsBytes} bytes.`);
 
 if (failures.length) {

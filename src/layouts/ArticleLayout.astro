@@ -1,6 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import AdSlot from '@/components/AdSlot.astro';
 import PinterestSave from '@/components/PinterestSave.astro';
 import ShareButtons from '@/components/ShareButtons.astro';
 import AuthorBox from '@/components/AuthorBox.astro';
@@ -193,7 +192,6 @@ const faqSchema = faqs.length > 0 ? {
         </div>
         <figcaption class="mt-3 text-center text-sm text-aura-ink/60">{imageAlt}</figcaption>
       </figure>
-      <AdSlot id="article-top" />
       <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]">
         <div>
           <div class="prose prose-lg max-w-none prose-a:text-aura-clay prose-headings:font-serif prose-headings:text-aura-pine prose-img:rounded-[1.25rem]">
@@ -241,7 +239,6 @@ const faqSchema = faqs.length > 0 ? {
               </div>
             </div>
           </section>
-          <AdSlot id="article-mid" />
           <AuthorBox author={frontmatter.author} />
           <RelatedPosts posts={relatedPosts} currentArticle={article} />
         </div>
@@ -249,7 +246,6 @@ const faqSchema = faqs.length > 0 ? {
           <TableOfContents headings={headings} />
         </div>
       </div>
-      <AdSlot id="article-bottom" />
     </div>
   </article>
 </BaseLayout>
