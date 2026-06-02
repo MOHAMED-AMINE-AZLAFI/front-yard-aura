@@ -1,0 +1,102 @@
+{
+  "dryRun": true,
+  "sandbox": false,
+  "endpoint": "https://api.pinterest.com/v5",
+  "candidates": 5,
+  "published": 0,
+  "previewed": 5,
+  "errors": 0,
+  "runtime": "255ms",
+  "results": [
+    {
+      "pin_id": "budget-front-yard-mailbox-makeover-ideas-a",
+      "ok": true,
+      "dryRun": true,
+      "endpoint": "https://api.pinterest.com/v5",
+      "payload": {
+        "board_id": "dry-run-board-id:front-yard-landscaping-on-a-budget",
+        "title": "Budget Front Yard Mailbox Makeover Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Budget Front Yard Mailbox Makeover Ideas: mailbox flower bed, budget-friendly landscaping, simple materials, clean edging, real American curb appeal, natural light, and practical front yard landscaping ideas. Budget Front Yard Mailbox Makeover Ideas with small planting pockets, fresh paint, and a sharper first impression, natural light, and a polished Pinterest-ready look.",
+        "link": "https://frontyardaura.com/blog/budget-front-yard-mailbox-makeover-ideas/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Budget Front Yard Mailbox Makeover Ideas, showing mailbox flower bed, budget-friendly landscaping, simple materials around a realistic American home.",
+        "media_source": {
+          "source_type": "image_url",
+          "url": "https://frontyardaura.com/pins/budget-front-yard-mailbox-makeover-ideas-pin-a-4dhh4.jpg",
+          "is_standard": true
+        }
+      }
+    },
+    {
+      "pin_id": "low-maintenance-evergreen-front-yard-ideas-a",
+      "ok": true,
+      "dryRun": true,
+      "endpoint": "https://api.pinterest.com/v5",
+      "payload": {
+        "board_id": "dry-run-board-id:low-maintenance-front-yard-landscaping",
+        "title": "Evergreen Front Yard Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Low Maintenance Evergreen Front Yard Ideas: evergreen foundation planting, simple landscaping, minimal shrubs, gravel yards, real American curb appeal, natural light, and practical front yard landscaping ideas. Low maintenance evergreen front yard landscaping ideas with shrubs, structure, and polished curb appeal.",
+        "link": "https://frontyardaura.com/blog/low-maintenance-evergreen-front-yard-ideas/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Low Maintenance Evergreen Front Yard Ideas, showing evergreen foundation planting, simple landscaping, minimal shrubs around a realistic American home.",
+        "media_source": {
+          "source_type": "image_url",
+          "url": "https://frontyardaura.com/pins/low-maintenance-evergreen-front-yard-ideas-pin-a-1pd6r.jpg",
+          "is_standard": true
+        }
+      }
+    },
+    {
+      "pin_id": "modern-front-yard-concrete-walkway-ideas-a",
+      "ok": true,
+      "dryRun": true,
+      "endpoint": "https://api.pinterest.com/v5",
+      "payload": {
+        "board_id": "dry-run-board-id:modern-front-yard-landscaping",
+        "title": "Modern Concrete Walkway Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Modern Concrete Walkway Ideas for Front Yards: concrete walkway, pavers, walkways, garden paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Concrete Walkway Ideas with slab paths, lawn joints, and architectural planting, realistic photography, and polished Pinterest-ready curb appeal.",
+        "link": "https://frontyardaura.com/blog/modern-front-yard-concrete-walkway-ideas/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Modern Concrete Walkway Ideas for Front Yards, showing concrete walkway, pavers, walkways around a realistic American home.",
+        "media_source": {
+          "source_type": "image_url",
+          "url": "https://frontyardaura.com/pins/modern-front-yard-concrete-walkway-ideas-pin-a-1avd5.jpg",
+          "is_standard": true
+        }
+      }
+    },
+    {
+      "pin_id": "front-yard-sloped-landscaping-ideas-with-retaining-walls-a",
+      "ok": true,
+      "dryRun": true,
+      "endpoint": "https://api.pinterest.com/v5",
+      "payload": {
+        "board_id": "dry-run-board-id:front-yard-landscaping-with-rocks",
+        "title": "Sloped Front Yard Landscaping Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Front Yard Sloped Landscaping Ideas With Retaining Walls: stone retaining edge, rocks, gravel, boulders, real American curb appeal, natural light, and practical front yard landscaping ideas. Sloped front yard landscaping ideas with retaining walls, stone steps, rocks, and layered planting for curb appeal.",
+        "link": "https://frontyardaura.com/blog/front-yard-sloped-landscaping-ideas-with-retaining-walls/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Front Yard Sloped Landscaping Ideas With Retaining Walls, showing stone retaining edge, rocks, gravel around a realistic American home.",
+        "media_source": {
+          "source_type": "image_url",
+          "url": "https://frontyardaura.com/pins/front-yard-sloped-landscaping-ideas-with-retaining-walls-pin-a-1tial.jpg",
+          "is_standard": true
+        }
+      }
+    },
+    {
+      "pin_id": "low-maintenance-front-yard-for-cold-climates-a",
+      "ok": true,
+      "dryRun": true,
+      "endpoint": "https://api.pinterest.com/v5",
+      "payload": {
+        "board_id": "dry-run-board-id:low-maintenance-front-yard-landscaping",
+        "title": "Cold Climate Front Yard Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Low Maintenance Front Yard Ideas for Cold Climates: simple landscaping, minimal shrubs, gravel yards, easy care garden structure, real American curb appeal, natural light, and practical front yard landscaping ideas. Cold Climate Front Yard Ideas with evergreens, winter structure, and durable beds, realistic photography, and polished Pinterest-ready curb appeal.",
+        "link": "https://frontyardaura.com/blog/low-maintenance-front-yard-for-cold-climates/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Low Maintenance Front Yard Ideas for Cold Climates, showing simple landscaping, minimal shrubs, gravel yards around a realistic American home.",
+        "media_source": {
+          "source_type": "image_url",
+          "url": "https://frontyardaura.com/pins/low-maintenance-front-yard-for-cold-climates-pin-a-1g0y5.jpg",
+          "is_standard": true
+        }
+      }
+    }
+  ]
+}

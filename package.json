@@ -8,7 +8,12 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "pinterest:export": "node scripts/export-pinterest-pins.mjs",
+    "pinterest:schedule": "node scripts/pinterest-schedule-plan.mjs",
+    "pinterest:produce-images": "node scripts/generate-production-pins.mjs",
+    "pinterest:dry-run": "node scripts/pinterest-api-publish.mjs --dry-run --all --limit 5",
+    "pinterest:publish": "node scripts/pinterest-api-publish.mjs --publish"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "pins": 900,
+  "scheduledPins": 900,
+  "days": 94,
+  "boards": 8,
+  "startDate": "2026-06-03",
+  "endDate": "2026-09-04",
+  "timeZone": "America/New_York",
+  "generatedAt": "2026-06-02T17:02:26.791Z"
+}

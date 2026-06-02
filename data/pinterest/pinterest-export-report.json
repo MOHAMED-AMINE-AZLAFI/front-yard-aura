@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "articles": 300,
+  "pins": 900,
+  "uniqueImages": 900,
+  "boards": 8,
+  "boardSlugs": [
+    "curb-appeal-landscaping-ideas",
+    "front-yard-flower-bed-ideas",
+    "front-yard-landscaping-on-a-budget",
+    "front-yard-landscaping-with-rocks",
+    "low-maintenance-front-yard-landscaping",
+    "modern-front-yard-landscaping",
+    "small-front-yard-landscaping-ideas",
+    "walkway-landscaping-ideas"
+  ],
+  "generatedAt": "2026-06-02T16:53:15.539Z",
+  "runtimeMs": 359
+}
