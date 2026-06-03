@@ -1,0 +1,1981 @@
+{
+  "ok": false,
+  "generated_at_utc": "2026-06-03T20:49:22.863Z",
+  "input": "data/pinterest/pinterest-pins.csv",
+  "total_pins_approved": 14,
+  "total_pins_rejected": 101,
+  "rejection_reasons": {
+    "missing_visible_house_exterior": 62,
+    "missing_landscaping_element": 30,
+    "missing_visible_front_yard": 30,
+    "missing_required_title_element": 5,
+    "architecture_dominates_frame": 1
+  },
+  "articles_needing_manual_images": 280,
+  "manual_articles": [
+    {
+      "article_slug": "brick-front-walkway-landscaping-ideas",
+      "article_title": "Brick Front Walkway Landscaping Ideas",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-landscaping-for-red-brick-homes; vehicle_or_distraction_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-curb-appeal-for-renters",
+      "article_title": "Budget Front Yard Curb Appeal for Renters",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:front-yard-annual-flower-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-flower-bed-makeover",
+      "article_title": "Budget Front Yard Flower Bed Makeover Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-gravel-path-ideas",
+      "article_title": "Budget Front Yard Gravel Path Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-cheap-border-plants",
+      "article_title": "Budget Front Yard Ideas With Cheap Border Plants",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-divided-perennials",
+      "article_title": "Budget Front Yard Ideas With Divided Perennials",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-diy-mailbox-bed",
+      "article_title": "Budget Front Yard Ideas With a DIY Mailbox Bed",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-diy-stepping-stones",
+      "article_title": "Budget Front Yard Ideas With DIY Stepping Stones",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-mulch-and-pots",
+      "article_title": "Budget Front Yard Ideas With Mulch and Pots",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-one-focal-planter",
+      "article_title": "Budget Front Yard Ideas With One Focal Planter",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-one-weekend-makeover",
+      "article_title": "Budget Front Yard Ideas With a One-Weekend Makeover",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-painted-planters",
+      "article_title": "Budget Front Yard Ideas With Painted Planters",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-reseeded-lawn-edges",
+      "article_title": "Budget Front Yard Ideas With Reseeded Lawn Edges",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; weak_front_yard_context; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-reused-brick",
+      "article_title": "Budget Front Yard Ideas With Reused Brick",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-secondhand-stone",
+      "article_title": "Budget Front Yard Ideas With Secondhand Stone",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-seed-grown-flowers",
+      "article_title": "Budget Front Yard Ideas With Seed-Grown Flowers",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-simple-stone-rings",
+      "article_title": "Budget Front Yard Ideas With Simple Stone Rings",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-simple-wood-edging",
+      "article_title": "Budget Front Yard Ideas With Simple Wood Edging",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-small-evergreens",
+      "article_title": "Budget Front Yard Ideas With Small Evergreens",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-ideas-with-solar-path-lights",
+      "article_title": "Budget Front Yard Ideas With Solar Path Lights",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-lawn-refresh-ideas",
+      "article_title": "Budget Front Yard Lawn Refresh Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; weak_front_yard_context; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-lighting-ideas",
+      "article_title": "Budget Front Yard Lighting Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-mailbox-makeover-ideas",
+      "article_title": "Budget Front Yard Mailbox Makeover Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-mulch-makeover-ideas",
+      "article_title": "Budget Front Yard Mulch Makeover Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-planter-and-container-ideas",
+      "article_title": "Budget Front Yard Planter and Container Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "budget-front-yard-plants-that-look-expensive",
+      "article_title": "Budget Front Yard Plants That Look Expensive",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "budget-front-yard-porch-planter-ideas",
+      "article_title": "Budget Front Yard Porch Planter Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "budget-front-yard-starter-landscaping-plan",
+      "article_title": "Budget Front Yard Starter Landscaping Plan",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "cheap-front-yard-curb-appeal-weekend-projects",
+      "article_title": "Cheap Front Yard Curb Appeal Weekend Projects",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "cheap-front-yard-rock-landscaping-ideas",
+      "article_title": "Cheap Front Yard Rock Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-black-houses",
+      "article_title": "Curb Appeal Landscaping for Black Houses",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-blue-houses",
+      "article_title": "Curb Appeal Landscaping for Blue Houses",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-craftsman-bungalows",
+      "article_title": "Curb Appeal Landscaping for Craftsman Bungalows",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-farmhouse-exteriors",
+      "article_title": "Curb Appeal Landscaping for Farmhouse Exteriors",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; missing_required_title_element; vehicle_or_distraction_pattern; people_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-gray-houses",
+      "article_title": "Curb Appeal Landscaping for Gray Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-small-ranch-houses",
+      "article_title": "Curb Appeal Landscaping for Small Ranch Houses",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-stone-houses",
+      "article_title": "Curb Appeal Landscaping for Stone Houses",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-tan-houses",
+      "article_title": "Curb Appeal Landscaping for Tan Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-for-white-farmhouses",
+      "article_title": "Curb Appeal Landscaping for White Farmhouses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; missing_required_title_element; vehicle_or_distraction_pattern; people_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-a-statement-tree",
+      "article_title": "Curb Appeal Landscaping With a Statement Tree",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; weak_front_yard_context; quality_score_below_threshold; vehicle_or_distraction_pattern"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-clean-lawn-stripes",
+      "article_title": "Curb Appeal Landscaping With Clean Lawn Stripes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; weak_front_yard_context; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-driveway-entry-pillars",
+      "article_title": "Curb Appeal Landscaping With Driveway Entry Pillars",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-front-yard-berms",
+      "article_title": "Curb Appeal Landscaping With Front Yard Berms",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context; people_pattern"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-front-yard-trees",
+      "article_title": "Curb Appeal Landscaping With Front Yard Trees",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-a-statement-tree; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context; people_pattern; vehicle_or_distraction_pattern"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-layered-porch-planters",
+      "article_title": "Curb Appeal Landscaping With Layered Porch Planters",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-mailbox-flower-beds",
+      "article_title": "Curb Appeal Landscaping With Mailbox Flower Beds",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-outdoor-lighting",
+      "article_title": "Curb Appeal Landscaping With Outdoor Lighting",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-seasonal-containers",
+      "article_title": "Curb Appeal Landscaping With Seasonal Containers",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-stone-pillars",
+      "article_title": "Curb Appeal Landscaping With Stone Pillars",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "curb-appeal-landscaping-with-symmetrical-planters",
+      "article_title": "Curb Appeal Landscaping With Symmetrical Planters",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "curved-front-walkway-landscaping-ideas",
+      "article_title": "Curved Front Walkway Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "drought-tolerant-front-yard-landscaping-ideas",
+      "article_title": "Drought-Tolerant Front Yard Landscaping Ideas That Still Feel Lush",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "flagstone-front-walkway-ideas",
+      "article_title": "Flagstone Front Walkway Ideas",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; duplicate_source_used_by:front-yard-luxury-curb-appeal-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-walkway-border-plants-that-stay-neat",
+      "article_title": "Front Walkway Border Plants That Stay Neat",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-flower-bed-ideas",
+      "article_title": "Front Walkway Flower Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-for-cottage-homes",
+      "article_title": "Front Walkway Ideas for Cottage Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-for-small-yards",
+      "article_title": "Front Walkway Ideas for Small Yards",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-bluestone-pavers",
+      "article_title": "Front Walkway Ideas With Bluestone Pavers",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-boxwood-and-lavender",
+      "article_title": "Front Walkway Ideas With Boxwood and Lavender",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-brick-and-gravel",
+      "article_title": "Front Walkway Ideas With Brick and Gravel",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; duplicate_source_used_by:brick-front-walkway-landscaping-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-landscaping-for-red-brick-homes; duplicate_source_used_by:modern-front-yard-horizontal-fence-landscaping; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-brick-steps",
+      "article_title": "Front Walkway Ideas With Brick Steps",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; duplicate_source_used_by:brick-front-walkway-landscaping-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-landscaping-for-red-brick-homes; vehicle_or_distraction_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-curved-brick-edging",
+      "article_title": "Front Walkway Ideas With Curved Brick Edging",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; duplicate_source_used_by:brick-front-walkway-landscaping-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-landscaping-for-red-brick-homes; vehicle_or_distraction_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-driveway-connection",
+      "article_title": "Front Walkway Ideas With Driveway Connection",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-flowering-groundcover",
+      "article_title": "Front Walkway Ideas With Flowering Groundcover",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-formal-hedges",
+      "article_title": "Front Walkway Ideas With Formal Hedges",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-lavender-borders",
+      "article_title": "Front Walkway Ideas With Lavender Borders",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-low-voltage-lighting",
+      "article_title": "Front Walkway Ideas With Low Voltage Lighting",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; duplicate_source_used_by:front-walkway-ideas-for-colonial-homes; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-mixed-border-planting",
+      "article_title": "Front Walkway Ideas With Mixed Border Planting",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-modern-gravel-joints",
+      "article_title": "Front Walkway Ideas With Modern Gravel Joints",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; duplicate_source_used_by:modern-front-yard-metal-edging-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-modern-slab-steps",
+      "article_title": "Front Walkway Ideas With Modern Slab Steps",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-pavers-and-gravel",
+      "article_title": "Front Walkway Ideas With Pavers and Gravel",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-porch-landing-planting",
+      "article_title": "Front Walkway Ideas With Porch Landing Planting",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-side-garden-beds",
+      "article_title": "Front Walkway Ideas With Side Garden Beds",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-soft-curbside-planting",
+      "article_title": "Front Walkway Ideas With Soft Curbside Planting",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-stepping-stones-and-grass",
+      "article_title": "Front Walkway Ideas With Stepping Stones and Grass",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:modern-front-yard-ornamental-grass-ideas; people_pattern; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:modern-front-yard-ideas-with-white-stone; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-stone-and-moss",
+      "article_title": "Front Walkway Ideas With Stone and Moss",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-ideas-with-wide-paver-steps",
+      "article_title": "Front Walkway Ideas With Wide Paver Steps",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-landscaping-with-boxwoods",
+      "article_title": "Front Walkway Landscaping With Boxwoods",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-lighting-ideas",
+      "article_title": "Front Walkway Lighting Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; duplicate_source_used_by:front-walkway-ideas-for-colonial-homes; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-walkway-stone-border-ideas",
+      "article_title": "Front Walkway Stone Border Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-basalt-rock-landscaping-ideas",
+      "article_title": "Front Yard Basalt Rock Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-before-and-after-makeover-ideas",
+      "article_title": "Front Yard Before and After Makeover Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-boulder-landscaping-ideas",
+      "article_title": "Front Yard Boulder Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-boxwood-and-flower-bed-ideas",
+      "article_title": "Front Yard Boxwood and Flower Bed Ideas",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-budget-makeover-plan",
+      "article_title": "A Simple Front Yard Budget Makeover Plan",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-circular-driveway-landscaping-ideas",
+      "article_title": "Front Yard Circular Driveway Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "front-yard-cottage-curb-appeal-ideas",
+      "article_title": "Front Yard Cottage Curb Appeal Ideas",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-cottage-flower-bed-ideas",
+      "article_title": "Front Yard Cottage Flower Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-craftsman-house-landscaping-ideas",
+      "article_title": "Craftsman House Front Yard Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-crushed-granite-landscaping-ideas",
+      "article_title": "Front Yard Crushed Granite Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-desert-landscaping-ideas",
+      "article_title": "Front Yard Desert Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-diy-edging-ideas-on-a-budget",
+      "article_title": "DIY Front Yard Edging Ideas on a Budget",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-driveway-border-landscaping-ideas",
+      "article_title": "Front Yard Driveway Border Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-dry-creek-bed-ideas",
+      "article_title": "Front Yard Dry Creek Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-entryway-landscaping-ideas",
+      "article_title": "Front Yard Entryway Landscaping Ideas",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:front-yard-cottage-curb-appeal-ideas; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "front-yard-fence-line-landscaping-ideas",
+      "article_title": "Front Yard Fence Line Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-color-combinations",
+      "article_title": "Front Yard Flower Bed Color Combinations",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-for-curb-appeal",
+      "article_title": "Front Yard Flower Bed Ideas for Instant Curb Appeal",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-for-mailbox-corners",
+      "article_title": "Front Yard Flower Bed Ideas for Mailbox Corners",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-for-ranch-houses",
+      "article_title": "Front Yard Flower Bed Ideas for Ranch Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; vehicle_or_distraction_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-for-shady-porches",
+      "article_title": "Front Yard Flower Bed Ideas for Shady Porches",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-for-white-houses",
+      "article_title": "Front Yard Flower Bed Ideas for White Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-blue-and-white-blooms",
+      "article_title": "Front Yard Flower Bed Ideas With Blue and White Blooms",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-brick-edging",
+      "article_title": "Front Yard Flower Bed Ideas With Brick Edging",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-curved-edging",
+      "article_title": "Front Yard Flower Bed Ideas With Curved Edging",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-evergreen-backdrops",
+      "article_title": "Front Yard Flower Bed Ideas With Evergreen Backdrops",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-evergreens",
+      "article_title": "Front Yard Flower Bed Ideas With Evergreens",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-pink-perennials",
+      "article_title": "Front Yard Flower Bed Ideas With Pink Perennials",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-purple-perennials",
+      "article_title": "Front Yard Flower Bed Ideas With Purple Perennials",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-flower-bed-ideas-with-yellow-accents",
+      "article_title": "Front Yard Flower Bed Ideas With Yellow Accents",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-foundation-planting-ideas-for-american-homes",
+      "article_title": "Front Yard Foundation Planting Ideas for American Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-gravel-garden-ideas",
+      "article_title": "Front Yard Gravel Garden Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-iris-bed-ideas",
+      "article_title": "Front Yard Iris Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-black-front-doors",
+      "article_title": "Front Yard Landscaping for Black Front Doors",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-brown-houses",
+      "article_title": "Front Yard Landscaping for Brown Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-charcoal-houses",
+      "article_title": "Front Yard Landscaping for Charcoal Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-cream-houses",
+      "article_title": "Front Yard Landscaping for Cream Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-green-houses",
+      "article_title": "Front Yard Landscaping for Green Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-light-gray-houses",
+      "article_title": "Front Yard Landscaping for Light Gray Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-red-brick-homes",
+      "article_title": "Front Yard Landscaping for Red Brick Homes",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-landscaping-for-yellow-houses",
+      "article_title": "Front Yard Landscaping for Yellow Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-landscaping-on-a-budget-expensive-look",
+      "article_title": "Front Yard Landscaping On A Budget That Still Looks Expensive",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-landscaping-under-500",
+      "article_title": "Front Yard Landscaping Ideas Under $500",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-landscaping-with-free-materials",
+      "article_title": "Front Yard Landscaping With Free and Reused Materials",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-lawn-edging-curb-appeal-ideas",
+      "article_title": "Front Yard Lawn Edging Ideas for Curb Appeal",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; weak_front_yard_context; vehicle_or_distraction_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-lighting-and-planting-ideas-for-evening-curb-appeal",
+      "article_title": "Front Yard Lighting and Planting Ideas for Evening Curb Appeal",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-limestone-landscaping-ideas",
+      "article_title": "Front Yard Limestone Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-luxury-curb-appeal-ideas",
+      "article_title": "Luxury Front Yard Curb Appeal Ideas",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-mailbox-landscaping-ideas",
+      "article_title": "Front Yard Mailbox Landscaping Ideas That Look Polished",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-minimalist-landscaping-ideas",
+      "article_title": "Minimalist Front Yard Landscaping Ideas",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-mulch-and-edging-ideas-for-clean-landscaping",
+      "article_title": "Front Yard Mulch and Edging Ideas for Clean Landscaping",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-native-flower-bed-ideas",
+      "article_title": "Front Yard Native Flower Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-pea-gravel-landscaping-ideas",
+      "article_title": "Front Yard Pea Gravel Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-peony-bed-ideas",
+      "article_title": "Front Yard Peony Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-perennial-flower-bed-ideas",
+      "article_title": "Front Yard Perennial Flower Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-pollinator-garden-ideas",
+      "article_title": "Front Yard Pollinator Garden Ideas That Look Polished",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-porch-curb-appeal-ideas",
+      "article_title": "Front Yard Porch Curb Appeal Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-privacy-landscaping-ideas-that-still-feel-open",
+      "article_title": "Front Yard Privacy Landscaping Ideas That Still Feel Open",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "front-yard-river-rock-landscaping-ideas",
+      "article_title": "Front Yard River Rock Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-and-mulch-landscaping",
+      "article_title": "Front Yard Rock and Mulch Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-border-ideas",
+      "article_title": "Front Yard Rock Border Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-garden-with-flowers",
+      "article_title": "Front Yard Rock Garden With Flowers",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-around-trees",
+      "article_title": "Front Yard Rock Landscaping Around Trees",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-for-brick-houses",
+      "article_title": "Front Yard Rock Landscaping for Brick Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; vehicle_or_distraction_pattern; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-for-corner-lots",
+      "article_title": "Front Yard Rock Landscaping for Corner Lots",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-for-modern-farmhouses",
+      "article_title": "Front Yard Rock Landscaping for Modern Farmhouses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-rock-garden-with-flowers; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-for-sloped-yards",
+      "article_title": "Front Yard Rock Landscaping for Sloped Yards",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-for-white-houses",
+      "article_title": "Front Yard Rock Landscaping for White Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-modern-ideas",
+      "article_title": "Front Yard Landscaping With Rocks That Looks Modern",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; duplicate_source_used_by:front-yard-rock-landscaping-for-sloped-yards; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-agave",
+      "article_title": "Front Yard Rock Landscaping With Agave",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-cactus-accents",
+      "article_title": "Front Yard Rock Landscaping With Cactus Accents",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-decomposed-granite",
+      "article_title": "Front Yard Rock Landscaping With Decomposed Granite",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-evergreen-shrubs",
+      "article_title": "Front Yard Rock Landscaping With Evergreen Shrubs",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-flagstone-paths",
+      "article_title": "Front Yard Rock Landscaping With Flagstone Paths",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-low-shrubs",
+      "article_title": "Front Yard Rock Landscaping With Low Shrubs",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-modern-pathways",
+      "article_title": "Front Yard Rock Landscaping With Modern Pathways",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-olive-trees",
+      "article_title": "Front Yard Rock Landscaping With Olive Trees",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-path-lights",
+      "article_title": "Front Yard Rock Landscaping With Path Lights",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-raised-stone-beds",
+      "article_title": "Front Yard Rock Landscaping With Raised Stone Beds",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-stone-retaining-edges",
+      "article_title": "Front Yard Rock Landscaping With Stone Retaining Edges",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-tan-gravel",
+      "article_title": "Front Yard Rock Landscaping With Tan Gravel",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "front-yard-rock-landscaping-with-yuccas",
+      "article_title": "Front Yard Rock Landscaping With Yuccas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-rose-garden-ideas",
+      "article_title": "Front Yard Rose Garden Ideas That Feel Refined",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-salvia-and-grass-bed-ideas",
+      "article_title": "Front Yard Salvia and Grass Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-seasonal-refresh-ideas-for-spring-and-fall",
+      "article_title": "Front Yard Seasonal Refresh Ideas for Spring and Fall",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-shade-flower-bed-ideas",
+      "article_title": "Front Yard Shade Flower Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-shade-landscaping-ideas",
+      "article_title": "Front Yard Shade Landscaping Ideas for Cooler, Softer Curb Appeal",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-side-yard-transition-landscaping",
+      "article_title": "Front Yard to Side Yard Transition Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-slate-chip-landscaping-ideas",
+      "article_title": "Front Yard Slate Chip Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-sloped-landscaping-ideas-with-retaining-walls",
+      "article_title": "Front Yard Sloped Landscaping Ideas With Retaining Walls",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-stone-steps-landscaping-ideas",
+      "article_title": "Front Yard Stone Steps Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-symmetry-landscaping-ideas",
+      "article_title": "Front Yard Symmetry Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-tree-ideas-for-curb-appeal-and-shade",
+      "article_title": "Front Yard Tree Ideas for Curb Appeal and Shade",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-yard-focal-points; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context; people_pattern"
+    },
+    {
+      "article_slug": "front-yard-tulip-bed-ideas",
+      "article_title": "Front Yard Tulip Bed Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-white-flower-landscaping-ideas",
+      "article_title": "Front Yard White Flower Landscaping Ideas for Elegant Curb Appeal",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-wildflower-bed-ideas",
+      "article_title": "Front Yard Wildflower Bed Ideas That Still Look Polished",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "front-yard-window-box-and-planter-ideas",
+      "article_title": "Front Yard Window Box and Planter Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:front-yard-cottage-curb-appeal-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "front-yard-woodland-landscaping-ideas",
+      "article_title": "Front Yard Woodland Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-evergreen-front-yard-ideas",
+      "article_title": "Low Maintenance Evergreen Front Yard Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-drip-irrigation-ideas",
+      "article_title": "Low Maintenance Front Yard Drip Irrigation Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-evergreen-border-ideas",
+      "article_title": "Low Maintenance Front Yard Evergreen Border Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-for-busy-homeowners",
+      "article_title": "Low Maintenance Front Yard Ideas for Busy Homeowners",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-for-cold-climates",
+      "article_title": "Low Maintenance Front Yard Ideas for Cold Climates",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-for-hot-climates",
+      "article_title": "Low Maintenance Front Yard Ideas for Hot Climates",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-for-dog-owners",
+      "article_title": "Low Maintenance Front Yard Ideas for Dog Owners",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-for-hoa-neighborhoods",
+      "article_title": "Low Maintenance Front Yard Ideas for HOA Neighborhoods",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-for-seniors",
+      "article_title": "Low Maintenance Front Yard Ideas for Seniors",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-artificial-turf",
+      "article_title": "Low Maintenance Front Yard Ideas With Artificial Turf",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-automatic-watering",
+      "article_title": "Low Maintenance Front Yard Ideas With Automatic Watering",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-boxwood-borders",
+      "article_title": "Low Maintenance Front Yard Ideas With Boxwood Borders",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-clover",
+      "article_title": "Low Maintenance Front Yard Ideas With Clover",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-compact-grasses",
+      "article_title": "Low Maintenance Front Yard Ideas With Compact Grasses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-decorative-gravel",
+      "article_title": "Low Maintenance Front Yard Ideas With Decorative Gravel",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-drought-smart-borders",
+      "article_title": "Low Maintenance Front Yard Ideas With Drought-Smart Borders",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-durable-paths",
+      "article_title": "Low Maintenance Front Yard Ideas With Durable Paths",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-dwarf-evergreens",
+      "article_title": "Low Maintenance Front Yard Ideas With Dwarf Evergreens",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-evergreen-foundation-plants",
+      "article_title": "Low Maintenance Front Yard Ideas With Evergreen Foundation Plants",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-evergreen-groundcovers",
+      "article_title": "Low Maintenance Front Yard Ideas With Evergreen Groundcovers",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-minimal-lawn",
+      "article_title": "Low Maintenance Front Yard Ideas With Minimal Lawn",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-mulch-pathways",
+      "article_title": "Low Maintenance Front Yard Ideas With Mulch Pathways",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-flower-bed-ideas-with-stone-edging; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; people_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-no-annuals",
+      "article_title": "Low Maintenance Front Yard Ideas With No Annuals",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-rain-garden-drainage",
+      "article_title": "Low Maintenance Front Yard Ideas With Rain Garden Drainage",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-rock-mulch",
+      "article_title": "Low Maintenance Front Yard Ideas With Rock Mulch",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-slow-growing-shrubs",
+      "article_title": "Low Maintenance Front Yard Ideas With Slow-Growing Shrubs",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-ideas-with-wide-mulch-beds",
+      "article_title": "Low Maintenance Front Yard Ideas With Wide Mulch Beds",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-landscaping-that-still-looks-premium",
+      "article_title": "Low Maintenance Front Yard Landscaping That Still Looks Premium",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-shrub-ideas",
+      "article_title": "Low Maintenance Front Yard Shrub Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-slope-ideas",
+      "article_title": "Low Maintenance Front Yard Slope Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-with-groundcover",
+      "article_title": "Low Maintenance Front Yard Groundcover Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-with-mulch",
+      "article_title": "Low Maintenance Front Yard Ideas With Mulch",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-with-native-plants",
+      "article_title": "Low Maintenance Front Yard Ideas With Native Plants",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "low-maintenance-front-yard-with-no-grass",
+      "article_title": "Low Maintenance Front Yard Ideas With No Grass",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-black-and-white-exterior-landscaping",
+      "article_title": "Modern Landscaping for Black and White Exteriors",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-corten-steel-landscaping-ideas",
+      "article_title": "Modern Front Yard Corten Steel Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-courtyard-ideas",
+      "article_title": "Modern Front Yard Courtyard Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-gravel-courtyard-ideas",
+      "article_title": "Modern Front Yard Gravel Courtyard Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-horizontal-fence-landscaping",
+      "article_title": "Modern Front Yard Landscaping With a Horizontal Fence",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; missing_required_title_element; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-for-flat-roof-homes",
+      "article_title": "Modern Front Yard Ideas for Flat Roof Homes",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-for-ranch-homes",
+      "article_title": "Modern Front Yard Ideas for Ranch Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; vehicle_or_distraction_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-black-mulch",
+      "article_title": "Modern Front Yard Ideas With Black Mulch",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-black-stone-borders",
+      "article_title": "Modern Front Yard Ideas With Black Stone Borders",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-boxwood-structure",
+      "article_title": "Modern Front Yard Ideas With Boxwood Structure",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; weak_front_yard_context; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-cedar-accents",
+      "article_title": "Modern Front Yard Ideas With Cedar Accents",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-concrete-planters",
+      "article_title": "Modern Front Yard Ideas With Concrete Planters",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-floating-steps",
+      "article_title": "Modern Front Yard Ideas With Floating Steps",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-glass-front-doors",
+      "article_title": "Modern Front Yard Ideas With Glass Front Doors",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-limestone-gravel",
+      "article_title": "Modern Front Yard Ideas With Limestone Gravel",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-linear-planting-beds",
+      "article_title": "Modern Front Yard Ideas With Linear Planting Beds",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds; people_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-boxwood-and-flower-bed-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-matte-black-planters",
+      "article_title": "Modern Front Yard Ideas With Matte Black Planters",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-porcelain-pavers",
+      "article_title": "Modern Front Yard Ideas With Porcelain Pavers",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-sculptural-trees",
+      "article_title": "Modern Front Yard Ideas With Sculptural Trees",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-soft-meadow-grasses",
+      "article_title": "Modern Front Yard Ideas With Soft Meadow Grasses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-warm-exterior-lighting",
+      "article_title": "Modern Front Yard Ideas With Warm Exterior Lighting",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-ideas-with-white-stone",
+      "article_title": "Modern Front Yard Ideas With White Stone",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-landscaping-clean-curb-appeal",
+      "article_title": "Modern Front Yard Landscaping Ideas for Clean Curb Appeal",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-luxury-curb-appeal-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-lighting-design-ideas",
+      "article_title": "Modern Front Yard Lighting Design Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-limestone-paver-ideas",
+      "article_title": "Modern Front Yard Limestone Paver Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-metal-edging-ideas",
+      "article_title": "Modern Front Yard Metal Edging Ideas",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; missing_required_title_element; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "modern-front-yard-planter-box-ideas",
+      "article_title": "Modern Front Yard Planter Box Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "modern-front-yard-privacy-screen-landscaping",
+      "article_title": "Modern Front Yard Privacy Screen Landscaping",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "modern-front-yard-succulent-and-rock-ideas",
+      "article_title": "Modern Front Yard Succulent and Rock Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses; weak_front_yard_context; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-rock-garden-with-flowers; people_pattern; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "modern-front-yard-water-feature-ideas",
+      "article_title": "Modern Front Yard Water Feature Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context; people_pattern"
+    },
+    {
+      "article_slug": "modern-front-yard-with-gravel-and-grasses",
+      "article_title": "Modern Front Yard Ideas With Gravel and Ornamental Grasses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "narrow-front-yard-landscaping-ideas",
+      "article_title": "Narrow Front Yard Landscaping Ideas That Feel Balanced",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:modern-front-yard-ideas-with-floating-steps; vehicle_or_distraction_pattern; duplicate_source_used_by:front-yard-flower-bed-ideas-with-stone-edging; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; weak_front_yard_context"
+    },
+    {
+      "article_slug": "ranch-house-front-yard-landscaping-ideas",
+      "article_title": "Ranch House Front Yard Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; vehicle_or_distraction_pattern; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-corner-lot-landscaping-ideas",
+      "article_title": "Small Front Yard Corner Lot Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:front-yard-flower-bed-ideas-with-stone-edging; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-courtyard-entry-ideas",
+      "article_title": "Small Front Yard Courtyard Entry Ideas",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-driveway-edge-landscaping-ideas",
+      "article_title": "Small Front Yard Driveway Edge Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-evergreen-landscaping-ideas",
+      "article_title": "Small Front Yard Evergreen Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-for-city-houses",
+      "article_title": "Small Front Yard Ideas for City Houses",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-for-townhomes",
+      "article_title": "Small Front Yard Ideas for Townhomes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-that-feel-larger",
+      "article_title": "Small Front Yard Ideas That Make a Home Feel Larger",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; duplicate_source_used_by:modern-front-yard-ideas-with-floating-steps; vehicle_or_distraction_pattern; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-a-narrow-lawn-strip",
+      "article_title": "Small Front Yard Ideas With a Narrow Lawn Strip",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:modern-front-yard-ornamental-grass-ideas; people_pattern; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-a-short-walkway",
+      "article_title": "Small Front Yard Ideas With a Short Walkway",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; duplicate_source_used_by:modern-front-yard-ornamental-grass-ideas; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-a-single-tree",
+      "article_title": "Small Front Yard Ideas With One Tree",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold; people_pattern"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-hydrangeas",
+      "article_title": "Small Front Yard Ideas With Hydrangeas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-low-privacy-planting",
+      "article_title": "Small Front Yard Ideas With Low Privacy Planting",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-raised-planters",
+      "article_title": "Small Front Yard Ideas With Raised Planters",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-sidewalk-to-door-flow",
+      "article_title": "Small Front Yard Ideas With Sidewalk to Door Flow",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:modern-front-yard-horizontal-fence-landscaping; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-skinny-foundation-beds",
+      "article_title": "Small Front Yard Ideas With Skinny Foundation Beds",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:front-yard-annual-flower-ideas; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-ideas-with-window-view-planting",
+      "article_title": "Small Front Yard Ideas With Window View Planting",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-brick-homes",
+      "article_title": "Small Front Yard Landscaping for Brick Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; vehicle_or_distraction_pattern; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-bungalows",
+      "article_title": "Small Front Yard Landscaping for Bungalows",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:modern-front-yard-concrete-walkway-ideas; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-cape-cod-homes",
+      "article_title": "Small Front Yard Landscaping for Cape Cod Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-duplex-homes",
+      "article_title": "Small Front Yard Landscaping for Duplex Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-narrow-brick-homes",
+      "article_title": "Small Front Yard Landscaping for Narrow Brick Homes",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-row-houses",
+      "article_title": "Small Front Yard Landscaping for Row Houses",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-split-level-homes",
+      "article_title": "Small Front Yard Landscaping for Split-Level Homes",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-two-story-homes",
+      "article_title": "Small Front Yard Landscaping for Two-Story Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:small-front-yard-landscaping-for-split-level-homes; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; vehicle_or_distraction_pattern; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-for-zero-lot-line-homes",
+      "article_title": "Small Front Yard Landscaping for Zero-Lot-Line Homes",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:small-front-yard-landscaping-for-split-level-homes; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-ideas-that-look-expensive; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-with-a-corner-porch",
+      "article_title": "Small Front Yard Landscaping With a Corner Porch",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-with-a-front-gate",
+      "article_title": "Small Front Yard Landscaping With a Front Gate",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:modern-front-yard-horizontal-fence-landscaping; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-with-a-shared-driveway",
+      "article_title": "Small Front Yard Landscaping With a Shared Driveway",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-landscaping-with-porch-steps",
+      "article_title": "Small Front Yard Landscaping With Porch Steps",
+      "approved_pins": "2",
+      "rejected_pins": "1",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:modern-front-yard-ideas-with-floating-steps; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-raised-bed-landscaping-ideas",
+      "article_title": "Small Front Yard Raised Bed Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:front-yard-annual-flower-ideas; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-sidewalk-landscaping-ideas",
+      "article_title": "Small Front Yard Sidewalk Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:modern-front-yard-ornamental-grass-ideas; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "small-front-yard-walkway-and-porch-ideas",
+      "article_title": "Small Front Yard Walkway and Porch Ideas",
+      "approved_pins": "1",
+      "rejected_pins": "2",
+      "rejection_reasons": "needs_more_approved_sources; duplicate_source_used_by:front-yard-minimalist-landscaping-ideas; duplicate_source_used_by:small-front-yard-ideas-for-city-houses; duplicate_source_used_by:small-front-yard-landscaping-with-porch-steps; duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; duplicate_source_used_by:narrow-front-yard-landscaping-ideas; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses"
+    },
+    {
+      "article_slug": "small-front-yard-without-grass-ideas",
+      "article_title": "Small Front Yard Ideas Without Grass",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; vehicle_or_distraction_pattern; duplicate_source_used_by:front-yard-annual-flower-ideas; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; duplicate_source_used_by:curb-appeal-landscaping-for-blue-houses; duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways; people_pattern; quality_score_below_threshold; weak_front_yard_context"
+    },
+    {
+      "article_slug": "straight-front-walkway-landscaping-ideas",
+      "article_title": "Straight Front Walkway Landscaping Ideas",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    },
+    {
+      "article_slug": "walkway-landscaping-ideas-for-a-polished-entry",
+      "article_title": "Walkway Landscaping Ideas for a Polished Front Entry",
+      "approved_pins": "0",
+      "rejected_pins": "3",
+      "rejection_reasons": "no_approved_image_source; missing_required_title_element; duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows; duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors; weak_front_yard_context; quality_score_below_threshold"
+    }
+  ],
+  "outputs": {
+    "csv": "data/pinterest/pin-image-quality-audit.csv",
+    "report": "data/pinterest/pin-image-quality-audit-report.json"
+  }
+}

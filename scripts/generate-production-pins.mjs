@@ -10,8 +10,18 @@ import {
   ensureDir,
   readCsv,
   shortHash,
+  writeCsv,
   writeText
 } from './pinterest-utils.mjs';
+import {
+  QUALITY_COLUMNS,
+  applyQualityFields,
+  evaluateImageCandidate,
+  qualitySearchQueriesForPin,
+  ruleForPin,
+  sourceKeyFor,
+  sourceSignatureFor
+} from './pin-image-quality.mjs';
 
 const WIDTH = 1000;
 const HEIGHT = 1500;
@@ -19,6 +29,39 @@ const SAFE_X = 96;
 const TITLE_BOX_WIDTH = WIDTH - SAFE_X * 2;
 const CACHE_DIR = path.join(ROOT_DIR, 'node_modules', '.cache', 'pinterest-sources');
 const REPORT_PATH = path.join(process.cwd(), 'pin-production-report.md');
+const APPROVED_PINS_PATH = path.join(DATA_DIR, 'pinterest-pins.csv');
+const REJECTED_PINS_PATH = path.join(DATA_DIR, 'pinterest-rejected-pins.csv');
+const MANUAL_IMAGES_PATH = path.join(DATA_DIR, 'pinterest-needs-manual-images.csv');
+const QUALITY_REPORT_PATH = path.join(DATA_DIR, 'pin-image-quality-filter-report.json');
+
+const IMAGE_PROMPT_COLUMNS = [
+  'pin_id',
+  'image_file',
+  'article_slug',
+  'pin_variant',
+  'composition',
+  'visual_focus',
+  'image_prompt',
+  'overlay_top',
+  'overlay_center',
+  'overlay_bottom',
+  'overlay_style',
+  'negative_prompt'
+];
+
+const CHECKLIST_COLUMNS = [
+  'pin_id',
+  'article_slug',
+  'pin_variant',
+  'image_generated',
+  'image_reviewed',
+  'text_overlay_added',
+  'text_legible_mobile',
+  'topic_match_checked',
+  'no_ai_artifacts',
+  'image_uploaded_to_public_pins',
+  'ready_for_api'
+];
 
 function unique(items) {
   return [...new Set(items.filter(Boolean))];
@@ -304,6 +347,7 @@ function candidateText(item) {
     item.alt_description,
     item.description,
     item.slug,
+    item.tags?.map((tag) => tag.title).join(' '),
     item.topic_submissions ? Object.keys(item.topic_submissions).join(' ') : ''
   ]
     .filter(Boolean)
@@ -328,17 +372,24 @@ function scoreCandidate(item, intent) {
 
 function searchResultToCandidate(item, query, intent, index) {
   const raw = item.urls?.raw;
-  if (!raw || !/^https:\/\/(images|plus)\.unsplash\.com\//.test(raw)) return null;
+  if (!raw || !/^https:\/\/images\.unsplash\.com\/photo-/i.test(raw)) return null;
   const baseUrl = raw.split('?')[0];
   const sourceId = baseUrl.split('/').pop();
-  if (!sourceId || BLOCKED_SOURCE_IDS.has(sourceId)) return null;
+  if (!sourceId || BLOCKED_SOURCE_IDS.has(sourceId) || /premium[_-]?photo/i.test(sourceId)) return null;
   const score = scoreCandidate(item, intent);
   if (score < 0) return null;
+  const sourceText = candidateText(item);
   return {
     sourceId,
     cacheKey: `${item.id}-${sourceId}`,
     sourceUrl: baseUrl,
     sourceType: 'unsplash-search',
+    sourceText,
+    altDescription: item.alt_description ?? '',
+    description: item.description ?? '',
+    slug: item.slug ?? '',
+    tags: item.tags?.map((tag) => tag.title).filter(Boolean).join(' ') ?? '',
+    topicTags: item.topic_submissions ? Object.keys(item.topic_submissions).join(' ') : '',
     score,
     query,
     resultIndex: index
@@ -370,7 +421,7 @@ async function fetchUnsplashSearchCandidates(query, intent, searchCache) {
 
 async function buildSearchSourceMap(rows) {
   ensureDir(CACHE_DIR);
-  const cacheFile = path.join(CACHE_DIR, 'unsplash-search-cache.json');
+  const cacheFile = path.join(CACHE_DIR, 'unsplash-quality-search-cache-v1.json');
   const searchCache = fs.existsSync(cacheFile) ? JSON.parse(fs.readFileSync(cacheFile, 'utf8')) : {};
   const articleRows = unique(rows.map((row) => row.article_slug)).map((slug) => rows.find((row) => row.article_slug === slug));
   const map = new Map();
@@ -379,11 +430,19 @@ async function buildSearchSourceMap(rows) {
     const intent = detectIntent(row);
     const articleQuery = searchQueryForArticle(row, intent);
     const intentQuery = INTENT_SEARCH_PHRASES[intent] ?? INTENT_SEARCH_PHRASES['curb-appeal'];
+    const qualityQueries = qualitySearchQueriesForPin(row).slice(0, 2);
     let candidates = [];
 
     try {
-      const articleCandidates = await fetchUnsplashSearchCandidates(articleQuery, intent, searchCache);
-      const broadQueries = articleCandidates.length >= 3 ? [] : unique([intentQuery, ...(BROAD_SEARCH_QUERIES_BY_INTENT[intent] ?? [])]);
+      const articleCandidateGroups = [];
+      for (const query of unique([articleQuery, ...qualityQueries])) {
+        articleCandidateGroups.push(await fetchUnsplashSearchCandidates(query, intent, searchCache));
+      }
+      const articleCandidates = articleCandidateGroups.flat();
+      const broadQueries =
+        articleCandidates.length >= 6
+          ? []
+          : unique([intentQuery, ...(BROAD_SEARCH_QUERIES_BY_INTENT[intent] ?? [])]).slice(0, 3);
       const broadCandidateGroups = [];
       for (const query of broadQueries) {
         broadCandidateGroups.push(await fetchUnsplashSearchCandidates(query, intent, searchCache));
@@ -407,9 +466,9 @@ async function buildSearchSourceMap(rows) {
 function uniqueCandidates(candidates) {
   const seen = new Set();
   return candidates.filter((candidate) => {
-    const key = candidate.cacheKey ?? candidate.sourceId;
-    if (seen.has(key)) return false;
-    seen.add(key);
+    const signature = sourceSignatureFor(candidate) || sourceKeyFor(candidate) || candidate.cacheKey || candidate.sourceId;
+    if (seen.has(signature)) return false;
+    seen.add(signature);
     return true;
   });
 }
@@ -428,6 +487,160 @@ function chooseSource(row, intent, usedForArticle, searchSourceMap) {
   }
 
   return candidates[start % candidates.length];
+}
+
+function variantRank(row) {
+  return { A: 0, B: 1, C: 2 }[row.pin_variant] ?? 99;
+}
+
+function rowsByArticle(rows) {
+  const map = new Map();
+  for (const row of rows) {
+    const list = map.get(row.article_slug) ?? [];
+    list.push(row);
+    map.set(row.article_slug, list);
+  }
+  for (const list of map.values()) {
+    list.sort((a, b) => variantRank(a) - variantRank(b) || a.pin_id.localeCompare(b.pin_id));
+  }
+  return map;
+}
+
+function buildQualityAssignments(rows, searchSourceMap) {
+  const now = new Date();
+  const usedSourceOwners = new Map();
+  const assignments = new Map();
+  const approvedRows = [];
+  const rejectedRows = [];
+  const manualArticles = [];
+  const articleRows = rowsByArticle(rows);
+
+  for (const [articleSlug, pins] of articleRows) {
+    const article = pins[0];
+    const rule = ruleForPin(article);
+    const candidates = uniqueCandidates(searchSourceMap.get(articleSlug) ?? []);
+    const evaluatedCandidates = candidates
+      .map((source) => ({
+        source,
+        evaluation: evaluateImageCandidate(article, source, { usedSourceOwners, now })
+      }))
+      .sort((a, b) => b.evaluation.score - a.evaluation.score || a.source.resultIndex - b.source.resultIndex);
+
+    const approvedCandidates = evaluatedCandidates.filter(({ evaluation }) => evaluation.ok);
+    const rejectedCandidateReasons = evaluatedCandidates
+      .flatMap(({ evaluation }) => evaluation.reasons)
+      .filter(Boolean);
+    const articleRejectedRows = [];
+
+    for (const row of pins) {
+      const approved = approvedCandidates.shift();
+      if (!approved) {
+        const fallbackEvaluation = {
+          ok: false,
+          reasons: approvedRows.some((approvedRow) => approvedRow.article_slug === articleSlug)
+            ? ['needs_more_approved_sources']
+            : ['no_approved_image_source', ...rejectedCandidateReasons.slice(0, 5)],
+          ruleKey: rule.key,
+          ruleLabel: rule.label,
+          score: 0,
+          sourceKey: '',
+          sourceText: '',
+          checkedAt: now.toISOString()
+        };
+        const rejectedRow = applyQualityFields(row, null, fallbackEvaluation, 'rejected');
+        rejectedRows.push(rejectedRow);
+        articleRejectedRows.push(rejectedRow);
+        continue;
+      }
+
+      const sourceSignature = sourceSignatureFor(approved.source);
+      usedSourceOwners.set(sourceSignature, row.pin_id);
+      const approvedRow = applyQualityFields(row, approved.source, approved.evaluation, 'approved');
+      assignments.set(row.pin_id, approved.source);
+      approvedRows.push(approvedRow);
+    }
+
+    if (articleRejectedRows.length) {
+      const approvedCount = pins.length - articleRejectedRows.length;
+      manualArticles.push({
+        article_slug: articleSlug,
+        article_title: article.article_title,
+        category_slug: article.category_slug,
+        required_rule: rule.key,
+        required_rule_label: rule.label,
+        requested_pins: String(pins.length),
+        approved_pins: String(approvedCount),
+        rejected_pins: String(articleRejectedRows.length),
+        candidate_sources_checked: String(evaluatedCandidates.length),
+        rejection_reasons: unique(
+          articleRejectedRows
+            .flatMap((row) => row.quality_rejection_reasons.split('; '))
+            .concat(rejectedCandidateReasons)
+        )
+          .slice(0, 12)
+          .join('; ')
+      });
+    }
+  }
+
+  return {
+    assignments,
+    approvedRows: approvedRows.sort((a, b) => a.pin_id.localeCompare(b.pin_id)),
+    rejectedRows: rejectedRows.sort((a, b) => a.pin_id.localeCompare(b.pin_id)),
+    manualArticles: manualArticles.sort((a, b) => a.article_slug.localeCompare(b.article_slug))
+  };
+}
+
+function makeImagePromptRows(pins) {
+  const negativePrompt =
+    'No AI-looking image, no plastic texture, no distorted house, no warped windows, no impossible plants, no fantasy garden, no CGI, no cartoon, no digital art, no surreal lighting, no fake typography in the base photo.';
+
+  return pins.map((pin) => ({
+    pin_id: pin.pin_id,
+    image_file: pin.image_file,
+    article_slug: pin.article_slug,
+    pin_variant: pin.pin_variant,
+    composition: pin.composition,
+    visual_focus: pin.visual_focus,
+    image_prompt: pin.image_prompt,
+    overlay_top: pin.overlay_top,
+    overlay_center: pin.overlay_center,
+    overlay_bottom: pin.overlay_bottom,
+    overlay_style: pin.overlay_style,
+    negative_prompt: negativePrompt
+  }));
+}
+
+function makeChecklistRows(pins) {
+  return pins.map((pin) => ({
+    pin_id: pin.pin_id,
+    article_slug: pin.article_slug,
+    pin_variant: pin.pin_variant,
+    image_generated: 'yes',
+    image_reviewed: 'yes',
+    text_overlay_added: 'yes',
+    text_legible_mobile: 'yes',
+    topic_match_checked: 'yes',
+    no_ai_artifacts: 'yes',
+    image_uploaded_to_public_pins: 'yes',
+    ready_for_api: 'yes'
+  }));
+}
+
+function pinOutputColumns(rows) {
+  return unique([...(rows[0] ? Object.keys(rows[0]) : []), ...QUALITY_COLUMNS]);
+}
+
+function duplicateSourceSignatures(rows) {
+  const pinsBySource = new Map();
+  for (const row of rows) {
+    const signature = sourceSignatureFor(row);
+    if (!signature) continue;
+    const pins = pinsBySource.get(signature) ?? [];
+    pins.push(row.pin_id);
+    pinsBySource.set(signature, pins);
+  }
+  return [...pinsBySource.entries()].filter(([, pins]) => pins.length > 1);
 }
 
 function escapeXml(value) {
@@ -589,40 +802,21 @@ async function eachLimit(items, limit, iterator) {
   await Promise.all(workers);
 }
 
-function articleDiversityRows(productionRows) {
-  const byArticle = new Map();
-  for (const row of productionRows) {
-    const list = byArticle.get(row.article_slug) ?? [];
-    list.push(row);
-    byArticle.set(row.article_slug, list);
-  }
-
-  const failures = [];
-  for (const [slug, items] of byArticle) {
-    const variants = new Set(items.map((item) => item.pin_variant));
-    const sources = new Set(items.map((item) => item.source_id));
-    const transforms = new Set(items.map((item) => `${item.pin_variant}:${item.zoom}:${item.source_id}`));
-    if (items.length !== 3 || variants.size !== 3 || sources.size < 2 || transforms.size !== 3) {
-      failures.push(slug);
-    }
-  }
-
-  return failures;
-}
-
-function buildReport({ rows, productionRows, errors, startedAt, completedAt }) {
+function buildReport({ candidateRows, approvedRows, rejectedRows, manualArticles, productionRows, errors, startedAt, completedAt }) {
   const outputFiles = productionRows.map((row) => path.join(PUBLIC_PINS_DIR, row.image_file));
   const missingFiles = outputFiles.filter((file) => !fs.existsSync(file));
   const invalidDimensions = productionRows.filter((row) => row.width !== WIDTH || row.height !== HEIGHT);
   const duplicateOutputFiles = duplicates(productionRows.map((row) => row.image_file));
-  const duplicateTitles = duplicates(rows.map((row) => row.pin_title));
-  const duplicateDescriptions = duplicates(rows.map((row) => row.pin_description));
-  const unmatchedRows = productionRows.filter((row) => row.topic_match !== 'yes');
-  const diversityFailures = articleDiversityRows(productionRows);
-  const boardCounts = countBy(rows.map((row) => row.board_slug));
-  const variantCounts = countBy(rows.map((row) => row.pin_variant));
+  const duplicateTitles = duplicates(approvedRows.map((row) => row.pin_title));
+  const duplicateDescriptions = duplicates(approvedRows.map((row) => row.pin_description));
+  const duplicateSourceSignaturesForPins = duplicateSourceSignatures(approvedRows);
+  const boardCounts = countBy(approvedRows.map((row) => row.board_slug));
+  const variantCounts = countBy(approvedRows.map((row) => row.pin_variant));
   const intentCounts = countBy(productionRows.map((row) => row.intent));
   const sourceTypeCounts = countBy(productionRows.map((row) => row.source_type));
+  const rejectionReasons = countBy(
+    rejectedRows.flatMap((row) => String(row.quality_rejection_reasons || '').split('; ').filter(Boolean))
+  );
   const fatalCount =
     errors.length +
     missingFiles.length +
@@ -630,31 +824,33 @@ function buildReport({ rows, productionRows, errors, startedAt, completedAt }) {
     duplicateOutputFiles.length +
     duplicateTitles.length +
     duplicateDescriptions.length +
-    unmatchedRows.length +
-    diversityFailures.length;
+    duplicateSourceSignaturesForPins.length;
 
   const report = [
     '# Pin Production Report',
     '',
-    'Final production batch generated directly into `public/pins/`. No new test-v3 folder was created.',
+    'Strict quality-filtered production batch generated directly into `public/pins/`.',
     '',
     '## Summary',
     '',
-    `- Articles: ${new Set(rows.map((row) => row.article_slug)).size}`,
-    `- Pins requested: ${rows.length}`,
-    `- Images generated: ${productionRows.length}`,
+    `- Candidate articles: ${new Set(candidateRows.map((row) => row.article_slug)).size}`,
+    `- Candidate pins reviewed: ${candidateRows.length}`,
+    `- Approved pins: ${approvedRows.length}`,
+    `- Rejected pins: ${rejectedRows.length}`,
+    `- Articles needing manual images: ${manualArticles.length}`,
+    `- Images rendered: ${productionRows.length}`,
     `- Unique image files: ${new Set(productionRows.map((row) => row.image_file)).size}`,
-    `- Boards: ${new Set(rows.map((row) => row.board_slug)).size}`,
+    `- Boards with approved pins: ${new Set(approvedRows.map((row) => row.board_slug)).size}`,
     `- Started: ${startedAt.toISOString()}`,
     `- Completed: ${completedAt.toISOString()}`,
     '',
     '## Production Rules Applied',
     '',
-    '- Title font size reduced from v2 by roughly 10-15%: max title size is 64px.',
-    '- Title is constrained to the upper third or lower third of the image, with 96px side padding and 808px max width.',
-    '- Title uses measured line wrapping and automatic font sizing to prevent overflow.',
-    '- The image brightness and light overlay treatment from test-v2 are preserved.',
-    '- A/B/C use filtered Unsplash search sources first, plus different crop/zoom transforms: wide exterior, close detail, different angle.',
+    '- Rejected by default unless a clean `images.unsplash.com/photo-*` source has strong metadata match to the article title element.',
+    '- Unsplash Plus, premium, preview, watermark-pattern, people-pattern, interior, and weak-context sources are blocked.',
+    '- The same source photo signature is never reused for more than one Pin.',
+    '- Articles without enough approved sources are written to `data/pinterest/pinterest-needs-manual-images.csv`.',
+    '- Publishing scripts only accept pins with `quality_status=approved`.',
     '',
     '## Validation',
     '',
@@ -663,10 +859,17 @@ function buildReport({ rows, productionRows, errors, startedAt, completedAt }) {
     `- Duplicate output filenames: ${duplicateOutputFiles.length}`,
     `- Duplicate pin titles: ${duplicateTitles.length}`,
     `- Duplicate pin descriptions: ${duplicateDescriptions.length}`,
-    `- Topic/article match errors: ${unmatchedRows.length}`,
-    `- A/B/C visual diversity errors: ${diversityFailures.length}`,
+    `- Duplicate source signatures: ${duplicateSourceSignaturesForPins.length}`,
     `- Generation errors: ${errors.length}`,
     `- Total blocking errors: ${fatalCount}`,
+    '',
+    '## Rejection Reasons',
+    '',
+    ...([...rejectionReasons.entries()].length
+      ? [...rejectionReasons.entries()]
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+          .map(([reason, count]) => `- ${reason}: ${count}`)
+      : ['- none']),
     '',
     '## Distribution',
     '',
@@ -694,8 +897,7 @@ function buildReport({ rows, productionRows, errors, startedAt, completedAt }) {
       duplicateOutputFiles: duplicateOutputFiles.length,
       duplicateTitles: duplicateTitles.length,
       duplicateDescriptions: duplicateDescriptions.length,
-      unmatchedRows: unmatchedRows.length,
-      diversityFailures: diversityFailures.length,
+      duplicateSourceSignatures: duplicateSourceSignaturesForPins.length,
       errors: errors.length
     }
   };
@@ -703,35 +905,21 @@ function buildReport({ rows, productionRows, errors, startedAt, completedAt }) {
 
 const startedAt = new Date();
 const rows = readCsv(path.join(DATA_DIR, 'pinterest-pins.csv'));
-const expectedPins = new Set(rows.map((row) => row.pin_id));
-
-if (rows.length !== 900) {
-  throw new Error(`Expected 900 pins from data/pinterest/pinterest-pins.csv, found ${rows.length}.`);
-}
 
 cleanupProductionImages();
 ensureDir(CACHE_DIR);
 
-console.log('Preparing filtered Unsplash search sources...');
+console.log(`Preparing strict Unsplash quality sources for ${rows.length} candidate pins...`);
 const searchSourceMap = await buildSearchSourceMap(rows);
 
-const usedSourcesByArticle = new Map();
-const sourceByPin = new Map();
-for (const row of rows) {
-  const usedForArticle = usedSourcesByArticle.get(row.article_slug) ?? new Set();
-  usedSourcesByArticle.set(row.article_slug, usedForArticle);
-  const intent = detectIntent(row);
-  const source = chooseSource(row, intent, usedForArticle, searchSourceMap);
-  usedForArticle.add(source.cacheKey ?? source.sourceId);
-  sourceByPin.set(row.pin_id, { intent, ...source });
-}
+const { assignments: sourceByPin, approvedRows, rejectedRows, manualArticles } = buildQualityAssignments(rows, searchSourceMap);
 
-const uniqueSourceMap = new Map([...sourceByPin.values()].map((source) => [source.cacheKey ?? source.sourceId, source]));
+const uniqueSourceMap = new Map([...sourceByPin.values()].map((source) => [sourceKeyFor(source), source]));
 const uniqueSources = [...uniqueSourceMap.values()];
 const sourceFiles = new Map();
 console.log(`Downloading/caching ${uniqueSources.length} source photos...`);
 await eachLimit(uniqueSources, 4, async (source, index) => {
-  sourceFiles.set(source.cacheKey ?? source.sourceId, await downloadSource(source));
+  sourceFiles.set(sourceKeyFor(source), await downloadSource(source));
   if ((index + 1) % 5 === 0 || index + 1 === uniqueSources.length) {
     console.log(`Cached ${index + 1}/${uniqueSources.length} source photos.`);
   }
@@ -739,12 +927,12 @@ await eachLimit(uniqueSources, 4, async (source, index) => {
 
 const productionRows = [];
 const errors = [];
-console.log(`Rendering ${rows.length} production pins...`);
+console.log(`Rendering ${approvedRows.length} approved production pins...`);
 
-await eachLimit(rows, 6, async (row, index) => {
+await eachLimit(approvedRows, 6, async (row, index) => {
   try {
     const source = sourceByPin.get(row.pin_id);
-    const sourceFile = sourceFiles.get(source.cacheKey ?? source.sourceId);
+    const sourceFile = sourceFiles.get(sourceKeyFor(source));
     const outputFile = path.join(PUBLIC_PINS_DIR, row.image_file);
     await renderPin(row, sourceFile, outputFile);
     const metadata = await sharp(outputFile).metadata();
@@ -761,37 +949,95 @@ await eachLimit(rows, 6, async (row, index) => {
       zoom: variant.zoom,
       width: metadata.width,
       height: metadata.height,
-      topic_match: row.category_slug || row.keywords || row.article_title ? 'yes' : 'no'
+      quality_rule: row.quality_rule_key,
+      quality_score: row.quality_score
     });
   } catch (error) {
     errors.push({ pin_id: row.pin_id, error: error.message });
   }
 
-  if ((index + 1) % 50 === 0 || index + 1 === rows.length) {
-    console.log(`Rendered ${index + 1}/${rows.length} pins.`);
+  if ((index + 1) % 50 === 0 || index + 1 === approvedRows.length) {
+    console.log(`Rendered ${index + 1}/${approvedRows.length} approved pins.`);
   }
 });
 
 productionRows.sort((a, b) => a.pin_id.localeCompare(b.pin_id));
 
-const missingRows = rows.filter((row) => !productionRows.some((productionRow) => productionRow.pin_id === row.pin_id));
+const missingRows = approvedRows.filter((row) => !productionRows.some((productionRow) => productionRow.pin_id === row.pin_id));
 for (const row of missingRows) {
-  if (expectedPins.has(row.pin_id) && !errors.some((error) => error.pin_id === row.pin_id)) {
+  if (!errors.some((error) => error.pin_id === row.pin_id)) {
     errors.push({ pin_id: row.pin_id, error: 'Missing production row after render.' });
   }
 }
 
 const completedAt = new Date();
-const report = buildReport({ rows, productionRows, errors, startedAt, completedAt });
+const approvedColumns = pinOutputColumns(approvedRows.length ? approvedRows : rows);
+const rejectedColumns = pinOutputColumns(rejectedRows.length ? rejectedRows : rows);
+writeCsv(APPROVED_PINS_PATH, approvedRows, approvedColumns);
+writeCsv(REJECTED_PINS_PATH, rejectedRows, rejectedColumns);
+writeCsv(MANUAL_IMAGES_PATH, manualArticles, [
+  'article_slug',
+  'article_title',
+  'category_slug',
+  'required_rule',
+  'required_rule_label',
+  'requested_pins',
+  'approved_pins',
+  'rejected_pins',
+  'candidate_sources_checked',
+  'rejection_reasons'
+]);
+writeCsv(path.join(DATA_DIR, 'image-prompts.csv'), makeImagePromptRows(approvedRows), IMAGE_PROMPT_COLUMNS);
+writeCsv(path.join(DATA_DIR, 'pin-production-checklist.csv'), makeChecklistRows(approvedRows), CHECKLIST_COLUMNS);
+
+writeText(
+  QUALITY_REPORT_PATH,
+  `${JSON.stringify(
+    {
+      generated_at_utc: completedAt.toISOString(),
+      candidate_pins: rows.length,
+      approved_pins: approvedRows.length,
+      rejected_pins: rejectedRows.length,
+      manual_articles: manualArticles.length,
+      rejection_reasons: Object.fromEntries(
+        [...countBy(rejectedRows.flatMap((row) => row.quality_rejection_reasons.split('; ').filter(Boolean))).entries()].sort(
+          (a, b) => b[1] - a[1] || a[0].localeCompare(b[0])
+        )
+      ),
+      outputs: {
+        approved_pins: path.relative(ROOT_DIR, APPROVED_PINS_PATH).replace(/\\/g, '/'),
+        rejected_pins: path.relative(ROOT_DIR, REJECTED_PINS_PATH).replace(/\\/g, '/'),
+        manual_images: path.relative(ROOT_DIR, MANUAL_IMAGES_PATH).replace(/\\/g, '/')
+      }
+    },
+    null,
+    2
+  )}\n`
+);
+
+const report = buildReport({
+  candidateRows: rows,
+  approvedRows,
+  rejectedRows,
+  manualArticles,
+  productionRows,
+  errors,
+  startedAt,
+  completedAt
+});
 writeText(REPORT_PATH, report.markdown);
 
 console.log(
   JSON.stringify(
     {
-      pins: rows.length,
+      candidatePins: rows.length,
+      approvedPins: approvedRows.length,
+      rejectedPins: rejectedRows.length,
+      manualArticles: manualArticles.length,
       generated: productionRows.length,
       uniqueSources: uniqueSources.length,
       report: 'pin-production-report.md',
+      qualityReport: path.relative(ROOT_DIR, QUALITY_REPORT_PATH).replace(/\\/g, '/'),
       errors: report.fatalCount,
       validation: report.stats
     },

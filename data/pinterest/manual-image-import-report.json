@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "generatedAt": "2026-06-03T21:14:01.889Z",
+  "dryRun": true,
+  "scheduleRebuilt": false,
+  "input": "manual-image-import-template.csv",
+  "templateRows": 0,
+  "approvedImports": 0,
+  "rejectedImports": 0,
+  "renderedImages": 0,
+  "approvedPinsTotal": 115,
+  "rejectedPinsTotal": 785,
+  "rejectionReasons": {},
+  "errors": [],
+  "schedule": {
+    "ok": true,
+    "status": 0,
+    "stdout": "",
+    "stderr": "dry_run_no_schedule_rebuild"
+  }
+}

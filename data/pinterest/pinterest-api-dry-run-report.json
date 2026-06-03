@@ -2,98 +2,151 @@
   "dryRun": true,
   "sandbox": false,
   "endpoint": "https://api.pinterest.com/v5",
-  "candidates": 5,
+  "envLoaded": true,
+  "schedule_date": "2026-06-04",
+  "scheduled_today": 5,
+  "pending_today": 5,
+  "daily_cap": 5,
+  "selected": 5,
   "published": 0,
   "previewed": 5,
+  "skipped": 0,
   "errors": 0,
-  "runtime": "255ms",
+  "delay_ms": 15000,
+  "history_file": "data\\pinterest\\published-history.json",
+  "runtime": "66ms",
   "results": [
     {
-      "pin_id": "budget-front-yard-mailbox-makeover-ideas-a",
+      "pin_id": "front-walkway-ideas-with-stepping-stones-and-grass-a",
+      "schedule_id": "schedule-front-walkway-ideas-with-stepping-stones-and-grass-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
+      "board_slug": "walkway-landscaping-ideas",
+      "board_id": "1086493547544393195",
+      "board_configured": true,
+      "image": {
+        "source_type": "image_url",
+        "image_url": "https://frontyardaura.com/pins/front-walkway-ideas-with-stepping-stones-and-grass-pin-a-1ifme.jpg",
+        "image_file": "front-walkway-ideas-with-stepping-stones-and-grass-pin-a-1ifme.jpg"
+      },
       "payload": {
-        "board_id": "dry-run-board-id:front-yard-landscaping-on-a-budget",
-        "title": "Budget Front Yard Mailbox Makeover Ideas: Hero Curb Appeal View",
-        "description": "See the full-property view for Budget Front Yard Mailbox Makeover Ideas: mailbox flower bed, budget-friendly landscaping, simple materials, clean edging, real American curb appeal, natural light, and practical front yard landscaping ideas. Budget Front Yard Mailbox Makeover Ideas with small planting pockets, fresh paint, and a sharper first impression, natural light, and a polished Pinterest-ready look.",
-        "link": "https://frontyardaura.com/blog/budget-front-yard-mailbox-makeover-ideas/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Budget Front Yard Mailbox Makeover Ideas, showing mailbox flower bed, budget-friendly landscaping, simple materials around a realistic American home.",
+        "board_id": "1086493547544393195",
+        "title": "Front Walkway Ideas With Stepping Stones and Grass: Hero Curb Appeal View",
+        "description": "See the full-property view for Front Walkway Ideas With Stepping Stones and Grass: stepping stone walkway, rocks, gravel, boulders, real American curb appeal, natural light, and practical front yard landscaping ideas. Front Walkway Ideas With Stepping Stones and Grass with relaxed movement, soft lawn joints, and natural front entry flow, natural light, and a polished Pinterest-ready look.",
+        "link": "https://frontyardaura.com/blog/front-walkway-ideas-with-stepping-stones-and-grass/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Front Walkway Ideas With Stepping Stones and Grass, showing stepping stone walkway, rocks, gravel around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/budget-front-yard-mailbox-makeover-ideas-pin-a-4dhh4.jpg",
+          "url": "https://frontyardaura.com/pins/front-walkway-ideas-with-stepping-stones-and-grass-pin-a-1ifme.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "low-maintenance-evergreen-front-yard-ideas-a",
+      "pin_id": "modern-front-yard-horizontal-fence-landscaping-a",
+      "schedule_id": "schedule-modern-front-yard-horizontal-fence-landscaping-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
+      "board_slug": "modern-front-yard-landscaping",
+      "board_id": "1086493547544393187",
+      "board_configured": true,
+      "image": {
+        "source_type": "image_url",
+        "image_url": "https://frontyardaura.com/pins/modern-front-yard-horizontal-fence-landscaping-pin-a-rpw68.jpg",
+        "image_file": "modern-front-yard-horizontal-fence-landscaping-pin-a-rpw68.jpg"
+      },
       "payload": {
-        "board_id": "dry-run-board-id:low-maintenance-front-yard-landscaping",
-        "title": "Evergreen Front Yard Ideas: Hero Curb Appeal View",
-        "description": "See the full-property view for Low Maintenance Evergreen Front Yard Ideas: evergreen foundation planting, simple landscaping, minimal shrubs, gravel yards, real American curb appeal, natural light, and practical front yard landscaping ideas. Low maintenance evergreen front yard landscaping ideas with shrubs, structure, and polished curb appeal.",
-        "link": "https://frontyardaura.com/blog/low-maintenance-evergreen-front-yard-ideas/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Low Maintenance Evergreen Front Yard Ideas, showing evergreen foundation planting, simple landscaping, minimal shrubs around a realistic American home.",
+        "board_id": "1086493547544393187",
+        "title": "Modern Horizontal Fence Landscaping: Hero Curb Appeal View",
+        "description": "See the full-property view for Modern Front Yard Landscaping With a Horizontal Fence: modern American home, clean lines, architectural planting, restrained hardscape, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Horizontal Fence Landscaping with privacy screens, grasses, and clean planting, realistic photography, and polished Pinterest-ready curb appeal.",
+        "link": "https://frontyardaura.com/blog/modern-front-yard-horizontal-fence-landscaping/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Modern Front Yard Landscaping With a Horizontal Fence, showing modern American home, clean lines, architectural planting around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/low-maintenance-evergreen-front-yard-ideas-pin-a-1pd6r.jpg",
+          "url": "https://frontyardaura.com/pins/modern-front-yard-horizontal-fence-landscaping-pin-a-rpw68.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "modern-front-yard-concrete-walkway-ideas-a",
+      "pin_id": "small-front-yard-ideas-with-sidewalk-to-door-flow-a",
+      "schedule_id": "schedule-small-front-yard-ideas-with-sidewalk-to-door-flow-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
+      "board_slug": "small-front-yard-landscaping-ideas",
+      "board_id": "1086493547544393183",
+      "board_configured": true,
+      "image": {
+        "source_type": "image_url",
+        "image_url": "https://frontyardaura.com/pins/small-front-yard-ideas-with-sidewalk-to-door-flow-pin-a-1nlyq.jpg",
+        "image_file": "small-front-yard-ideas-with-sidewalk-to-door-flow-pin-a-1nlyq.jpg"
+      },
       "payload": {
-        "board_id": "dry-run-board-id:modern-front-yard-landscaping",
-        "title": "Modern Concrete Walkway Ideas: Hero Curb Appeal View",
-        "description": "See the full-property view for Modern Concrete Walkway Ideas for Front Yards: concrete walkway, pavers, walkways, garden paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Concrete Walkway Ideas with slab paths, lawn joints, and architectural planting, realistic photography, and polished Pinterest-ready curb appeal.",
-        "link": "https://frontyardaura.com/blog/modern-front-yard-concrete-walkway-ideas/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Modern Concrete Walkway Ideas for Front Yards, showing concrete walkway, pavers, walkways around a realistic American home.",
+        "board_id": "1086493547544393183",
+        "title": "Small Front Yard Ideas With Sidewalk to Door Flow: Hero Curb Appeal View",
+        "description": "See the full-property view for Small Front Yard Ideas With Sidewalk to Door Flow: pavers, walkways, garden paths, entrance paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Small Front Yard Ideas With Sidewalk to Door Flow with clear movement, soft borders, and compact entry rhythm, natural light, and a polished Pinterest-ready front yard look.",
+        "link": "https://frontyardaura.com/blog/small-front-yard-ideas-with-sidewalk-to-door-flow/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Small Front Yard Ideas With Sidewalk to Door Flow, showing pavers, walkways, garden paths around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/modern-front-yard-concrete-walkway-ideas-pin-a-1avd5.jpg",
+          "url": "https://frontyardaura.com/pins/small-front-yard-ideas-with-sidewalk-to-door-flow-pin-a-1nlyq.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "front-yard-sloped-landscaping-ideas-with-retaining-walls-a",
+      "pin_id": "modern-front-yard-paver-ideas-a",
+      "schedule_id": "schedule-modern-front-yard-paver-ideas-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
+      "board_slug": "modern-front-yard-landscaping",
+      "board_id": "1086493547544393187",
+      "board_configured": true,
+      "image": {
+        "source_type": "image_url",
+        "image_url": "https://frontyardaura.com/pins/modern-front-yard-paver-ideas-pin-a-vtqf2.jpg",
+        "image_file": "modern-front-yard-paver-ideas-pin-a-vtqf2.jpg"
+      },
       "payload": {
-        "board_id": "dry-run-board-id:front-yard-landscaping-with-rocks",
-        "title": "Sloped Front Yard Landscaping Ideas: Hero Curb Appeal View",
-        "description": "See the full-property view for Front Yard Sloped Landscaping Ideas With Retaining Walls: stone retaining edge, rocks, gravel, boulders, real American curb appeal, natural light, and practical front yard landscaping ideas. Sloped front yard landscaping ideas with retaining walls, stone steps, rocks, and layered planting for curb appeal.",
-        "link": "https://frontyardaura.com/blog/front-yard-sloped-landscaping-ideas-with-retaining-walls/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Front Yard Sloped Landscaping Ideas With Retaining Walls, showing stone retaining edge, rocks, gravel around a realistic American home.",
+        "board_id": "1086493547544393187",
+        "title": "Modern Front Yard Paver Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Modern Front Yard Paver Ideas: paver walkway, pavers, walkways, garden paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Front Yard Paver Ideas with large-format pavers, gravel joints, and clean lines, realistic photography, and polished Pinterest-ready curb appeal.",
+        "link": "https://frontyardaura.com/blog/modern-front-yard-paver-ideas/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Modern Front Yard Paver Ideas, showing paver walkway, pavers, walkways around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/front-yard-sloped-landscaping-ideas-with-retaining-walls-pin-a-1tial.jpg",
+          "url": "https://frontyardaura.com/pins/modern-front-yard-paver-ideas-pin-a-vtqf2.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "low-maintenance-front-yard-for-cold-climates-a",
+      "pin_id": "modern-front-yard-ideas-with-floating-steps-a",
+      "schedule_id": "schedule-modern-front-yard-ideas-with-floating-steps-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
+      "board_slug": "modern-front-yard-landscaping",
+      "board_id": "1086493547544393187",
+      "board_configured": true,
+      "image": {
+        "source_type": "image_url",
+        "image_url": "https://frontyardaura.com/pins/modern-front-yard-ideas-with-floating-steps-pin-a-vj76i.jpg",
+        "image_file": "modern-front-yard-ideas-with-floating-steps-pin-a-vj76i.jpg"
+      },
       "payload": {
-        "board_id": "dry-run-board-id:low-maintenance-front-yard-landscaping",
-        "title": "Cold Climate Front Yard Ideas: Hero Curb Appeal View",
-        "description": "See the full-property view for Low Maintenance Front Yard Ideas for Cold Climates: simple landscaping, minimal shrubs, gravel yards, easy care garden structure, real American curb appeal, natural light, and practical front yard landscaping ideas. Cold Climate Front Yard Ideas with evergreens, winter structure, and durable beds, realistic photography, and polished Pinterest-ready curb appeal.",
-        "link": "https://frontyardaura.com/blog/low-maintenance-front-yard-for-cold-climates/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Low Maintenance Front Yard Ideas for Cold Climates, showing simple landscaping, minimal shrubs, gravel yards around a realistic American home.",
+        "board_id": "1086493547544393187",
+        "title": "Modern Front Yard Ideas With Floating Steps: Hero Curb Appeal View",
+        "description": "See the full-property view for Modern Front Yard Ideas With Floating Steps: pavers, walkways, garden paths, entrance paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Front Yard Ideas With Floating Steps with lightweight entry movement, stone texture, and sculptural planting, realistic photography, and a Pinterest-ready front yard look.",
+        "link": "https://frontyardaura.com/blog/modern-front-yard-ideas-with-floating-steps/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Modern Front Yard Ideas With Floating Steps, showing pavers, walkways, garden paths around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/low-maintenance-front-yard-for-cold-climates-pin-a-1g0y5.jpg",
+          "url": "https://frontyardaura.com/pins/modern-front-yard-ideas-with-floating-steps-pin-a-vj76i.jpg",
           "is_standard": true
         }
       }

@@ -14,6 +14,7 @@ import {
   writeCsv,
   writeText
 } from './pinterest-utils.mjs';
+import { QUALITY_COLUMNS } from './pin-image-quality.mjs';
 
 const PIN_COLUMNS = [
   'pin_id',
@@ -39,7 +40,8 @@ const PIN_COLUMNS = [
   'composition',
   'visual_focus',
   'quality_rules',
-  'compliance_notes'
+  'compliance_notes',
+  ...QUALITY_COLUMNS
 ];
 
 const IMAGE_PROMPT_COLUMNS = [
@@ -379,7 +381,18 @@ function makePins(posts) {
         composition: variant.composition,
         visual_focus: variant.visualFocus,
         quality_rules: 'Ultra realistic; photorealistic; DSLR photography; natural lighting; real American homes; real landscaping; real textures; professional architectural photography; Pinterest worthy; magazine quality.',
-        compliance_notes: 'No browser automation, no login automation, no follow/like/comment automation, official Pinterest API publishing only after manual image review.'
+        compliance_notes: 'Candidate only. Do not publish until scripts/generate-production-pins.mjs assigns quality_status=approved after strict image-source filtering.',
+        quality_status: 'candidate',
+        quality_rejection_reasons: 'requires_strict_image_quality_filter',
+        quality_rule_key: '',
+        quality_rule_label: '',
+        quality_score: '',
+        quality_source_id: '',
+        quality_source_key: '',
+        quality_source_type: '',
+        quality_source_url: '',
+        quality_source_text: '',
+        quality_checked_at: ''
       });
     });
   }

@@ -61,8 +61,10 @@ function timeSlotsForDay(date, count, seed) {
   });
 }
 
-function dailyLimit(dayIndex) {
-  return dayIndex < 7 ? 5 : 10;
+function dailyLimit(dayIndex, uniqueArticleCount = Number.POSITIVE_INFINITY) {
+  const baseLimit = dayIndex < 7 ? 5 : 10;
+  const weeklyNoRepeatLimit = Math.max(1, Math.floor(uniqueArticleCount / 7));
+  return Math.min(baseLimit, weeklyNoRepeatLimit);
 }
 
 function buildRemainingPins(pins, seed) {
@@ -83,22 +85,26 @@ function pickNextPin(remaining, usedArticleSlugs) {
 
 function createSchedule(pins, { startDate, timeZone, seed }) {
   const remaining = buildRemainingPins(pins, seed);
+  const uniqueArticleCount = new Set(pins.map((pin) => pin.article_slug)).size;
   const schedule = [];
   const usedByWeek = new Map();
   let dayIndex = 0;
 
   while (remaining.length) {
     const date = addDays(startDate, dayIndex);
-    const count = Math.min(dailyLimit(dayIndex), remaining.length);
+    const count = Math.min(dailyLimit(dayIndex, uniqueArticleCount), remaining.length);
     const times = timeSlotsForDay(date, count, seed);
     const weekIndex = Math.floor(dayIndex / 7) + 1;
     const usedThisWeek = usedByWeek.get(weekIndex) ?? new Set();
     usedByWeek.set(weekIndex, usedThisWeek);
+    let advancedToNextWeek = false;
 
     for (let slotIndex = 0; slotIndex < count; slotIndex += 1) {
       const pin = pickNextPin(remaining, usedThisWeek);
       if (!pin) {
-        throw new Error(`Cannot satisfy no-repeat weekly rule for week ${weekIndex}.`);
+        dayIndex = weekIndex * 7;
+        advancedToNextWeek = true;
+        break;
       }
 
       usedThisWeek.add(pin.article_slug);
@@ -124,6 +130,7 @@ function createSchedule(pins, { startDate, timeZone, seed }) {
       });
     }
 
+    if (advancedToNextWeek) continue;
     dayIndex += 1;
   }
 
@@ -133,6 +140,7 @@ function createSchedule(pins, { startDate, timeZone, seed }) {
 function validateSchedule(pins, schedule) {
   const errors = [];
   const warnings = [];
+  const uniqueArticleCount = new Set(pins.map((pin) => pin.article_slug)).size;
 
   const scheduledPins = new Set(schedule.map((row) => row.pin_id));
   if (scheduledPins.size !== pins.length) errors.push(`Expected ${pins.length} scheduled pins, found ${scheduledPins.size}.`);
@@ -162,7 +170,7 @@ function validateSchedule(pins, schedule) {
   }
 
   for (const [dayIndex, count] of dayCounts) {
-    const limit = dayIndex <= 7 ? 5 : 10;
+    const limit = dailyLimit(dayIndex - 1, uniqueArticleCount);
     if (count > limit) errors.push(`Day ${dayIndex} has ${count} pins, over limit ${limit}.`);
   }
 

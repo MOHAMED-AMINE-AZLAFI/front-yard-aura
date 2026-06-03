@@ -1,0 +1,22 @@
+name = "front-yard-aura-pinterest-publisher"
+main = "src/index.js"
+compatibility_date = "2026-06-03"
+workers_dev = true
+
+[triggers]
+crons = ["15 14 * * *"]
+
+[vars]
+# Safe default: cron runs in dry-run mode until this is changed to "false".
+DRY_RUN = "true"
+DAILY_CAP = "5"
+SCHEDULE_TIME_ZONE = "America/New_York"
+
+[[kv_namespaces]]
+binding = "PINTEREST_HISTORY"
+# Replace these after creating the KV namespace:
+# cd workers/pinterest-publisher
+# npx wrangler kv namespace create PINTEREST_HISTORY
+# npx wrangler kv namespace create PINTEREST_HISTORY --preview
+id = "2b35f5546ea9495baf6703609331e99c"
+preview_id = "2b35f5546ea9495baf6703609331e99c"

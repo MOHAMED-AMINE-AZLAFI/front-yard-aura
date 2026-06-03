@@ -1,0 +1,377 @@
+
+> front-yard-aura@0.1.0 build
+> astro check && astro build
+
+[2m22:30:34[22m [34m[content][39m Syncing content
+[2m22:30:34[22m [34m[content][39m Synced content
+[2m22:30:34[22m [34m[types][39m Generated [2m706ms[22m
+[2m22:30:34[22m [34m[check][39m Getting diagnostics for Astro files in C:\Users\amine\Desktop\Front Yard Aura...
+[96mscripts/generate-production-pins.mjs[0m:[93m476[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'chooseSource' is declared but its value is never read.
+
+[7m476[0m function chooseSource(row, intent, usedForArticle, searchSourceMap) {
+[7m   [0m [93m         ~~~~~~~~~~~~[0m
+
+[96mworkers/pinterest-publisher/src/index.js[0m:[93m242[0m:[93m26[0m - [93mwarning[0m[90m ts(6133): [0m'scheduleRow' is declared but its value is never read.
+
+[7m242[0m function payloadFor(pin, scheduleRow, boardId) {
+[7m   [0m [93m                         ~~~~~~~~~~~[0m
+
+Result (67 files): 
+- 0 errors
+- 0 warnings
+- 2 hints
+
+[2m22:30:44[22m [34m[content][39m Syncing content
+[2m22:30:44[22m [34m[content][39m Synced content
+[2m22:30:44[22m [34m[types][39m Generated [2m641ms[22m
+[2m22:30:44[22m [34m[build][39m output: [34m"static"[39m
+[2m22:30:44[22m [34m[build][39m mode: [34m"static"[39m
+[2m22:30:44[22m [34m[build][39m directory: [34mC:\Users\amine\Desktop\Front Yard Aura\dist\[39m
+[2m22:30:44[22m [34m[build][39m Collecting build info...
+[2m22:30:44[22m [34m[build][39m [32m✓ Completed in 716ms.[39m
+[2m22:30:44[22m [34m[build][39m Building static entrypoints...
+[2m22:30:57[22m [34m[vite][39m [32m✓ built in 12.47s[39m
+[2m22:30:57[22m [34m[build][39m [32m✓ Completed in 12.52s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m22:30:57[22m [34m[vite][39m transforming...
+[2m22:30:57[22m [34m[vite][39m [32m✓[39m 5 modules transformed.
+[2m22:30:57[22m [34m[vite][39m rendering chunks...
+[2m22:30:57[22m [34m[vite][39m computing gzip size...
+[2m22:30:57[22m [34m[vite][39m [2mdist/[22m[36m_astro/page.D1uwR3nK.js  [39m[1m[2m2.24 kB[22m[1m[22m[2m │ gzip: 1.01 kB[22m
+[2m22:30:57[22m [34m[vite][39m [32m✓ built in 38ms[39m
+
+[42m[30m generating static routes [39m[49m
+[2m22:30:57[22m [32m▶[39m src/pages/about.astro
+[2m22:30:57[22m   [34m└─[39m [2m/about/index.html[22m [2m(+13ms)[22m 
+[2m22:30:58[22m [32m▶[39m src/pages/blog/index.astro
+[2m22:30:58[22m   [34m└─[39m [2m/blog/index.html[22m [31m(+8.13s)[39m 
+[2m22:31:06[22m [32m▶[39m src/pages/blog/[...slug].astro
+[2m22:31:06[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-ideas-that-look-expensive/index.html[22m [31m(+1.45s)[39m 
+[2m22:31:07[22m   [34m├─[39m [2m/blog/front-yard-lighting-and-planting-ideas-for-evening-curb-appeal/index.html[22m [31m(+1.32s)[39m 
+[2m22:31:09[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-for-curb-appeal/index.html[22m [31m(+1.31s)[39m 
+[2m22:31:10[22m   [34m├─[39m [2m/blog/front-yard-landscaping-on-a-budget-expensive-look/index.html[22m [31m(+1.39s)[39m 
+[2m22:31:11[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-modern-ideas/index.html[22m [31m(+1.20s)[39m 
+[2m22:31:13[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-landscaping-that-still-looks-premium/index.html[22m [31m(+1.38s)[39m 
+[2m22:31:14[22m   [34m├─[39m [2m/blog/front-yard-mulch-and-edging-ideas-for-clean-landscaping/index.html[22m [31m(+1.29s)[39m 
+[2m22:31:15[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-that-feel-larger/index.html[22m [31m(+1.31s)[39m 
+[2m22:31:17[22m   [34m├─[39m [2m/blog/modern-front-yard-landscaping-clean-curb-appeal/index.html[22m [31m(+1.33s)[39m 
+[2m22:31:18[22m   [34m├─[39m [2m/blog/walkway-landscaping-ideas-for-a-polished-entry/index.html[22m [31m(+1.24s)[39m 
+[2m22:31:19[22m   [34m├─[39m [2m/blog/budget-front-yard-planter-and-container-ideas/index.html[22m [31m(+1.08s)[39m 
+[2m22:31:20[22m   [34m├─[39m [2m/blog/front-yard-foundation-planting-ideas-for-american-homes/index.html[22m [31m(+1.14s)[39m 
+[2m22:31:21[22m   [34m├─[39m [2m/blog/front-yard-privacy-landscaping-ideas-that-still-feel-open/index.html[22m [31m(+1.17s)[39m 
+[2m22:31:23[22m   [34m├─[39m [2m/blog/front-yard-pathway-border-ideas-with-plants/index.html[22m [31m(+1.09s)[39m 
+[2m22:31:24[22m   [34m├─[39m [2m/blog/front-yard-tree-ideas-for-curb-appeal-and-shade/index.html[22m [31m(+1.04s)[39m 
+[2m22:31:25[22m   [34m├─[39m [2m/blog/front-yard-seasonal-refresh-ideas-for-spring-and-fall/index.html[22m [31m(+1.17s)[39m 
+[2m22:31:26[22m   [34m├─[39m [2m/blog/front-yard-sloped-landscaping-ideas-with-retaining-walls/index.html[22m [31m(+1.23s)[39m 
+[2m22:31:27[22m   [34m├─[39m [2m/blog/low-maintenance-evergreen-front-yard-ideas/index.html[22m [31m(+1.07s)[39m 
+[2m22:31:28[22m   [34m├─[39m [2m/blog/modern-front-yard-with-gravel-and-grasses/index.html[22m [31m(+1.20s)[39m 
+[2m22:31:29[22m   [34m├─[39m [2m/blog/small-front-yard-corner-lot-landscaping-ideas/index.html[22m [31m(+1.09s)[39m 
+[2m22:31:31[22m   [34m├─[39m [2m/blog/front-yard-driveway-border-landscaping-ideas/index.html[22m [31m(+1.07s)[39m 
+[2m22:31:32[22m   [34m├─[39m [2m/blog/drought-tolerant-front-yard-landscaping-ideas/index.html[22m [31m(+1.16s)[39m 
+[2m22:31:33[22m   [34m├─[39m [2m/blog/front-yard-mailbox-landscaping-ideas/index.html[22m [31m(+1.10s)[39m 
+[2m22:31:34[22m   [34m├─[39m [2m/blog/front-yard-shade-landscaping-ideas/index.html[22m [31m(+1.06s)[39m 
+[2m22:31:35[22m   [34m├─[39m [2m/blog/front-yard-white-flower-landscaping-ideas/index.html[22m [31m(+1.15s)[39m 
+[2m22:31:36[22m   [34m├─[39m [2m/blog/ranch-house-front-yard-landscaping-ideas/index.html[22m [31m(+1.02s)[39m 
+[2m22:31:37[22m   [34m├─[39m [2m/blog/budget-front-yard-flower-bed-makeover/index.html[22m [31m(+1.32s)[39m 
+[2m22:31:38[22m   [34m├─[39m [2m/blog/budget-front-yard-lighting-ideas/index.html[22m [31m(+1.31s)[39m 
+[2m22:31:40[22m   [34m├─[39m [2m/blog/cheap-front-yard-rock-landscaping-ideas/index.html[22m [31m(+1.27s)[39m 
+[2m22:31:41[22m   [34m├─[39m [2m/blog/cheap-front-yard-curb-appeal-weekend-projects/index.html[22m [31m(+1.39s)[39m 
+[2m22:31:42[22m   [34m├─[39m [2m/blog/curved-front-walkway-landscaping-ideas/index.html[22m [31m(+1.32s)[39m 
+[2m22:31:44[22m   [34m├─[39m [2m/blog/front-walkway-ideas-for-small-yards/index.html[22m [31m(+1.25s)[39m 
+[2m22:31:45[22m   [34m├─[39m [2m/blog/front-walkway-flower-bed-ideas/index.html[22m [31m(+1.29s)[39m 
+[2m22:31:46[22m   [34m├─[39m [2m/blog/front-walkway-lighting-ideas/index.html[22m [31m(+1.28s)[39m 
+[2m22:31:48[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-pavers-and-gravel/index.html[22m [31m(+1.31s)[39m 
+[2m22:31:49[22m   [34m├─[39m [2m/blog/front-walkway-landscaping-with-boxwoods/index.html[22m [31m(+1.27s)[39m 
+[2m22:31:50[22m   [34m├─[39m [2m/blog/front-yard-annual-flower-ideas/index.html[22m [31m(+1.38s)[39m 
+[2m22:31:52[22m   [34m├─[39m [2m/blog/front-yard-before-and-after-makeover-ideas/index.html[22m [31m(+1.38s)[39m 
+[2m22:31:53[22m   [34m├─[39m [2m/blog/front-walkway-stone-border-ideas/index.html[22m [31m(+1.29s)[39m 
+[2m22:31:54[22m   [34m├─[39m [2m/blog/front-yard-boulder-landscaping-ideas/index.html[22m [31m(+1.30s)[39m 
+[2m22:31:56[22m   [34m├─[39m [2m/blog/front-yard-cottage-curb-appeal-ideas/index.html[22m [31m(+1.30s)[39m 
+[2m22:31:57[22m   [34m├─[39m [2m/blog/front-yard-circular-driveway-landscaping-ideas/index.html[22m [31m(+1.27s)[39m 
+[2m22:31:58[22m   [34m├─[39m [2m/blog/front-yard-budget-makeover-plan/index.html[22m [31m(+1.34s)[39m 
+[2m22:31:59[22m   [34m├─[39m [2m/blog/front-yard-desert-landscaping-ideas/index.html[22m [31m(+1.39s)[39m 
+[2m22:32:01[22m   [34m├─[39m [2m/blog/front-yard-craftsman-house-landscaping-ideas/index.html[22m [31m(+1.26s)[39m 
+[2m22:32:02[22m   [34m├─[39m [2m/blog/front-yard-diy-edging-ideas-on-a-budget/index.html[22m [31m(+1.27s)[39m 
+[2m22:32:03[22m   [34m├─[39m [2m/blog/front-yard-fence-line-landscaping-ideas/index.html[22m [31m(+1.41s)[39m 
+[2m22:32:05[22m   [34m├─[39m [2m/blog/front-yard-entryway-landscaping-ideas/index.html[22m [31m(+1.29s)[39m 
+[2m22:32:06[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-around-tree/index.html[22m [31m(+1.36s)[39m 
+[2m22:32:07[22m   [34m├─[39m [2m/blog/front-yard-flower-border-along-walkway/index.html[22m [31m(+1.37s)[39m 
+[2m22:32:09[22m   [34m├─[39m [2m/blog/front-yard-hydrangea-bed-ideas/index.html[22m [31m(+1.36s)[39m 
+[2m22:32:10[22m   [34m├─[39m [2m/blog/front-yard-gravel-garden-ideas/index.html[22m [31m(+1.31s)[39m 
+[2m22:32:12[22m   [34m├─[39m [2m/blog/front-yard-landscaping-under-500/index.html[22m [31m(+1.31s)[39m 
+[2m22:32:13[22m   [34m├─[39m [2m/blog/front-yard-landscaping-with-free-materials/index.html[22m [31m(+1.33s)[39m 
+[2m22:32:14[22m   [34m├─[39m [2m/blog/front-yard-lavender-landscaping-ideas/index.html[22m [31m(+1.33s)[39m 
+[2m22:32:16[22m   [34m├─[39m [2m/blog/front-yard-lawn-edging-curb-appeal-ideas/index.html[22m [31m(+1.32s)[39m 
+[2m22:32:17[22m   [34m├─[39m [2m/blog/front-yard-luxury-curb-appeal-ideas/index.html[22m [31m(+1.27s)[39m 
+[2m22:32:18[22m   [34m├─[39m [2m/blog/front-yard-minimalist-landscaping-ideas/index.html[22m [31m(+1.24s)[39m 
+[2m22:32:19[22m   [34m├─[39m [2m/blog/front-yard-perennial-flower-bed-ideas/index.html[22m [31m(+1.48s)[39m 
+[2m22:32:21[22m   [34m├─[39m [2m/blog/front-yard-porch-curb-appeal-ideas/index.html[22m [31m(+1.31s)[39m 
+[2m22:32:22[22m   [34m├─[39m [2m/blog/front-yard-pollinator-garden-ideas/index.html[22m [31m(+1.66s)[39m 
+[2m22:32:24[22m   [34m├─[39m [2m/blog/front-yard-rock-and-mulch-landscaping/index.html[22m [31m(+1.34s)[39m 
+[2m22:32:25[22m   [34m├─[39m [2m/blog/front-yard-river-rock-landscaping-ideas/index.html[22m [31m(+1.33s)[39m 
+[2m22:32:26[22m   [34m├─[39m [2m/blog/front-yard-rock-border-ideas/index.html[22m [31m(+1.33s)[39m 
+[2m22:32:28[22m   [34m├─[39m [2m/blog/front-yard-rock-garden-with-flowers/index.html[22m [31m(+1.23s)[39m 
+[2m22:32:29[22m   [34m├─[39m [2m/blog/front-yard-rose-garden-ideas/index.html[22m [31m(+1.34s)[39m 
+[2m22:32:30[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-around-trees/index.html[22m [31m(+1.28s)[39m 
+[2m22:32:32[22m   [34m├─[39m [2m/blog/front-yard-shade-flower-bed-ideas/index.html[22m [31m(+1.23s)[39m 
+[2m22:32:33[22m   [34m├─[39m [2m/blog/front-yard-side-yard-transition-landscaping/index.html[22m [31m(+1.14s)[39m 
+[2m22:32:34[22m   [34m├─[39m [2m/blog/front-yard-stepping-stone-walkway-ideas/index.html[22m [31m(+1.14s)[39m 
+[2m22:32:35[22m   [34m├─[39m [2m/blog/front-yard-symmetry-landscaping-ideas/index.html[22m [31m(+1.19s)[39m 
+[2m22:32:36[22m   [34m├─[39m [2m/blog/front-yard-wildflower-bed-ideas/index.html[22m [31m(+1.22s)[39m 
+[2m22:32:38[22m   [34m├─[39m [2m/blog/front-yard-stone-steps-landscaping-ideas/index.html[22m [31m(+1.29s)[39m 
+[2m22:32:39[22m   [34m├─[39m [2m/blog/front-yard-window-box-and-planter-ideas/index.html[22m [31m(+1.18s)[39m 
+[2m22:32:40[22m   [34m├─[39m [2m/blog/front-yard-woodland-landscaping-ideas/index.html[22m [31m(+1.81s)[39m 
+[2m22:32:42[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-for-busy-homeowners/index.html[22m [31m(+1.47s)[39m 
+[2m22:32:43[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-for-cold-climates/index.html[22m [31m(+1.38s)[39m 
+[2m22:32:45[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-for-hot-climates/index.html[22m [31m(+1.32s)[39m 
+[2m22:32:46[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-shrub-ideas/index.html[22m [31m(+1.29s)[39m 
+[2m22:32:47[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-with-groundcover/index.html[22m [31m(+1.33s)[39m 
+[2m22:32:49[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-with-native-plants/index.html[22m [31m(+1.30s)[39m 
+[2m22:32:50[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-with-mulch/index.html[22m [31m(+1.27s)[39m 
+[2m22:32:51[22m   [34m├─[39m [2m/blog/modern-front-yard-black-and-white-exterior-landscaping/index.html[22m [31m(+1.34s)[39m 
+[2m22:32:53[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-with-no-grass/index.html[22m [31m(+1.57s)[39m 
+[2m22:32:54[22m   [34m├─[39m [2m/blog/modern-front-yard-concrete-walkway-ideas/index.html[22m [31m(+2.90s)[39m 
+[2m22:32:57[22m   [34m├─[39m [2m/blog/modern-front-yard-courtyard-ideas/index.html[22m [31m(+2.85s)[39m 
+[2m22:33:00[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-for-ranch-homes/index.html[22m [31m(+2.93s)[39m 
+[2m22:33:03[22m   [34m├─[39m [2m/blog/modern-front-yard-paver-ideas/index.html[22m [31m(+2.85s)[39m 
+[2m22:33:06[22m   [34m├─[39m [2m/blog/modern-front-yard-lighting-design-ideas/index.html[22m [31m(+2.97s)[39m 
+[2m22:33:09[22m   [34m├─[39m [2m/blog/modern-front-yard-horizontal-fence-landscaping/index.html[22m [31m(+2.95s)[39m 
+[2m22:33:12[22m   [34m├─[39m [2m/blog/modern-front-yard-succulent-and-rock-ideas/index.html[22m [31m(+3.09s)[39m 
+[2m22:33:15[22m   [34m├─[39m [2m/blog/narrow-front-yard-landscaping-ideas/index.html[22m [31m(+2.66s)[39m 
+[2m22:33:17[22m   [34m├─[39m [2m/blog/small-front-yard-evergreen-landscaping-ideas/index.html[22m [31m(+2.98s)[39m 
+[2m22:33:20[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-for-townhomes/index.html[22m [31m(+2.34s)[39m 
+[2m22:33:23[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-brick-homes/index.html[22m [31m(+2.87s)[39m 
+[2m22:33:26[22m   [34m├─[39m [2m/blog/small-front-yard-without-grass-ideas/index.html[22m [31m(+3.07s)[39m 
+[2m22:33:29[22m   [34m├─[39m [2m/blog/small-front-yard-sidewalk-landscaping-ideas/index.html[22m [31m(+2.83s)[39m 
+[2m22:33:32[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-hydrangeas/index.html[22m [31m(+2.86s)[39m 
+[2m22:33:34[22m   [34m├─[39m [2m/blog/straight-front-walkway-landscaping-ideas/index.html[22m [31m(+2.65s)[39m 
+[2m22:33:37[22m   [34m├─[39m [2m/blog/small-front-yard-walkway-and-porch-ideas/index.html[22m [31m(+2.81s)[39m 
+[2m22:33:40[22m   [34m├─[39m [2m/blog/brick-front-walkway-landscaping-ideas/index.html[22m [31m(+2.22s)[39m 
+[2m22:33:42[22m   [34m├─[39m [2m/blog/budget-front-yard-curb-appeal-for-renters/index.html[22m [31m(+1.29s)[39m 
+[2m22:33:43[22m   [34m├─[39m [2m/blog/budget-front-yard-mailbox-makeover-ideas/index.html[22m [31m(+1.29s)[39m 
+[2m22:33:45[22m   [34m├─[39m [2m/blog/budget-front-yard-mulch-makeover-ideas/index.html[22m [31m(+1.25s)[39m 
+[2m22:33:46[22m   [34m├─[39m [2m/blog/budget-front-yard-gravel-path-ideas/index.html[22m [31m(+1.24s)[39m 
+[2m22:33:47[22m   [34m├─[39m [2m/blog/budget-front-yard-plants-that-look-expensive/index.html[22m [31m(+1.27s)[39m 
+[2m22:33:48[22m   [34m├─[39m [2m/blog/budget-front-yard-porch-planter-ideas/index.html[22m [31m(+1.31s)[39m 
+[2m22:33:50[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-colonial-homes/index.html[22m [31m(+3.03s)[39m 
+[2m22:33:53[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-blue-houses/index.html[22m [31m(+1.31s)[39m 
+[2m22:33:54[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-front-yard-trees/index.html[22m [31m(+1.30s)[39m 
+[2m22:33:55[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-outdoor-lighting/index.html[22m [31m(+1.31s)[39m 
+[2m22:33:57[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-gray-houses/index.html[22m [31m(+1.28s)[39m 
+[2m22:33:58[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-farmhouse-exteriors/index.html[22m [31m(+1.30s)[39m 
+[2m22:33:59[22m   [34m├─[39m [2m/blog/flagstone-front-walkway-ideas/index.html[22m [31m(+1.25s)[39m 
+[2m22:34:01[22m   [34m├─[39m [2m/blog/front-walkway-ideas-for-colonial-homes/index.html[22m [31m(+1.29s)[39m 
+[2m22:34:02[22m   [34m├─[39m [2m/blog/front-walkway-border-plants-that-stay-neat/index.html[22m [31m(+1.34s)[39m 
+[2m22:34:03[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-lavender-borders/index.html[22m [31m(+1.32s)[39m 
+[2m22:34:05[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-stepping-stones-and-grass/index.html[22m [31m(+1.26s)[39m 
+[2m22:34:06[22m   [34m├─[39m [2m/blog/front-yard-boxwood-and-flower-bed-ideas/index.html[22m [31m(+1.33s)[39m 
+[2m22:34:07[22m   [34m├─[39m [2m/blog/front-yard-dry-creek-bed-ideas/index.html[22m [31m(+1.71s)[39m 
+[2m22:34:09[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-for-white-houses/index.html[22m [31m(+2.67s)[39m 
+[2m22:34:12[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-color-combinations/index.html[22m [31m(+3.13s)[39m 
+[2m22:34:15[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-evergreens/index.html[22m [31m(+3.10s)[39m 
+[2m22:34:18[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-red-brick-homes/index.html[22m [31m(+3.01s)[39m 
+[2m22:34:21[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-black-front-doors/index.html[22m [31m(+2.99s)[39m 
+[2m22:34:24[22m   [34m├─[39m [2m/blog/front-yard-limestone-landscaping-ideas/index.html[22m [31m(+2.89s)[39m 
+[2m22:34:27[22m   [34m├─[39m [2m/blog/front-yard-native-flower-bed-ideas/index.html[22m [31m(+3.12s)[39m 
+[2m22:34:30[22m   [34m├─[39m [2m/blog/front-yard-pea-gravel-landscaping-ideas/index.html[22m [31m(+2.83s)[39m 
+[2m22:34:33[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-for-brick-houses/index.html[22m [31m(+2.92s)[39m 
+[2m22:34:36[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-agave/index.html[22m [31m(+3.01s)[39m 
+[2m22:34:39[22m   [34m├─[39m [2m/blog/front-yard-slate-chip-landscaping-ideas/index.html[22m [31m(+2.89s)[39m 
+[2m22:34:41[22m   [34m├─[39m [2m/blog/front-yard-tulip-bed-ideas/index.html[22m [31m(+1.48s)[39m 
+[2m22:34:43[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-evergreen-border-ideas/index.html[22m [31m(+1.23s)[39m 
+[2m22:34:44[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-drip-irrigation-ideas/index.html[22m [31m(+1.22s)[39m 
+[2m22:34:45[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-for-seniors/index.html[22m [31m(+1.20s)[39m 
+[2m22:34:47[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-for-hoa-neighborhoods/index.html[22m [31m(+1.34s)[39m 
+[2m22:34:48[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-artificial-turf/index.html[22m [31m(+1.22s)[39m 
+[2m22:34:49[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-slope-ideas/index.html[22m [31m(+1.20s)[39m 
+[2m22:34:50[22m   [34m├─[39m [2m/blog/modern-front-yard-corten-steel-landscaping-ideas/index.html[22m [31m(+1.18s)[39m 
+[2m22:34:52[22m   [34m├─[39m [2m/blog/modern-front-yard-metal-edging-ideas/index.html[22m [31m(+1.25s)[39m 
+[2m22:34:53[22m   [34m├─[39m [2m/blog/modern-front-yard-ornamental-grass-ideas/index.html[22m [31m(+1.24s)[39m 
+[2m22:34:54[22m   [34m├─[39m [2m/blog/modern-front-yard-planter-box-ideas/index.html[22m [31m(+1.21s)[39m 
+[2m22:34:55[22m   [34m├─[39m [2m/blog/modern-front-yard-privacy-screen-landscaping/index.html[22m [31m(+1.25s)[39m 
+[2m22:34:57[22m   [34m├─[39m [2m/blog/modern-front-yard-water-feature-ideas/index.html[22m [31m(+1.33s)[39m 
+[2m22:34:58[22m   [34m├─[39m [2m/blog/small-front-yard-courtyard-entry-ideas/index.html[22m [31m(+1.26s)[39m 
+[2m22:34:59[22m   [34m├─[39m [2m/blog/small-front-yard-driveway-edge-landscaping-ideas/index.html[22m [31m(+1.28s)[39m 
+[2m22:35:00[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-split-level-homes/index.html[22m [31m(+1.26s)[39m 
+[2m22:35:02[22m   [34m├─[39m [2m/blog/small-front-yard-raised-bed-landscaping-ideas/index.html[22m [31m(+1.30s)[39m 
+[2m22:35:03[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-duplex-homes/index.html[22m [31m(+1.22s)[39m 
+[2m22:35:04[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-zero-lot-line-homes/index.html[22m [31m(+1.28s)[39m 
+[2m22:35:06[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-secondhand-stone/index.html[22m [31m(+1.22s)[39m 
+[2m22:35:07[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-painted-planters/index.html[22m [31m(+1.29s)[39m 
+[2m22:35:08[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-divided-perennials/index.html[22m [31m(+1.21s)[39m 
+[2m22:35:09[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-solar-path-lights/index.html[22m [31m(+1.17s)[39m 
+[2m22:35:10[22m   [34m├─[39m [2m/blog/budget-front-yard-lawn-refresh-ideas/index.html[22m [31m(+1.18s)[39m 
+[2m22:35:12[22m   [34m├─[39m [2m/blog/budget-front-yard-starter-landscaping-plan/index.html[22m [31m(+1.19s)[39m 
+[2m22:35:13[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-tan-houses/index.html[22m [31m(+1.18s)[39m 
+[2m22:35:14[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-a-statement-tree/index.html[22m [31m(+1.14s)[39m 
+[2m22:35:15[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-front-step-planters/index.html[22m [31m(+1.14s)[39m 
+[2m22:35:16[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-stone-houses/index.html[22m [31m(+1.15s)[39m 
+[2m22:35:17[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-clean-lawn-stripes/index.html[22m [31m(+1.24s)[39m 
+[2m22:35:19[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-symmetrical-planters/index.html[22m [31m(+1.14s)[39m 
+[2m22:35:20[22m   [34m├─[39m [2m/blog/front-walkway-ideas-for-cottage-homes/index.html[22m [31m(+1.15s)[39m 
+[2m22:35:21[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-bluestone-pavers/index.html[22m [31m(+1.15s)[39m 
+[2m22:35:22[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-brick-and-gravel/index.html[22m [31m(+1.19s)[39m 
+[2m22:35:23[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-low-voltage-lighting/index.html[22m [31m(+1.24s)[39m 
+[2m22:35:25[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-modern-slab-steps/index.html[22m [31m(+1.16s)[39m 
+[2m22:35:26[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-mixed-border-planting/index.html[22m [31m(+1.17s)[39m 
+[2m22:35:27[22m   [34m├─[39m [2m/blog/front-yard-crushed-granite-landscaping-ideas/index.html[22m [31m(+1.19s)[39m 
+[2m22:35:28[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-for-ranch-houses/index.html[22m [31m(+1.25s)[39m 
+[2m22:35:29[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-for-shady-porches/index.html[22m [31m(+1.21s)[39m 
+[2m22:35:31[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-brick-edging/index.html[22m [31m(+1.21s)[39m 
+[2m22:35:32[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-curved-edging/index.html[22m [31m(+1.21s)[39m 
+[2m22:35:33[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-green-houses/index.html[22m [31m(+1.23s)[39m 
+[2m22:35:34[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-yellow-houses/index.html[22m [31m(+1.14s)[39m 
+[2m22:35:35[22m   [34m├─[39m [2m/blog/front-yard-peony-bed-ideas/index.html[22m [31m(+1.19s)[39m 
+[2m22:35:37[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-for-sloped-yards/index.html[22m [31m(+1.22s)[39m 
+[2m22:35:38[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-for-white-houses/index.html[22m [31m(+1.28s)[39m 
+[2m22:35:39[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-low-shrubs/index.html[22m [31m(+1.20s)[39m 
+[2m22:35:40[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-path-lights/index.html[22m [31m(+1.22s)[39m 
+[2m22:35:42[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-yuccas/index.html[22m [31m(+1.19s)[39m 
+[2m22:35:43[22m   [34m├─[39m [2m/blog/front-yard-salvia-and-grass-bed-ideas/index.html[22m [31m(+1.31s)[39m 
+[2m22:35:44[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-for-dog-owners/index.html[22m [31m(+1.26s)[39m 
+[2m22:35:45[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-automatic-watering/index.html[22m [31m(+1.16s)[39m 
+[2m22:35:46[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-clover/index.html[22m [31m(+1.15s)[39m 
+[2m22:35:48[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-decorative-gravel/index.html[22m [31m(+1.18s)[39m 
+[2m22:35:49[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-dwarf-evergreens/index.html[22m [31m(+1.22s)[39m 
+[2m22:35:50[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-slow-growing-shrubs/index.html[22m [31m(+1.18s)[39m 
+[2m22:35:51[22m   [34m├─[39m [2m/blog/modern-front-yard-gravel-courtyard-ideas/index.html[22m [31m(+1.16s)[39m 
+[2m22:35:52[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-for-flat-roof-homes/index.html[22m [31m(+1.16s)[39m 
+[2m22:35:54[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-black-mulch/index.html[22m [31m(+1.23s)[39m 
+[2m22:35:55[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-white-stone/index.html[22m [31m(+1.14s)[39m 
+[2m22:35:56[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-cedar-accents/index.html[22m [31m(+1.16s)[39m 
+[2m22:35:57[22m   [34m├─[39m [2m/blog/modern-front-yard-limestone-paver-ideas/index.html[22m [31m(+1.22s)[39m 
+[2m22:35:58[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-for-city-houses/index.html[22m [31m(+1.28s)[39m 
+[2m22:36:00[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-a-single-tree/index.html[22m [31m(+1.34s)[39m 
+[2m22:36:01[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-window-view-planting/index.html[22m [31m(+1.34s)[39m 
+[2m22:36:02[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-bungalows/index.html[22m [31m(+1.26s)[39m 
+[2m22:36:04[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-with-a-front-gate/index.html[22m [31m(+1.25s)[39m 
+[2m22:36:05[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-with-a-shared-driveway/index.html[22m [31m(+1.28s)[39m 
+[2m22:36:06[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-one-focal-planter/index.html[22m [31m(+1.24s)[39m 
+[2m22:36:07[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-diy-stepping-stones/index.html[22m [31m(+1.26s)[39m 
+[2m22:36:09[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-reused-brick/index.html[22m [31m(+1.22s)[39m 
+[2m22:36:10[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-seed-grown-flowers/index.html[22m [31m(+1.26s)[39m 
+[2m22:36:11[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-simple-wood-edging/index.html[22m [31m(+1.29s)[39m 
+[2m22:36:12[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-small-evergreens/index.html[22m [31m(+1.23s)[39m 
+[2m22:36:14[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-small-ranch-houses/index.html[22m [31m(+1.25s)[39m 
+[2m22:36:15[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-white-farmhouses/index.html[22m [31m(+1.34s)[39m 
+[2m22:36:16[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-front-yard-berms/index.html[22m [31m(+1.24s)[39m 
+[2m22:36:18[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-mailbox-flower-beds/index.html[22m [31m(+1.28s)[39m 
+[2m22:36:19[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-seasonal-containers/index.html[22m [31m(+1.23s)[39m 
+[2m22:36:20[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-stone-pillars/index.html[22m [31m(+1.29s)[39m 
+[2m22:36:21[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-curved-brick-edging/index.html[22m [31m(+1.34s)[39m 
+[2m22:36:23[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-boxwood-and-lavender/index.html[22m [31m(+1.35s)[39m 
+[2m22:36:24[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-driveway-connection/index.html[22m [31m(+1.45s)[39m 
+[2m22:36:26[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-flowering-groundcover/index.html[22m [31m(+1.33s)[39m 
+[2m22:36:27[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-wide-paver-steps/index.html[22m [31m(+1.30s)[39m 
+[2m22:36:28[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-stone-and-moss/index.html[22m [31m(+1.19s)[39m 
+[2m22:36:29[22m   [34m├─[39m [2m/blog/front-yard-basalt-rock-landscaping-ideas/index.html[22m [31m(+1.23s)[39m 
+[2m22:36:31[22m   [34m├─[39m [2m/blog/front-yard-dahlia-bed-ideas/index.html[22m [31m(+1.21s)[39m 
+[2m22:36:32[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-for-brick-walkways/index.html[22m [31m(+1.20s)[39m 
+[2m22:36:33[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-blue-and-white-blooms/index.html[22m [31m(+1.19s)[39m 
+[2m22:36:34[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-low-boxwoods/index.html[22m [31m(+1.22s)[39m 
+[2m22:36:35[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-pink-perennials/index.html[22m [31m(+1.29s)[39m 
+[2m22:36:37[22m   [34m├─[39m [2m/blog/front-yard-iris-bed-ideas/index.html[22m [31m(+1.19s)[39m 
+[2m22:36:38[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-brown-houses/index.html[22m [31m(+1.10s)[39m 
+[2m22:36:39[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-cream-houses/index.html[22m [31m(+1.14s)[39m 
+[2m22:36:40[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-for-modern-farmhouses/index.html[22m [31m(+1.26s)[39m 
+[2m22:36:41[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-cactus-accents/index.html[22m [31m(+1.23s)[39m 
+[2m22:36:43[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-decomposed-granite/index.html[22m [31m(+1.18s)[39m 
+[2m22:36:44[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-olive-trees/index.html[22m [31m(+1.25s)[39m 
+[2m22:36:45[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-stone-retaining-edges/index.html[22m [31m(+1.28s)[39m 
+[2m22:36:46[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-evergreen-foundation-plants/index.html[22m [31m(+1.23s)[39m 
+[2m22:36:48[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-evergreen-groundcovers/index.html[22m [31m(+1.17s)[39m 
+[2m22:36:49[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-minimal-lawn/index.html[22m [31m(+1.19s)[39m 
+[2m22:36:50[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-mulch-pathways/index.html[22m [31m(+1.22s)[39m 
+[2m22:36:51[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-rain-garden-drainage/index.html[22m [31m(+1.25s)[39m 
+[2m22:36:52[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-rock-mulch/index.html[22m [31m(+1.14s)[39m 
+[2m22:36:54[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-floating-steps/index.html[22m [31m(+1.15s)[39m 
+[2m22:36:55[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-boxwood-structure/index.html[22m [31m(+1.20s)[39m 
+[2m22:36:56[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-matte-black-planters/index.html[22m [31m(+1.23s)[39m 
+[2m22:36:57[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-porcelain-pavers/index.html[22m [31m(+1.15s)[39m 
+[2m22:36:58[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-linear-planting-beds/index.html[22m [31m(+1.19s)[39m 
+[2m22:37:00[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-warm-exterior-lighting/index.html[22m [31m(+1.25s)[39m 
+[2m22:37:01[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-a-narrow-lawn-strip/index.html[22m [31m(+1.25s)[39m 
+[2m22:37:02[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-a-short-walkway/index.html[22m [31m(+1.13s)[39m 
+[2m22:37:03[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-raised-planters/index.html[22m [31m(+1.19s)[39m 
+[2m22:37:04[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-cape-cod-homes/index.html[22m [31m(+1.16s)[39m 
+[2m22:37:06[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-row-houses/index.html[22m [31m(+1.17s)[39m 
+[2m22:37:07[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-with-a-corner-porch/index.html[22m [31m(+1.22s)[39m 
+[2m22:37:08[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-cheap-border-plants/index.html[22m [31m(+1.18s)[39m 
+[2m22:37:09[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-mulch-and-pots/index.html[22m [31m(+1.19s)[39m 
+[2m22:37:10[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-diy-mailbox-bed/index.html[22m [31m(+1.16s)[39m 
+[2m22:37:11[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-one-weekend-makeover/index.html[22m [31m(+1.23s)[39m 
+[2m22:37:13[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-reseeded-lawn-edges/index.html[22m [31m(+1.21s)[39m 
+[2m22:37:14[22m   [34m├─[39m [2m/blog/budget-front-yard-ideas-with-simple-stone-rings/index.html[22m [31m(+1.19s)[39m 
+[2m22:37:15[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-black-houses/index.html[22m [31m(+1.14s)[39m 
+[2m22:37:16[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-for-craftsman-bungalows/index.html[22m [31m(+1.25s)[39m 
+[2m22:37:18[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-clean-foundation-beds/index.html[22m [31m(+1.27s)[39m 
+[2m22:37:19[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-front-yard-focal-points/index.html[22m [31m(+1.26s)[39m 
+[2m22:37:20[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-driveway-entry-pillars/index.html[22m [31m(+1.24s)[39m 
+[2m22:37:21[22m   [34m├─[39m [2m/blog/curb-appeal-landscaping-with-layered-porch-planters/index.html[22m [31m(+1.30s)[39m 
+[2m22:37:23[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-brick-steps/index.html[22m [31m(+1.29s)[39m 
+[2m22:37:24[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-formal-hedges/index.html[22m [31m(+1.26s)[39m 
+[2m22:37:25[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-modern-gravel-joints/index.html[22m [31m(+1.32s)[39m 
+[2m22:37:27[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-side-garden-beds/index.html[22m [31m(+1.44s)[39m 
+[2m22:37:28[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-porch-landing-planting/index.html[22m [31m(+1.37s)[39m 
+[2m22:37:29[22m   [34m├─[39m [2m/blog/front-walkway-ideas-with-soft-curbside-planting/index.html[22m [31m(+1.35s)[39m 
+[2m22:37:31[22m   [34m├─[39m [2m/blog/front-yard-cottage-flower-bed-ideas/index.html[22m [31m(+1.40s)[39m 
+[2m22:37:32[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-for-mailbox-corners/index.html[22m [31m(+1.48s)[39m 
+[2m22:37:34[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-evergreen-backdrops/index.html[22m [31m(+1.30s)[39m 
+[2m22:37:35[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-purple-perennials/index.html[22m [31m(+1.24s)[39m 
+[2m22:37:36[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-stone-edging/index.html[22m [31m(+1.25s)[39m 
+[2m22:37:37[22m   [34m├─[39m [2m/blog/front-yard-flower-bed-ideas-with-yellow-accents/index.html[22m [31m(+1.28s)[39m 
+[2m22:37:39[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-charcoal-houses/index.html[22m [31m(+1.11s)[39m 
+[2m22:37:40[22m   [34m├─[39m [2m/blog/front-yard-landscaping-for-light-gray-houses/index.html[22m [31m(+1.16s)[39m 
+[2m22:37:41[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-for-corner-lots/index.html[22m [31m(+1.28s)[39m 
+[2m22:37:42[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-evergreen-shrubs/index.html[22m [31m(+1.25s)[39m 
+[2m22:37:43[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-flagstone-paths/index.html[22m [31m(+1.24s)[39m 
+[2m22:37:45[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-modern-pathways/index.html[22m [31m(+1.20s)[39m 
+[2m22:37:46[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-raised-stone-beds/index.html[22m [31m(+1.25s)[39m 
+[2m22:37:47[22m   [34m├─[39m [2m/blog/front-yard-rock-landscaping-with-tan-gravel/index.html[22m [31m(+1.22s)[39m 
+[2m22:37:48[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-boxwood-borders/index.html[22m [31m(+1.19s)[39m 
+[2m22:37:50[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-compact-grasses/index.html[22m [31m(+1.20s)[39m 
+[2m22:37:51[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-drought-smart-borders/index.html[22m [31m(+1.20s)[39m 
+[2m22:37:52[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-durable-paths/index.html[22m [31m(+1.18s)[39m 
+[2m22:37:53[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-no-annuals/index.html[22m [31m(+1.30s)[39m 
+[2m22:37:55[22m   [34m├─[39m [2m/blog/low-maintenance-front-yard-ideas-with-wide-mulch-beds/index.html[22m [31m(+1.34s)[39m 
+[2m22:37:56[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-black-stone-borders/index.html[22m [31m(+1.39s)[39m 
+[2m22:37:57[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-concrete-planters/index.html[22m [31m(+1.43s)[39m 
+[2m22:37:59[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-limestone-gravel/index.html[22m [31m(+1.28s)[39m 
+[2m22:38:00[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-glass-front-doors/index.html[22m [31m(+1.22s)[39m 
+[2m22:38:01[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-sculptural-trees/index.html[22m [31m(+1.20s)[39m 
+[2m22:38:02[22m   [34m├─[39m [2m/blog/modern-front-yard-ideas-with-soft-meadow-grasses/index.html[22m [31m(+1.20s)[39m 
+[2m22:38:04[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-low-privacy-planting/index.html[22m [31m(+1.27s)[39m 
+[2m22:38:05[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-sidewalk-to-door-flow/index.html[22m [31m(+1.18s)[39m 
+[2m22:38:06[22m   [34m├─[39m [2m/blog/small-front-yard-ideas-with-skinny-foundation-beds/index.html[22m [31m(+1.27s)[39m 
+[2m22:38:07[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-narrow-brick-homes/index.html[22m [31m(+1.27s)[39m 
+[2m22:38:09[22m   [34m├─[39m [2m/blog/small-front-yard-landscaping-for-two-story-homes/index.html[22m [31m(+1.39s)[39m 
+[2m22:38:10[22m   [34m└─[39m [2m/blog/small-front-yard-landscaping-with-porch-steps/index.html[22m [31m(+1.47s)[39m 
+[2m22:38:12[22m [32m▶[39m src/pages/contact.astro
+[2m22:38:12[22m   [34m└─[39m [2m/contact/index.html[22m [2m(+3ms)[22m 
+[2m22:38:12[22m [32m▶[39m src/pages/ideas/[slug].astro
+[2m22:38:12[22m   [34m├─[39m [2m/ideas/small-front-yard-landscaping-ideas/index.html[22m [31m(+1.22s)[39m 
+[2m22:38:13[22m   [34m├─[39m [2m/ideas/modern-front-yard-landscaping/index.html[22m [31m(+1.13s)[39m 
+[2m22:38:14[22m   [34m├─[39m [2m/ideas/front-yard-landscaping-on-a-budget/index.html[22m [31m(+1.16s)[39m 
+[2m22:38:15[22m   [34m├─[39m [2m/ideas/front-yard-flower-bed-ideas/index.html[22m [31m(+1.49s)[39m 
+[2m22:38:17[22m   [34m├─[39m [2m/ideas/front-yard-landscaping-with-rocks/index.html[22m [31m(+1.27s)[39m 
+[2m22:38:18[22m   [34m├─[39m [2m/ideas/low-maintenance-front-yard-landscaping/index.html[22m [31m(+1.25s)[39m 
+[2m22:38:19[22m   [34m├─[39m [2m/ideas/walkway-landscaping-ideas/index.html[22m [31m(+1.24s)[39m 
+[2m22:38:20[22m   [34m└─[39m [2m/ideas/curb-appeal-landscaping-ideas/index.html[22m [31m(+1.35s)[39m 
+[2m22:38:22[22m [32m▶[39m src/pages/ideas/index.astro
+[2m22:38:22[22m   [34m└─[39m [2m/ideas/index.html[22m [31m(+524ms)[39m 
+[2m22:38:22[22m [32m▶[39m src/pages/privacy.astro
+[2m22:38:22[22m   [34m└─[39m [2m/privacy/index.html[22m [2m(+3ms)[22m 
+[2m22:38:22[22m [32m▶[39m src/pages/search.astro
+[2m22:38:22[22m   [34m└─[39m [2m/search/index.html[22m [2m(+3ms)[22m 
+[2m22:38:22[22m [35mλ[39m src/pages/search.json.ts
+[2m22:38:22[22m   [34m└─[39m [2m/search.json[22m [31m(+7.22s)[39m 
+[2m22:38:29[22m [35mλ[39m src/pages/sitemap.xml.ts
+[2m22:38:29[22m   [34m└─[39m [2m/sitemap.xml[22m [2m(+17ms)[22m 
+[2m22:38:29[22m [32m▶[39m src/pages/index.astro
+[2m22:38:29[22m   [34m└─[39m [2m/index.html[22m [2m(+417ms)[22m 
+[2m22:38:30[22m [32m✓ Completed in 452.54s.
+[39m
+[2m22:38:30[22m [34m[@astrojs/sitemap][39m `sitemap-index.xml` created at `dist`
+[2m22:38:30[22m [34m[build][39m 315 page(s) built in [1m466.67s[22m
+[2m22:38:30[22m [34m[build][39m [1mComplete![22m
