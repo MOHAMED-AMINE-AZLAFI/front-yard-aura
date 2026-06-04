@@ -1,11 +1,11 @@
 const FRONT_YARD_CONTEXT_PATTERN =
-  /\b(front yard|yard|garden|landscap\w*|curb appeal|entry|walkway|path|paver|foundation bed|flower bed|lawn|driveway|house exterior|home exterior)\b/i;
+  /\b(front yard|yard|garden|front garden|landscap\w*|curb appeal|entry|walkway|path|paver|foundation bed|flower bed|flowers?|lawn|driveway|house exterior|home exterior|trees?|bushes|shrubs?|greenery|planting|plants?)\b/i;
 
 const HOME_EXTERIOR_PATTERN =
   /\b(house|home|exterior|facade|front door|porch|entry|bungalow|farmhouse|ranch|colonial|cottage)\b/i;
 
 const LANDSCAPING_ELEMENT_PATTERN =
-  /\b(lawn|grass|flower|flowers|flower bed|shrubs?|hedge|hedges|boxwood|mulch|rocks?|boulders?|gravel|stone|walkway|path|paver|pavers|stepping stones?|garden bed|foundation bed|plants?|planting|landscap\w*)\b/i;
+  /\b(lawn|grass|flower|flowers|flower bed|shrubs?|bushes|trees?|greenery|hedge|hedges|boxwood|mulch|rocks?|boulders?|gravel|stone|walkway|path|paver|pavers|stepping stones?|garden bed|foundation bed|plants?|planting|landscap\w*)\b/i;
 
 export const QUALITY_COLUMNS = [
   'quality_status',
@@ -135,7 +135,7 @@ const REQUIRED_RULES = [
     key: 'low-maintenance',
     label: 'Low-maintenance front yard materials visible',
     when: /\b(low maintenance|easy|minimal|no grass|evergreen|drought|groundcover|slow-growing|rock mulch|native plants|mulch|shrubs)\b/,
-    any: [/\b(gravel|rock|rocks|mulch|shrubs|evergreen|groundcover|drought|native plants|no grass|minimal lawn|low maintenance|easy care)\b/i],
+    any: [/\b(gravel|rock|rocks|mulch|shrubs|bushes|greenery|evergreen|groundcover|drought|native plants|no grass|minimal lawn|low maintenance|easy care)\b/i],
     search: ['low maintenance front yard gravel shrubs', 'easy care front yard landscaping']
   },
   {
