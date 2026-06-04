@@ -4,71 +4,68 @@ Incremental strict quality-filtered batch added to the existing Pinterest produc
 
 ## Summary
 
-- Existing approved pins before run: 460
-- New approved pins: 115
-- Approved pins total after run: 575
-- Remaining rejected pins: 325
-- Images rendered in this run: 115
+- Existing approved pins before run: 669
+- New approved pins: 21
+- Approved pins total after run: 690
+- Remaining rejected pins: 210
+- Images rendered in this run: 21
 - Selection errors: 0
 - Render errors: 0
-- Schedule rows total: 575
-- Schedule end date: 2026-08-16
-- Started: 2026-06-04T21:10:27.534Z
-- Completed: 2026-06-04T21:18:01.810Z
+- Schedule rows total: 690
+- Schedule end date: 2026-09-10
+- Started: 2026-06-04T22:27:51.063Z
+- Completed: 2026-06-04T22:29:31.277Z
 
 ## New Distribution
 
-- Variants: B: 44, C: 71
-- Boards: low-maintenance-front-yard-landscaping: 8, modern-front-yard-landscaping: 17, small-front-yard-landscaping-ideas: 18, curb-appeal-landscaping-ideas: 28, front-yard-landscaping-on-a-budget: 23, walkway-landscaping-ideas: 4, front-yard-flower-bed-ideas: 17
+- Variants: A: 1, B: 12, C: 8
+- Boards: curb-appeal-landscaping-ideas: 4, front-yard-landscaping-with-rocks: 10, small-front-yard-landscaping-ideas: 2, front-yard-landscaping-on-a-budget: 2, walkway-landscaping-ideas: 1, low-maintenance-front-yard-landscaping: 2
 
 ## Top Remaining Rejection Reasons
 
-- missing_required_title_element: 608
-- no_approved_image_source: 282
-- duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows: 223
-- weak_front_yard_context: 149
-- duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors: 99
-- duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses: 68
-- duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds: 53
-- duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses: 51
-- needs_more_approved_sources: 43
-- vehicle_or_distraction_pattern: 30
-- people_pattern: 26
-- duplicate_source_used_by:front-yard-minimalist-landscaping-ideas: 15
-- duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers: 14
-- duplicate_source_used_by:front-yard-annual-flower-ideas: 12
-- duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone: 10
-- duplicate_source_used_by:small-front-yard-ideas-for-city-houses: 9
-- duplicate_source_used_by:curb-appeal-landscaping-with-front-step-planters: 8
-- duplicate_source_used_by:narrow-front-yard-landscaping-ideas: 8
-- duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow: 5
-- duplicate_source_used_by:brick-front-walkway-landscaping-ideas: 4
+- missing_required_title_element: 431
+- no_approved_image_source: 182
+- duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows: 154
+- weak_front_yard_context: 90
+- duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors: 59
+- duplicate_source_used_by:curb-appeal-landscaping-for-stone-houses: 46
+- duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses: 32
+- duplicate_source_used_by:curb-appeal-landscaping-with-clean-foundation-beds: 28
+- needs_more_approved_sources: 28
+- vehicle_or_distraction_pattern: 20
+- duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers: 12
+- people_pattern: 7
+- duplicate_source_used_by:budget-front-yard-ideas-with-secondhand-stone: 6
+- duplicate_source_used_by:narrow-front-yard-landscaping-ideas: 5
+- duplicate_source_used_by:small-front-yard-ideas-for-city-houses: 5
+- duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow: 3
+- duplicate_source_used_by:brick-front-walkway-landscaping-ideas: 2
+- duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways: 2
+- duplicate_source_used_by:front-yard-minimalist-landscaping-ideas: 2
+- duplicate_source_used_by:modern-front-yard-ornamental-grass-ideas: 2
 
 ## Samples
 
 | Pin ID | Article | Variant | Source | File |
 | --- | --- | --- | --- | --- |
-| low-maintenance-front-yard-ideas-with-compact-grasses-b | Low Maintenance Front Yard Ideas With Compact Grasses | B | photo-1639910405124-91d77fa14a2a | low-maintenance-front-yard-ideas-with-compact-grasses-pin-b-t9bwe.jpg |
-| low-maintenance-front-yard-ideas-with-clover-b | Low Maintenance Front Yard Ideas With Clover | B | photo-1754306870085-e3e09eda3d0f | low-maintenance-front-yard-ideas-with-clover-pin-b-1hi6q.jpg |
-| low-maintenance-front-yard-ideas-with-drought-smart-borders-b | Low Maintenance Front Yard Ideas With Drought-Smart Borders | B | photo-1716641818103-80594cbf000f | low-maintenance-front-yard-ideas-with-drought-smart-borders-pin-b-1r1ft.jpg |
-| low-maintenance-front-yard-ideas-with-boxwood-borders-b | Low Maintenance Front Yard Ideas With Boxwood Borders | B | photo-1635194492736-4fb7247a470f | low-maintenance-front-yard-ideas-with-boxwood-borders-pin-b-pyd6z.jpg |
-| low-maintenance-front-yard-ideas-with-dwarf-evergreens-b | Low Maintenance Front Yard Ideas With Dwarf Evergreens | B | photo-1643081047479-2098eeb901dc | low-maintenance-front-yard-ideas-with-dwarf-evergreens-pin-b-vuop5.jpg |
-| low-maintenance-front-yard-ideas-with-durable-paths-b | Low Maintenance Front Yard Ideas With Durable Paths | B | photo-1761288884746-8cfb619975fc | low-maintenance-front-yard-ideas-with-durable-paths-pin-b-2otd0.jpg |
-| low-maintenance-front-yard-ideas-with-evergreen-foundation-plants-b | Low Maintenance Front Yard Ideas With Evergreen Foundation Plants | B | photo-1648074971576-6148a6eda120 | low-maintenance-front-yard-ideas-with-evergreen-foundation-plants-pin-b-elhe1.jpg |
-| low-maintenance-front-yard-ideas-with-evergreen-groundcovers-b | Low Maintenance Front Yard Ideas With Evergreen Groundcovers | B | photo-1688248559246-d9cb96562270 | low-maintenance-front-yard-ideas-with-evergreen-groundcovers-pin-b-1d5nq.jpg |
-| modern-front-yard-black-and-white-exterior-landscaping-b | Modern Landscaping for Black and White Exteriors | B | photo-1597156446853-df9674e7b0a3 | modern-front-yard-black-and-white-exterior-landscaping-pin-b-iz24t.jpg |
-| modern-front-yard-courtyard-ideas-b | Modern Front Yard Courtyard Ideas | B | photo-1619828762492-321899d308c4 | modern-front-yard-courtyard-ideas-pin-b-ew599.jpg |
-| modern-front-yard-corten-steel-landscaping-ideas-b | Modern Front Yard Corten Steel Landscaping Ideas | B | photo-1706539163896-800b834abc82 | modern-front-yard-corten-steel-landscaping-ideas-pin-b-87zye.jpg |
-| modern-front-yard-ideas-for-ranch-homes-b | Modern Front Yard Ideas for Ranch Homes | B | photo-1626477529213-53502a0d07dd | modern-front-yard-ideas-for-ranch-homes-pin-b-1m7vn.jpg |
-| modern-front-yard-ideas-with-cedar-accents-b | Modern Front Yard Ideas With Cedar Accents | B | photo-1745950145747-f3f742ff7e08 | modern-front-yard-ideas-with-cedar-accents-pin-b-18v6m.jpg |
-| modern-front-yard-ideas-with-concrete-planters-b | Modern Front Yard Ideas With Concrete Planters | B | photo-1569257084267-b87e2aa88d02 | modern-front-yard-ideas-with-concrete-planters-pin-b-1sp8c.jpg |
-| modern-front-yard-ideas-with-floating-steps-b | Modern Front Yard Ideas With Floating Steps | B | photo-1668467480583-a41ee6cf49ee | modern-front-yard-ideas-with-floating-steps-pin-b-up8df.jpg |
-| modern-front-yard-ideas-with-glass-front-doors-b | Modern Front Yard Ideas With Glass Front Doors | B | photo-1745950145899-e6e7b38ef1e3 | modern-front-yard-ideas-with-glass-front-doors-pin-b-nji8a.jpg |
-| modern-front-yard-ideas-with-linear-planting-beds-b | Modern Front Yard Ideas With Linear Planting Beds | B | photo-1698588561942-196d874d140a | modern-front-yard-ideas-with-linear-planting-beds-pin-b-1c6l7.jpg |
-| modern-front-yard-ideas-with-matte-black-planters-b | Modern Front Yard Ideas With Matte Black Planters | B | photo-1652472076695-424e6674792d | modern-front-yard-ideas-with-matte-black-planters-pin-b-dsamn.jpg |
-| modern-front-yard-ideas-with-sculptural-trees-b | Modern Front Yard Ideas With Sculptural Trees | B | photo-1733345570153-ebb17dbbbb19 | modern-front-yard-ideas-with-sculptural-trees-pin-b-15zm9.jpg |
-| modern-front-yard-ideas-with-soft-meadow-grasses-b | Modern Front Yard Ideas With Soft Meadow Grasses | B | photo-1625493775736-de48aa83ced1 | modern-front-yard-ideas-with-soft-meadow-grasses-pin-b-1o3b0.jpg |
-| modern-front-yard-planter-box-ideas-b | Modern Front Yard Planter Box Ideas | B | photo-1769027017522-eec5df6ce629 | modern-front-yard-planter-box-ideas-pin-b-uq2xj.jpg |
-| modern-front-yard-landscaping-clean-curb-appeal-b | Modern Front Yard Landscaping Ideas for Clean Curb Appeal | B | photo-1734852776423-be6347d63f1f | modern-front-yard-landscaping-clean-curb-appeal-pin-b-zg2zt.jpg |
-| modern-front-yard-metal-edging-ideas-b | Modern Front Yard Metal Edging Ideas | B | photo-1602251223452-e8702057d546 | modern-front-yard-metal-edging-ideas-pin-b-puv4t.jpg |
-| modern-front-yard-privacy-screen-landscaping-b | Modern Front Yard Privacy Screen Landscaping | B | photo-1765389394493-7b1870cd7d07 | modern-front-yard-privacy-screen-landscaping-pin-b-1x6l2.jpg |
+| front-yard-rock-landscaping-for-modern-farmhouses-b | Front Yard Rock Landscaping for Modern Farmhouses | B | photo-1569429903498-becaefe6b41e | front-yard-rock-landscaping-for-modern-farmhouses-pin-b-1d3eo.jpg |
+| curb-appeal-landscaping-for-tan-houses-a | Curb Appeal Landscaping for Tan Houses | A | photo-1622059796766-f2b1f9d2d119 | curb-appeal-landscaping-for-tan-houses-pin-a-10pq7.jpg |
+| front-yard-rock-landscaping-for-corner-lots-b | Front Yard Rock Landscaping for Corner Lots | B | photo-1660866838318-370ff53083dc | front-yard-rock-landscaping-for-corner-lots-pin-b-1y8mr.jpg |
+| curb-appeal-landscaping-for-tan-houses-b | Curb Appeal Landscaping for Tan Houses | B | photo-1630986460314-322c877834b2 | curb-appeal-landscaping-for-tan-houses-pin-b-10zpt.jpg |
+| front-yard-rock-landscaping-for-sloped-yards-b | Front Yard Rock Landscaping for Sloped Yards | B | photo-1639850887447-9fdebbe0e4bc | front-yard-rock-landscaping-for-sloped-yards-pin-b-12y9d.jpg |
+| front-yard-rock-landscaping-for-white-houses-b | Front Yard Rock Landscaping for White Houses | B | photo-1711898984702-94232c9be9ae | front-yard-rock-landscaping-for-white-houses-pin-b-sycd9.jpg |
+| front-yard-rock-landscaping-modern-ideas-b | Front Yard Landscaping With Rocks That Looks Modern | B | photo-1742921750154-ca6f3a1805ca | front-yard-rock-landscaping-modern-ideas-pin-b-1lfhl.jpg |
+| front-yard-rock-landscaping-with-agave-b | Front Yard Rock Landscaping With Agave | B | photo-1615677841660-bb67dadf5c89 | front-yard-rock-landscaping-with-agave-pin-b-v7wwh.jpg |
+| front-yard-rock-landscaping-with-decomposed-granite-b | Front Yard Rock Landscaping With Decomposed Granite | B | photo-1678924665786-3351ac3c589f | front-yard-rock-landscaping-with-decomposed-granite-pin-b-ni0i2.jpg |
+| front-yard-rock-landscaping-with-cactus-accents-b | Front Yard Rock Landscaping With Cactus Accents | B | photo-1648479162058-7c5227e3d45c | front-yard-rock-landscaping-with-cactus-accents-pin-b-waqrz.jpg |
+| front-yard-rock-landscaping-with-evergreen-shrubs-b | Front Yard Rock Landscaping With Evergreen Shrubs | B | photo-1724485393966-bf28cd333b0f | front-yard-rock-landscaping-with-evergreen-shrubs-pin-b-1mrjf.jpg |
+| front-yard-rock-landscaping-with-flagstone-paths-b | Front Yard Rock Landscaping With Flagstone Paths | B | photo-1673891291700-efb9452d9645 | front-yard-rock-landscaping-with-flagstone-paths-pin-b-6msi7.jpg |
+| budget-front-yard-ideas-with-small-evergreens-c | Budget Front Yard Ideas With Small Evergreens | C | photo-1742921749800-94395f565406 | budget-front-yard-ideas-with-small-evergreens-pin-c-1ae9m.jpg |
+| small-front-yard-without-grass-ideas-b | Small Front Yard Ideas Without Grass | B | photo-1748396690721-cfd9b7a03a41 | small-front-yard-without-grass-ideas-pin-b-39ugp.jpg |
+| curb-appeal-landscaping-for-small-ranch-houses-c | Curb Appeal Landscaping for Small Ranch Houses | C | photo-1746155360656-28a34cb31f22 | curb-appeal-landscaping-for-small-ranch-houses-pin-c-66jtq.jpg |
+| curb-appeal-landscaping-for-tan-houses-c | Curb Appeal Landscaping for Tan Houses | C | photo-1612286419131-e44750ef82d6 | curb-appeal-landscaping-for-tan-houses-pin-c-119pf.jpg |
+| front-yard-mulch-and-edging-ideas-for-clean-landscaping-c | Front Yard Mulch and Edging Ideas for Clean Landscaping | C | photo-1576878999965-5a357a1eb247 | front-yard-mulch-and-edging-ideas-for-clean-landscaping-pin-c-uedr5.jpg |
+| front-walkway-ideas-for-small-yards-c | Front Walkway Ideas for Small Yards | C | photo-1596939301422-59c04b410c67 | front-walkway-ideas-for-small-yards-pin-c-1p6nb.jpg |
+| front-yard-shade-landscaping-ideas-c | Front Yard Shade Landscaping Ideas for Cooler, Softer Curb Appeal | C | photo-1758647224505-36bbbe384b99 | front-yard-shade-landscaping-ideas-pin-c-7jedl.jpg |
+| front-yard-side-yard-transition-landscaping-c | Front Yard to Side Yard Transition Landscaping Ideas | C | photo-1579847641231-9ae55c6cadc3 | front-yard-side-yard-transition-landscaping-pin-c-zitka.jpg |
+| front-yard-woodland-landscaping-ideas-c | Front Yard Woodland Landscaping Ideas | C | photo-1779179256190-dfd7b680794e | front-yard-woodland-landscaping-ideas-pin-c-11v0v.jpg |

@@ -14,7 +14,7 @@
   "errors": 0,
   "delay_ms": 15000,
   "history_file": "data\\pinterest\\published-history.json",
-  "runtime": "134ms",
+  "runtime": "213ms",
   "results": [
     {
       "pin_id": "front-walkway-ideas-with-stepping-stones-and-grass-a",
