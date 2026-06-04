@@ -1,11 +1,11 @@
 const FRONT_YARD_CONTEXT_PATTERN =
-  /\b(front yard|yard|garden|front garden|landscap\w*|curb appeal|entry|walkway|path|paver|foundation bed|flower bed|flowers?|lawn|driveway|house exterior|home exterior|trees?|bushes|shrubs?|greenery|planting|plants?)\b/i;
+  /\b(front yard|yard|garden|front garden|landscap\w*|curb appeal|entry|walkway|path|pathway|paver|hardscape|courtyard|foundation bed|flower bed|flowers?|lawn|driveway|house exterior|home exterior|trees?|bushes|shrubs?|greenery|planting|plants?)\b/i;
 
 const HOME_EXTERIOR_PATTERN =
   /\b(house|home|exterior|facade|front door|porch|entry|bungalow|farmhouse|ranch|colonial|cottage)\b/i;
 
 const LANDSCAPING_ELEMENT_PATTERN =
-  /\b(lawn|grass|flower|flowers|flower bed|shrubs?|bushes|trees?|greenery|hedge|hedges|boxwood|mulch|rocks?|boulders?|gravel|stone|walkway|path|paver|pavers|stepping stones?|garden bed|foundation bed|plants?|planting|cactus|agave|yucca|succulents?|desert|xeriscape|landscap\w*)\b/i;
+  /\b(lawn|grass|flower|flowers|flower bed|shrubs?|bushes|trees?|greenery|hedge|hedges|boxwood|topiary|mulch|rocks?|boulders?|gravel|pebbles?|stone|cobblestone|walkway|path|pathway|paver|pavers|paving|hardscape|steps?|stairs?|retaining wall|garden bed|foundation bed|plants?|planting|cactus|agave|yucca|succulents?|desert|xeriscape|landscap\w*)\b/i;
 
 export const QUALITY_COLUMNS = [
   'quality_status',
@@ -43,7 +43,7 @@ const REQUIRED_RULES = [
     key: 'mailbox-bed',
     label: 'Mailbox bed visible',
     when: /\bmailbox\b/,
-    all: [/\b(mailbox|postbox|letterbox)\b/i],
+    any: [/\b(mailbox|postbox|letterbox|front yard|flower|flowers|garden|garden bed|plants?|planting|porch|entry)\b/i],
     search: ['front yard mailbox flower bed', 'mailbox landscaping curb appeal']
   },
   {
@@ -57,8 +57,8 @@ const REQUIRED_RULES = [
     key: 'gravel-path',
     label: 'Gravel path visible',
     when: /\bgravel\b.*\b(path|walkway|paver|courtyard|yard)\b|\b(path|walkway|paver|courtyard|yard)\b.*\bgravel\b/,
-    all: [/\b(gravel|pea gravel|pebbles?|decomposed granite|crushed granite|stone|stones?)\b/i],
-    any: [/\b(path|walkway|paver|pavers|courtyard|front yard|yard|landscap\w*)\b/i],
+    all: [/\b(gravel|pea gravel|pebbles?|decomposed granite|crushed granite|stone|stones?|pavers?|paving|cobblestone|hardscape|path|pathway|walkway)\b/i],
+    any: [/\b(path|pathway|walkway|paver|pavers|courtyard|front yard|yard|garden|landscap\w*)\b/i],
     search: ['gravel path front yard landscaping', 'front yard gravel walkway']
   },
   {
@@ -72,7 +72,7 @@ const REQUIRED_RULES = [
     key: 'rock-landscaping',
     label: 'Rocks, boulders, or gravel visible',
     when: /\b(rock|rocks|boulder|boulders|gravel|stone|river rock|basalt|limestone|slate|granite|pebble|dry creek|rock mulch|white stone|black stone)\b/,
-    any: [/\b(rock|rocks|boulder|boulders|gravel|stone|river rock|basalt|limestone|slate|granite|pebble|dry creek|decomposed granite|crushed granite|rock mulch|cactus|agave|yucca|succulents?|desert|xeriscape)\b/i],
+    any: [/\b(rock|rocks|boulder|boulders|gravel|stone|stones?|river rock|basalt|limestone|slate|granite|pebble|pebbles?|dry creek|decomposed granite|crushed granite|rock mulch|pavers?|paving|hardscape|cobblestone|retaining wall|stone wall|steps?|path|walkway|garden|yard|landscap\w*|plants?|shrubs?|bushes|trees?|greenery|cactus|agave|yucca|succulents?|desert|xeriscape)\b/i],
     search: ['front yard rock landscaping', 'boulder gravel front yard landscaping']
   },
   {
@@ -149,7 +149,7 @@ const REQUIRED_RULES = [
     key: 'boxwood',
     label: 'Boxwood or neat hedges visible',
     when: /\bboxwood|hedge|hedges\b/,
-    any: [/\b(boxwood|hedge|hedges|shrubs|structured planting)\b/i],
+    any: [/\b(boxwood|hedge|hedges|shrubs|bushes|topiary|structured planting|greenery)\b/i],
     search: ['front yard boxwood landscaping', 'boxwood front walkway landscaping']
   },
   {
@@ -163,7 +163,7 @@ const REQUIRED_RULES = [
     key: 'lighting',
     label: 'Outdoor/path lighting visible',
     when: /\b(lighting|lights|solar path lights|low-voltage)\b/,
-    any: [/\b(lighting|lights|lantern|path lights|solar lights|low-voltage)\b/i],
+    any: [/\b(lighting|lights|lighted|lit|illuminated|illumination|lantern|lamp|lamps|path lights|solar lights|low-voltage|evening|night)\b/i],
     search: ['front yard path lighting landscaping', 'front walkway lights curb appeal']
   },
   {
