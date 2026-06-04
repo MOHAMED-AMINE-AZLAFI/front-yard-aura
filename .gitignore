@@ -9,4 +9,6 @@ pnpm-debug.log*
 yarn-debug.log*
 astro-dev.log
 astro-dev.err
-public/pins/ 
+public/pins/*
+!public/pins/*.jpg
+!public/pins/.gitkeep

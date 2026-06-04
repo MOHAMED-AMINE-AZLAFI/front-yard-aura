@@ -2,12 +2,12 @@
   "ok": true,
   "errors": [],
   "warnings": [],
-  "pins": 115,
-  "scheduledPins": 115,
-  "days": 18,
-  "boards": 7,
+  "pins": 230,
+  "scheduledPins": 230,
+  "days": 31,
+  "boards": 8,
   "startDate": "2026-06-04",
-  "endDate": "2026-06-25",
+  "endDate": "2026-07-11",
   "timeZone": "America/New_York",
-  "generatedAt": "2026-06-03T20:50:38.371Z"
+  "generatedAt": "2026-06-04T18:52:48.014Z"
 }
