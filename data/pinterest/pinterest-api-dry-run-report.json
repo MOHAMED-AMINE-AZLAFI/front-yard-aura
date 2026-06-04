@@ -3,7 +3,7 @@
   "sandbox": false,
   "endpoint": "https://api.pinterest.com/v5",
   "envLoaded": true,
-  "schedule_date": "2026-06-04",
+  "schedule_date": "2026-06-05",
   "scheduled_today": 5,
   "pending_today": 5,
   "daily_cap": 5,
@@ -14,38 +14,38 @@
   "errors": 0,
   "delay_ms": 15000,
   "history_file": "data\\pinterest\\published-history.json",
-  "runtime": "189ms",
+  "runtime": "217ms",
   "results": [
     {
-      "pin_id": "front-walkway-ideas-with-stepping-stones-and-grass-a",
-      "schedule_id": "schedule-front-walkway-ideas-with-stepping-stones-and-grass-a",
+      "pin_id": "front-yard-cottage-curb-appeal-ideas-a",
+      "schedule_id": "schedule-front-yard-cottage-curb-appeal-ideas-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
-      "board_slug": "walkway-landscaping-ideas",
-      "board_id": "1086493547544393195",
+      "board_slug": "curb-appeal-landscaping-ideas",
+      "board_id": "1086493547544393196",
       "board_configured": true,
       "image": {
         "source_type": "image_url",
-        "image_url": "https://frontyardaura.com/pins/front-walkway-ideas-with-stepping-stones-and-grass-pin-a-1ifme.jpg",
-        "image_file": "front-walkway-ideas-with-stepping-stones-and-grass-pin-a-1ifme.jpg"
+        "image_url": "https://frontyardaura.com/pins/front-yard-cottage-curb-appeal-ideas-pin-a-w6g3k.jpg",
+        "image_file": "front-yard-cottage-curb-appeal-ideas-pin-a-w6g3k.jpg"
       },
       "payload": {
-        "board_id": "1086493547544393195",
-        "title": "Front Walkway Ideas With Stepping Stones and Grass: Hero Curb Appeal View",
-        "description": "See the full-property view for Front Walkway Ideas With Stepping Stones and Grass: stepping stone walkway, rocks, gravel, boulders, real American curb appeal, natural light, and practical front yard landscaping ideas. Front Walkway Ideas With Stepping Stones and Grass with relaxed movement, soft lawn joints, and natural front entry flow, natural light, and a polished Pinterest-ready look.",
-        "link": "https://frontyardaura.com/blog/front-walkway-ideas-with-stepping-stones-and-grass/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Front Walkway Ideas With Stepping Stones and Grass, showing stepping stone walkway, rocks, gravel around a realistic American home.",
+        "board_id": "1086493547544393196",
+        "title": "Cottage Curb Appeal Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Front Yard Cottage Curb Appeal Ideas: luxury American home exterior, elegant entry, premium landscaping, layered curb appeal, real American curb appeal, natural light, and practical front yard landscaping ideas. Cottage Curb Appeal Ideas with soft flowers, curved beds, and welcoming porch details, realistic photography, and polished Pinterest-ready curb appeal.",
+        "link": "https://frontyardaura.com/blog/front-yard-cottage-curb-appeal-ideas/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Front Yard Cottage Curb Appeal Ideas, showing luxury American home exterior, elegant entry, premium landscaping around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/front-walkway-ideas-with-stepping-stones-and-grass-pin-a-1ifme.jpg",
+          "url": "https://frontyardaura.com/pins/front-yard-cottage-curb-appeal-ideas-pin-a-w6g3k.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "modern-front-yard-horizontal-fence-landscaping-a",
-      "schedule_id": "schedule-modern-front-yard-horizontal-fence-landscaping-a",
+      "pin_id": "modern-front-yard-concrete-walkway-ideas-a",
+      "schedule_id": "schedule-modern-front-yard-concrete-walkway-ideas-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
@@ -54,99 +54,99 @@
       "board_configured": true,
       "image": {
         "source_type": "image_url",
-        "image_url": "https://frontyardaura.com/pins/modern-front-yard-horizontal-fence-landscaping-pin-a-rpw68.jpg",
-        "image_file": "modern-front-yard-horizontal-fence-landscaping-pin-a-rpw68.jpg"
+        "image_url": "https://frontyardaura.com/pins/modern-front-yard-concrete-walkway-ideas-pin-a-1avd5.jpg",
+        "image_file": "modern-front-yard-concrete-walkway-ideas-pin-a-1avd5.jpg"
       },
       "payload": {
         "board_id": "1086493547544393187",
-        "title": "Modern Horizontal Fence Landscaping: Hero Curb Appeal View",
-        "description": "See the full-property view for Modern Front Yard Landscaping With a Horizontal Fence: modern American home, clean lines, architectural planting, restrained hardscape, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Horizontal Fence Landscaping with privacy screens, grasses, and clean planting, realistic photography, and polished Pinterest-ready curb appeal.",
-        "link": "https://frontyardaura.com/blog/modern-front-yard-horizontal-fence-landscaping/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Modern Front Yard Landscaping With a Horizontal Fence, showing modern American home, clean lines, architectural planting around a realistic American home.",
+        "title": "Modern Concrete Walkway Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Modern Concrete Walkway Ideas for Front Yards: concrete walkway, pavers, walkways, garden paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Concrete Walkway Ideas with slab paths, lawn joints, and architectural planting, realistic photography, and polished Pinterest-ready curb appeal.",
+        "link": "https://frontyardaura.com/blog/modern-front-yard-concrete-walkway-ideas/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Modern Concrete Walkway Ideas for Front Yards, showing concrete walkway, pavers, walkways around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/modern-front-yard-horizontal-fence-landscaping-pin-a-rpw68.jpg",
+          "url": "https://frontyardaura.com/pins/modern-front-yard-concrete-walkway-ideas-pin-a-1avd5.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "small-front-yard-ideas-with-sidewalk-to-door-flow-a",
-      "schedule_id": "schedule-small-front-yard-ideas-with-sidewalk-to-door-flow-a",
+      "pin_id": "front-yard-hydrangea-bed-ideas-a",
+      "schedule_id": "schedule-front-yard-hydrangea-bed-ideas-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
-      "board_slug": "small-front-yard-landscaping-ideas",
-      "board_id": "1086493547544393183",
+      "board_slug": "front-yard-flower-bed-ideas",
+      "board_id": "1086493547544393191",
       "board_configured": true,
       "image": {
         "source_type": "image_url",
-        "image_url": "https://frontyardaura.com/pins/small-front-yard-ideas-with-sidewalk-to-door-flow-pin-a-1nlyq.jpg",
-        "image_file": "small-front-yard-ideas-with-sidewalk-to-door-flow-pin-a-1nlyq.jpg"
+        "image_url": "https://frontyardaura.com/pins/front-yard-hydrangea-bed-ideas-pin-a-uu4sz.jpg",
+        "image_file": "front-yard-hydrangea-bed-ideas-pin-a-uu4sz.jpg"
       },
       "payload": {
-        "board_id": "1086493547544393183",
-        "title": "Small Front Yard Ideas With Sidewalk to Door Flow: Hero Curb Appeal View",
-        "description": "See the full-property view for Small Front Yard Ideas With Sidewalk to Door Flow: pavers, walkways, garden paths, entrance paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Small Front Yard Ideas With Sidewalk to Door Flow with clear movement, soft borders, and compact entry rhythm, natural light, and a polished Pinterest-ready front yard look.",
-        "link": "https://frontyardaura.com/blog/small-front-yard-ideas-with-sidewalk-to-door-flow/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Small Front Yard Ideas With Sidewalk to Door Flow, showing pavers, walkways, garden paths around a realistic American home.",
+        "board_id": "1086493547544393191",
+        "title": "Hydrangea Front Yard Bed Ideas: Hero Curb Appeal View",
+        "description": "See the full-property view for Front Yard Hydrangea Bed Ideas: hydrangea bed, real flower beds, seasonal flowers, garden borders, real American curb appeal, natural light, and practical front yard landscaping ideas. Hydrangea Front Yard Bed Ideas with soft blooms, foundation planting, and elegant curb appeal, realistic photography, and polished Pinterest-ready curb appeal.",
+        "link": "https://frontyardaura.com/blog/front-yard-hydrangea-bed-ideas/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Front Yard Hydrangea Bed Ideas, showing hydrangea bed, real flower beds, seasonal flowers around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/small-front-yard-ideas-with-sidewalk-to-door-flow-pin-a-1nlyq.jpg",
+          "url": "https://frontyardaura.com/pins/front-yard-hydrangea-bed-ideas-pin-a-uu4sz.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "modern-front-yard-paver-ideas-a",
-      "schedule_id": "schedule-modern-front-yard-paver-ideas-a",
+      "pin_id": "curb-appeal-landscaping-for-colonial-homes-a",
+      "schedule_id": "schedule-curb-appeal-landscaping-for-colonial-homes-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
-      "board_slug": "modern-front-yard-landscaping",
-      "board_id": "1086493547544393187",
+      "board_slug": "curb-appeal-landscaping-ideas",
+      "board_id": "1086493547544393196",
       "board_configured": true,
       "image": {
         "source_type": "image_url",
-        "image_url": "https://frontyardaura.com/pins/modern-front-yard-paver-ideas-pin-a-vtqf2.jpg",
-        "image_file": "modern-front-yard-paver-ideas-pin-a-vtqf2.jpg"
+        "image_url": "https://frontyardaura.com/pins/curb-appeal-landscaping-for-colonial-homes-pin-a-dnpis.jpg",
+        "image_file": "curb-appeal-landscaping-for-colonial-homes-pin-a-dnpis.jpg"
       },
       "payload": {
-        "board_id": "1086493547544393187",
-        "title": "Modern Front Yard Paver Ideas: Hero Curb Appeal View",
-        "description": "See the full-property view for Modern Front Yard Paver Ideas: paver walkway, pavers, walkways, garden paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Front Yard Paver Ideas with large-format pavers, gravel joints, and clean lines, realistic photography, and polished Pinterest-ready curb appeal.",
-        "link": "https://frontyardaura.com/blog/modern-front-yard-paver-ideas/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Modern Front Yard Paver Ideas, showing paver walkway, pavers, walkways around a realistic American home.",
+        "board_id": "1086493547544393196",
+        "title": "Curb Appeal Landscaping for Colonial Homes: Hero Curb Appeal View",
+        "description": "See the full-property view for Curb Appeal Landscaping for Colonial Homes: luxury American home exterior, elegant entry, premium landscaping, layered curb appeal, real American curb appeal, natural light, and practical front yard landscaping ideas. Curb Appeal Landscaping for Colonial Homes with symmetry, foundation planting, and a formal front door focus, natural light, and a polished Pinterest-ready look.",
+        "link": "https://frontyardaura.com/blog/curb-appeal-landscaping-for-colonial-homes/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Curb Appeal Landscaping for Colonial Homes, showing luxury American home exterior, elegant entry, premium landscaping around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/modern-front-yard-paver-ideas-pin-a-vtqf2.jpg",
+          "url": "https://frontyardaura.com/pins/curb-appeal-landscaping-for-colonial-homes-pin-a-dnpis.jpg",
           "is_standard": true
         }
       }
     },
     {
-      "pin_id": "modern-front-yard-ideas-with-floating-steps-a",
-      "schedule_id": "schedule-modern-front-yard-ideas-with-floating-steps-a",
+      "pin_id": "front-yard-rock-landscaping-for-sloped-yards-a",
+      "schedule_id": "schedule-front-yard-rock-landscaping-for-sloped-yards-a",
       "ok": true,
       "dryRun": true,
       "endpoint": "https://api.pinterest.com/v5",
-      "board_slug": "modern-front-yard-landscaping",
-      "board_id": "1086493547544393187",
+      "board_slug": "front-yard-landscaping-with-rocks",
+      "board_id": "1086493547544393192",
       "board_configured": true,
       "image": {
         "source_type": "image_url",
-        "image_url": "https://frontyardaura.com/pins/modern-front-yard-ideas-with-floating-steps-pin-a-vj76i.jpg",
-        "image_file": "modern-front-yard-ideas-with-floating-steps-pin-a-vj76i.jpg"
+        "image_url": "https://frontyardaura.com/pins/front-yard-rock-landscaping-for-sloped-yards-pin-a-13s86.jpg",
+        "image_file": "front-yard-rock-landscaping-for-sloped-yards-pin-a-13s86.jpg"
       },
       "payload": {
-        "board_id": "1086493547544393187",
-        "title": "Modern Front Yard Ideas With Floating Steps: Hero Curb Appeal View",
-        "description": "See the full-property view for Modern Front Yard Ideas With Floating Steps: pavers, walkways, garden paths, entrance paths, real American curb appeal, natural light, and practical front yard landscaping ideas. Modern Front Yard Ideas With Floating Steps with lightweight entry movement, stone texture, and sculptural planting, realistic photography, and a Pinterest-ready front yard look.",
-        "link": "https://frontyardaura.com/blog/modern-front-yard-ideas-with-floating-steps/",
-        "alt_text": "Wide exterior view, hero shot, full property view for Modern Front Yard Ideas With Floating Steps, showing pavers, walkways, garden paths around a realistic American home.",
+        "board_id": "1086493547544393192",
+        "title": "Front Yard Rock Landscaping for Sloped Yards: Hero Curb Appeal View",
+        "description": "See the full-property view for Front Yard Rock Landscaping for Sloped Yards: rocks, gravel, boulders, stone borders, real American curb appeal, natural light, and practical front yard landscaping ideas. Front Yard Rock Landscaping for Sloped Yards with erosion control, terraced stone, and layered planting, natural light, and a polished Pinterest-ready look.",
+        "link": "https://frontyardaura.com/blog/front-yard-rock-landscaping-for-sloped-yards/",
+        "alt_text": "Wide exterior view, hero shot, full property view for Front Yard Rock Landscaping for Sloped Yards, showing rocks, gravel, boulders around a realistic American home.",
         "media_source": {
           "source_type": "image_url",
-          "url": "https://frontyardaura.com/pins/modern-front-yard-ideas-with-floating-steps-pin-a-vj76i.jpg",
+          "url": "https://frontyardaura.com/pins/front-yard-rock-landscaping-for-sloped-yards-pin-a-13s86.jpg",
           "is_standard": true
         }
       }

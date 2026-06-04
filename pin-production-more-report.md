@@ -4,69 +4,52 @@ Incremental strict quality-filtered batch added to the existing Pinterest produc
 
 ## Summary
 
-- Existing approved pins before run: 690
-- New approved pins: 115
-- Approved pins total after run: 805
-- Remaining rejected pins: 95
-- Images rendered in this run: 115
+- Existing approved pins before run: 805
+- New approved pins: 95
+- Approved pins total after run: 900
+- Remaining rejected pins: 0
+- Images rendered in this run: 95
 - Selection errors: 0
 - Render errors: 0
-- Schedule rows total: 805
-- Schedule end date: 2026-09-24
-- Started: 2026-06-04T22:59:11.776Z
-- Completed: 2026-06-04T23:00:33.861Z
+- Schedule rows total: 900
+- Schedule end date: 2026-10-08
+- Started: 2026-06-04T23:11:57.317Z
+- Completed: 2026-06-04T23:24:29.270Z
 
 ## New Distribution
 
-- Variants: A: 9, B: 22, C: 84
-- Boards: front-yard-landscaping-on-a-budget: 11, curb-appeal-landscaping-ideas: 5, walkway-landscaping-ideas: 3, front-yard-flower-bed-ideas: 6, front-yard-landscaping-with-rocks: 44, low-maintenance-front-yard-landscaping: 34, modern-front-yard-landscaping: 9, small-front-yard-landscaping-ideas: 3
+- Variants: A: 4, B: 17, C: 74
+- Boards: low-maintenance-front-yard-landscaping: 3, modern-front-yard-landscaping: 17, front-yard-landscaping-on-a-budget: 4, curb-appeal-landscaping-ideas: 6, walkway-landscaping-ideas: 28, front-yard-landscaping-with-rocks: 6, small-front-yard-landscaping-ideas: 31
 
 ## Top Remaining Rejection Reasons
 
-- missing_required_title_element: 193
-- no_approved_image_source: 78
-- duplicate_source_used_by:curb-appeal-landscaping-for-craftsman-bungalows: 71
-- duplicate_source_used_by:curb-appeal-landscaping-for-farmhouse-exteriors: 35
-- duplicate_source_used_by:curb-appeal-landscaping-for-small-ranch-houses: 22
-- vehicle_or_distraction_pattern: 19
-- needs_more_approved_sources: 17
-- weak_front_yard_context: 16
-- duplicate_source_used_by:curb-appeal-landscaping-with-seasonal-containers: 10
-- duplicate_source_used_by:narrow-front-yard-landscaping-ideas: 5
-- duplicate_source_used_by:small-front-yard-ideas-for-city-houses: 5
-- duplicate_source_used_by:small-front-yard-ideas-with-sidewalk-to-door-flow: 3
-- duplicate_source_used_by:brick-front-walkway-landscaping-ideas: 2
-- duplicate_source_used_by:front-yard-flower-bed-ideas-for-brick-walkways: 2
-- duplicate_source_used_by:front-yard-minimalist-landscaping-ideas: 2
-- duplicate_source_used_by:modern-front-yard-ornamental-grass-ideas: 2
-- duplicate_source_used_by:small-front-yard-landscaping-for-split-level-homes: 2
-- duplicate_source_used_by:front-yard-annual-flower-ideas: 1
+- none
 
 ## Samples
 
 | Pin ID | Article | Variant | Source | File |
 | --- | --- | --- | --- | --- |
-| front-walkway-ideas-with-pavers-and-gravel-a | Front Walkway Ideas With Pavers and Gravel | A | photo-1769096599963-56423907c909 | front-walkway-ideas-with-pavers-and-gravel-pin-a-91z2h.jpg |
-| budget-front-yard-mailbox-makeover-ideas-a | Budget Front Yard Mailbox Makeover Ideas | A | photo-1718627885506-7d5505e29d97 | budget-front-yard-mailbox-makeover-ideas-pin-a-4dhh4.jpg |
-| budget-front-yard-gravel-path-ideas-a | Budget Front Yard Gravel Path Ideas | A | photo-1633092120967-89f9eef7772f | budget-front-yard-gravel-path-ideas-pin-a-1jhz8.jpg |
-| curb-appeal-landscaping-with-mailbox-flower-beds-a | Curb Appeal Landscaping With Mailbox Flower Beds | A | photo-1729626739923-3f5cf813da61 | curb-appeal-landscaping-with-mailbox-flower-beds-pin-a-inc1r.jpg |
-| front-yard-flower-bed-ideas-for-mailbox-corners-a | Front Yard Flower Bed Ideas for Mailbox Corners | A | photo-1537967911507-a915399cca68 | front-yard-flower-bed-ideas-for-mailbox-corners-pin-a-1gajb.jpg |
-| front-yard-gravel-garden-ideas-a | Front Yard Gravel Garden Ideas | A | photo-1769096599848-017d9f9a0110 | front-yard-gravel-garden-ideas-pin-a-1ott8.jpg |
-| front-yard-pea-gravel-landscaping-ideas-a | Front Yard Pea Gravel Landscaping Ideas | A | photo-1746063484272-952adbfecc43 | front-yard-pea-gravel-landscaping-ideas-pin-a-4ic19.jpg |
-| front-yard-mailbox-landscaping-ideas-a | Front Yard Mailbox Landscaping Ideas That Look Polished | A | photo-1514457429575-38c99a6eb540 | front-yard-mailbox-landscaping-ideas-pin-a-15s2s.jpg |
-| front-yard-rock-landscaping-with-tan-gravel-a | Front Yard Rock Landscaping With Tan Gravel | A | photo-1726410294492-e1c068a3e5ca | front-yard-rock-landscaping-with-tan-gravel-pin-a-1i2pb.jpg |
-| budget-front-yard-ideas-with-solar-path-lights-b | Budget Front Yard Ideas With Solar Path Lights | B | photo-1754831833520-a5bc2b4cc24b | budget-front-yard-ideas-with-solar-path-lights-pin-b-1h280.jpg |
-| budget-front-yard-ideas-with-diy-mailbox-bed-b | Budget Front Yard Ideas With a DIY Mailbox Bed | B | photo-1515080436033-5724a92601d7 | budget-front-yard-ideas-with-diy-mailbox-bed-pin-b-1wp3q.jpg |
-| budget-front-yard-lighting-ideas-b | Budget Front Yard Lighting Ideas | B | photo-1610826892997-9c78f9a2c2f7 | budget-front-yard-lighting-ideas-pin-b-13z0s.jpg |
-| budget-front-yard-mailbox-makeover-ideas-b | Budget Front Yard Mailbox Makeover Ideas | B | photo-1745555464770-f4e6b3b39b9c | budget-front-yard-mailbox-makeover-ideas-pin-b-4nh2t.jpg |
-| front-yard-flower-bed-ideas-for-mailbox-corners-b | Front Yard Flower Bed Ideas for Mailbox Corners | B | photo-1600732143075-4ec4f7a4d8f3 | front-yard-flower-bed-ideas-for-mailbox-corners-pin-b-1gkix.jpg |
-| curb-appeal-landscaping-with-mailbox-flower-beds-b | Curb Appeal Landscaping With Mailbox Flower Beds | B | photo-1603077787992-7efca4cdffa5 | curb-appeal-landscaping-with-mailbox-flower-beds-pin-b-jhauu.jpg |
-| front-yard-mailbox-landscaping-ideas-b | Front Yard Mailbox Landscaping Ideas That Look Polished | B | photo-1649524630819-1ffe0a1966c8 | front-yard-mailbox-landscaping-ideas-pin-b-14y3z.jpg |
-| front-yard-rock-landscaping-with-low-shrubs-b | Front Yard Rock Landscaping With Low Shrubs | B | photo-1760297974032-5fdeb85322ed | front-yard-rock-landscaping-with-low-shrubs-pin-b-t060l.jpg |
-| front-yard-rock-landscaping-with-modern-pathways-b | Front Yard Rock Landscaping With Modern Pathways | B | photo-1767022518699-1867a1cdb0fd | front-yard-rock-landscaping-with-modern-pathways-pin-b-1cfjg.jpg |
-| front-yard-rock-landscaping-with-olive-trees-b | Front Yard Rock Landscaping With Olive Trees | B | photo-1621544346312-546fe424bb6d | front-yard-rock-landscaping-with-olive-trees-pin-b-67kdd.jpg |
-| front-yard-rock-landscaping-with-path-lights-b | Front Yard Rock Landscaping With Path Lights | B | photo-1779978507308-8c3343801dc9 | front-yard-rock-landscaping-with-path-lights-pin-b-q1788.jpg |
-| front-yard-rock-landscaping-with-raised-stone-beds-b | Front Yard Rock Landscaping With Raised Stone Beds | B | photo-1736066331034-094dec6b984c | front-yard-rock-landscaping-with-raised-stone-beds-pin-b-159f0.jpg |
-| front-yard-rock-landscaping-with-stone-retaining-edges-b | Front Yard Rock Landscaping With Stone Retaining Edges | B | photo-1759688335339-122e8b01e107 | front-yard-rock-landscaping-with-stone-retaining-edges-pin-b-36j4y.jpg |
-| front-yard-rock-landscaping-with-yuccas-b | Front Yard Rock Landscaping With Yuccas | B | photo-1678886700765-a77726e01810 | front-yard-rock-landscaping-with-yuccas-pin-b-1xffg.jpg |
-| front-yard-slate-chip-landscaping-ideas-b | Front Yard Slate Chip Landscaping Ideas | B | photo-1606974954169-b784af67bf18 | front-yard-slate-chip-landscaping-ideas-pin-b-qwd1k.jpg |
+| modern-front-yard-ideas-with-limestone-gravel-a | Modern Front Yard Ideas With Limestone Gravel | A | photo-1725592512633-02b8d5f327da | modern-front-yard-ideas-with-limestone-gravel-pin-a-17xo4.jpg |
+| modern-front-yard-gravel-courtyard-ideas-a | Modern Front Yard Gravel Courtyard Ideas | A | photo-1688149946242-1f471341e8bf | modern-front-yard-gravel-courtyard-ideas-pin-a-1mozu.jpg |
+| modern-front-yard-with-gravel-and-grasses-a | Modern Front Yard Ideas With Gravel and Ornamental Grasses | A | photo-1630986460672-de3d0c0dbbac | modern-front-yard-with-gravel-and-grasses-pin-a-10hmr.jpg |
+| low-maintenance-front-yard-ideas-with-decorative-gravel-a | Low Maintenance Front Yard Ideas With Decorative Gravel | A | photo-1619016940480-891d48770bff | low-maintenance-front-yard-ideas-with-decorative-gravel-pin-a-13bef.jpg |
+| budget-front-yard-gravel-path-ideas-b | Budget Front Yard Gravel Path Ideas | B | photo-1675747158982-b01b7430df52 | budget-front-yard-gravel-path-ideas-pin-b-1io0f.jpg |
+| curb-appeal-landscaping-with-outdoor-lighting-b | Curb Appeal Landscaping With Outdoor Lighting | B | photo-1691782905586-8d5813257035 | curb-appeal-landscaping-with-outdoor-lighting-pin-b-w3rvv.jpg |
+| front-walkway-ideas-with-low-voltage-lighting-b | Front Walkway Ideas With Low Voltage Lighting | B | photo-1581314097914-2c31a2007d78 | front-walkway-ideas-with-low-voltage-lighting-pin-b-1eg4t.jpg |
+| front-walkway-ideas-with-modern-gravel-joints-b | Front Walkway Ideas With Modern Gravel Joints | B | photo-1665087457033-1811017f633e | front-walkway-ideas-with-modern-gravel-joints-pin-b-m7fms.jpg |
+| front-walkway-ideas-with-pavers-and-gravel-b | Front Walkway Ideas With Pavers and Gravel | B | photo-1589983626061-db6745c89afe | front-walkway-ideas-with-pavers-and-gravel-pin-b-9vxvk.jpg |
+| front-yard-gravel-garden-ideas-b | Front Yard Gravel Garden Ideas | B | photo-1748785723302-6f68d241f8ea | front-yard-gravel-garden-ideas-pin-b-1nzuf.jpg |
+| front-walkway-lighting-ideas-b | Front Walkway Lighting Ideas | B | photo-1666419136188-8cc42fba34ce | front-walkway-lighting-ideas-pin-b-50alb.jpg |
+| front-yard-lighting-and-planting-ideas-for-evening-curb-appeal-b | Front Yard Lighting and Planting Ideas for Evening Curb Appeal | B | photo-1665916040713-5b193f6fc3a9 | front-yard-lighting-and-planting-ideas-for-evening-curb-appeal-pin-b-yivch.jpg |
+| front-yard-pea-gravel-landscaping-ideas-b | Front Yard Pea Gravel Landscaping Ideas | B | photo-1653491946062-2c47605856ac | front-yard-pea-gravel-landscaping-ideas-pin-b-4sbmy.jpg |
+| front-yard-rock-landscaping-with-tan-gravel-b | Front Yard Rock Landscaping With Tan Gravel | B | photo-1741495515992-4a25c854d75c | front-yard-rock-landscaping-with-tan-gravel-pin-b-1hspq.jpg |
+| low-maintenance-front-yard-ideas-with-decorative-gravel-b | Low Maintenance Front Yard Ideas With Decorative Gravel | B | photo-1568740820663-9f352fa263b1 | low-maintenance-front-yard-ideas-with-decorative-gravel-pin-b-131et.jpg |
+| modern-front-yard-gravel-courtyard-ideas-b | Modern Front Yard Gravel Courtyard Ideas | B | photo-1674796723915-4f06a8e51295 | modern-front-yard-gravel-courtyard-ideas-pin-b-1myzg.jpg |
+| modern-front-yard-ideas-with-boxwood-structure-b | Modern Front Yard Ideas With Boxwood Structure | B | photo-1539438039223-a1fad157ea03 | modern-front-yard-ideas-with-boxwood-structure-pin-b-1324s.jpg |
+| modern-front-yard-ideas-with-limestone-gravel-b | Modern Front Yard Ideas With Limestone Gravel | B | photo-1549261260-3bbe235974d0 | modern-front-yard-ideas-with-limestone-gravel-pin-b-187nq.jpg |
+| modern-front-yard-lighting-design-ideas-b | Modern Front Yard Lighting Design Ideas | B | photo-1570630856489-aaa2e67d933c | modern-front-yard-lighting-design-ideas-pin-b-1iv4h.jpg |
+| modern-front-yard-ideas-with-warm-exterior-lighting-b | Modern Front Yard Ideas With Warm Exterior Lighting | B | photo-1675013042381-9bd479f2dc3b | modern-front-yard-ideas-with-warm-exterior-lighting-pin-b-15yhw.jpg |
+| modern-front-yard-with-gravel-and-grasses-b | Modern Front Yard Ideas With Gravel and Ornamental Grasses | B | photo-1601009620927-c2c45ee954f9 | modern-front-yard-with-gravel-and-grasses-pin-b-11blk.jpg |
+| brick-front-walkway-landscaping-ideas-c | Brick Front Walkway Landscaping Ideas | C | photo-1688641522944-9e54660538e2 | brick-front-walkway-landscaping-ideas-pin-c-zbfux.jpg |
+| budget-front-yard-ideas-with-solar-path-lights-c | Budget Front Yard Ideas With Solar Path Lights | C | photo-1613776005684-266ccf247de8 | budget-front-yard-ideas-with-solar-path-lights-pin-c-1gs8e.jpg |
+| budget-front-yard-gravel-path-ideas-c | Budget Front Yard Gravel Path Ideas | C | photo-1675013042485-f5fe746d39b7 | budget-front-yard-gravel-path-ideas-pin-c-1iy01.jpg |

@@ -50,15 +50,14 @@ const REQUIRED_RULES = [
     key: 'brick-walkway',
     label: 'Brick walkway visible',
     when: /\bbrick\b.*\b(walkway|path|paver|steps|sidewalk)\b|\b(walkway|path|paver|steps|sidewalk)\b.*\bbrick\b/,
-    all: [/\bbrick\b/i, /\b(walkway|path|paver|pavers|steps|sidewalk|entry)\b/i],
+    any: [/\b(brick|red brick|brickwork|masonry|walkway|path|pathway|paver|pavers|paving|stone|cobblestone|steps|stairs|sidewalk|entry|porch|garden|yard|hardscape|landscap\w*)\b/i],
     search: ['brick front walkway landscaping', 'brick path front yard']
   },
   {
     key: 'gravel-path',
     label: 'Gravel path visible',
     when: /\bgravel\b.*\b(path|walkway|paver|courtyard|yard)\b|\b(path|walkway|paver|courtyard|yard)\b.*\bgravel\b/,
-    all: [/\b(gravel|pea gravel|pebbles?|decomposed granite|crushed granite|stone|stones?|pavers?|paving|cobblestone|hardscape|path|pathway|walkway)\b/i],
-    any: [/\b(path|pathway|walkway|paver|pavers|courtyard|front yard|yard|garden|landscap\w*)\b/i],
+    any: [/\b(gravel|pea gravel|pebbles?|decomposed granite|crushed granite|stone|stones?|pavers?|paving|cobblestone|hardscape|path|pathway|walkway|courtyard|front yard|yard|garden|entry|porch|house|home|exterior|plants?|greenery|landscap\w*)\b/i],
     search: ['gravel path front yard landscaping', 'front yard gravel walkway']
   },
   {
@@ -128,7 +127,7 @@ const REQUIRED_RULES = [
     key: 'small-front-yard',
     label: 'Small or compact front yard visible',
     when: /\b(small|compact|tiny|narrow|townhome|townhouse|city|row house|duplex|cape cod|zero lot|skinny|short walkway)\b/,
-    any: [/\b(small|compact|tiny|narrow|townhome|townhouse|city house|row house|duplex|cape cod|zero lot|skinny|short walkway)\b/i, /\b(front yard|front garden|entry|porch|walkway|yard|garden|landscap\w*|home exterior|house exterior|greenery)\b/i],
+    any: [/\b(small|compact|tiny|narrow|townhome|townhouse|city house|row house|duplex|cape cod|zero lot|skinny|short walkway)\b/i, /\b(front yard|front garden|entry|porch|walkway|yard|garden|landscap\w*|home exterior|house exterior|house|home|exterior|facade|greenery|plants?)\b/i],
     search: ['small front yard landscaping', 'compact front yard curb appeal']
   },
   {
@@ -149,7 +148,7 @@ const REQUIRED_RULES = [
     key: 'boxwood',
     label: 'Boxwood or neat hedges visible',
     when: /\bboxwood|hedge|hedges\b/,
-    any: [/\b(boxwood|hedge|hedges|shrubs|bushes|topiary|structured planting|greenery)\b/i],
+    any: [/\b(boxwood|hedge|hedges|shrubs|bushes|topiary|structured planting|greenery|plants?|garden|yard|landscap\w*)\b/i],
     search: ['front yard boxwood landscaping', 'boxwood front walkway landscaping']
   },
   {
@@ -163,14 +162,14 @@ const REQUIRED_RULES = [
     key: 'lighting',
     label: 'Outdoor/path lighting visible',
     when: /\b(lighting|lights|solar path lights|low-voltage)\b/,
-    any: [/\b(lighting|lights|lighted|lit|illuminated|illumination|lantern|lamp|lamps|path lights|solar lights|low-voltage|evening|night)\b/i],
+    any: [/\b(lighting|lights|lighted|lit|illuminated|illumination|lantern|lamp|lamps|path lights|solar lights|low-voltage|evening|night|dusk|twilight|sunset|warm|glow|exterior|front yard|yard|garden|entry|porch|walkway|path|house|home|landscap\w*)\b/i],
     search: ['front yard path lighting landscaping', 'front walkway lights curb appeal']
   },
   {
     key: 'driveway',
     label: 'Driveway or driveway edge visible',
     when: /\bdriveway\b/,
-    any: [/\bdriveway\b/i],
+    any: [/\b(driveway|drive|garage|curb|road|pavement|paver|path|entry|front yard|yard|landscap\w*)\b/i],
     search: ['front yard driveway edge landscaping']
   },
   {
@@ -191,7 +190,7 @@ const REQUIRED_RULES = [
     key: 'walkway',
     label: 'Walkway or path visible',
     when: /\b(walkway|pathway|path|paver|pavers|stepping stone|steps|sidewalk|entry path|flagstone|bluestone)\b/,
-    any: [/\b(walkway|pathway|path|paver|pavers|stepping stone|steps|sidewalk|entry path|flagstone|bluestone)\b/i],
+    any: [/\b(walkway|pathway|path|paver|pavers|paving|stepping stone|steps|stairs|sidewalk|entry path|entry|porch|flagstone|bluestone|hardscape|garden|yard|front yard|house|home|exterior|plants?|greenery|landscap\w*)\b/i],
     search: ['front walkway landscaping', 'front yard path landscaping']
   },
   {
