@@ -361,12 +361,12 @@ const trustCards = [
           <a class={`premium-card group overflow-hidden ${index === 0 ? 'lg:col-span-2' : ''}`} href="/ideas/">
             <div class="image-zoom relative aspect-[2/3]">
               <img class="h-full w-full object-cover" src={item.image} alt={item.title} width="1000" height="1500" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.04),rgba(12,33,24,0.72))]" aria-hidden="true"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.16)_0%,rgba(12,33,24,0.38)_42%,rgba(12,33,24,0.84)_100%)]" aria-hidden="true"></div>
               <div class={`absolute inset-0 flex p-5 ${item.align === 'top' ? 'items-start' : item.align === 'center' ? 'items-center' : 'items-end'}`}>
-                <div class="max-w-md rounded-[1rem] bg-aura-porcelain/92 p-5 text-aura-ink shadow-soft backdrop-blur">
-                  <p class="text-xs font-bold uppercase text-aura-clay">{item.tag}</p>
-                  <h3 class="mt-2 font-serif text-3xl font-semibold leading-tight text-aura-pine">{item.title}</h3>
-                  <p class="mt-3 text-sm leading-6 text-aura-ink/85">{item.subtitle}</p>
+                <div class="image-copy-panel max-w-md">
+                  <p class="image-copy-kicker">{item.tag}</p>
+                  <h3 class="image-copy-title mt-2">{item.title}</h3>
+                  <p class="image-copy-body">{item.subtitle}</p>
                 </div>
               </div>
             </div>

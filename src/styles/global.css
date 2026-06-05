@@ -105,6 +105,33 @@ a {
     @apply transition duration-500 ease-out hover:scale-105;
   }
 
+  .image-copy-panel {
+    @apply rounded-[1rem] border border-white/25 bg-aura-forest/90 p-5 text-aura-ivory shadow-premium backdrop-blur-md;
+  }
+
+  .image-copy-panel-compact {
+    @apply p-4;
+  }
+
+  .image-copy-kicker {
+    @apply text-xs font-bold uppercase text-aura-brass;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  }
+
+  .image-copy-title {
+    @apply font-serif text-3xl font-semibold leading-tight text-aura-ivory;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+  }
+
+  .image-copy-title-sm {
+    @apply text-2xl;
+  }
+
+  .image-copy-body {
+    @apply mt-3 text-sm leading-6 text-aura-ivory/90;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.42);
+  }
+
   .section-band {
     @apply border-y border-aura-linen bg-aura-porcelain;
   }

@@ -183,10 +183,10 @@ const faqSchema = faqs.length > 0 ? {
       <figure class="mx-auto mb-10 max-w-4xl">
         <div class="image-zoom relative aspect-[2/3] overflow-hidden rounded-[1.5rem] shadow-premium md:aspect-[16/10]">
           <img class="h-full w-full object-cover" src={imageUrl} alt={imageAlt} width="1000" height="1500" loading="eager" decoding="async" fetchpriority="high" />
-          <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.04),rgba(12,33,24,0.68))]" aria-hidden="true"></div>
-          <div class="absolute bottom-5 left-5 max-w-xl rounded-[1rem] border border-white/15 bg-aura-forest/60 p-5 text-aura-ivory shadow-soft backdrop-blur-sm">
-            <p class="eyebrow text-aura-brass">{frontmatter.category}</p>
-            <p class="mt-2 font-serif text-3xl font-semibold leading-tight">{frontmatter.pinterestTitle ?? frontmatter.title}</p>
+          <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.14),rgba(12,33,24,0.82))]" aria-hidden="true"></div>
+          <div class="image-copy-panel absolute bottom-5 left-5 max-w-xl">
+            <p class="image-copy-kicker">{frontmatter.category}</p>
+            <p class="image-copy-title mt-2">{frontmatter.pinterestTitle ?? frontmatter.title}</p>
           </div>
           <PinterestSave media={new URL(imageUrl, SITE.url).toString()} description={frontmatter.pinterestDescription ?? frontmatter.description} class="absolute right-5 top-5 px-3 py-2 text-xs" />
         </div>
@@ -203,11 +203,11 @@ const faqSchema = faqs.length > 0 ? {
                 <figure class="premium-card overflow-hidden">
                   <div class="image-zoom relative aspect-[2/3]">
                     <img class="h-full w-full object-cover" src={image.src} alt={image.alt} width="1000" height="1500" loading="lazy" decoding="async" />
-                    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.03),rgba(12,33,24,0.64))]" aria-hidden="true"></div>
+                    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.14),rgba(12,33,24,0.80))]" aria-hidden="true"></div>
                     {(index % 2 === 0) && (
-                      <div class="absolute bottom-4 left-4 right-4 rounded-[1rem] border border-white/15 bg-aura-forest/62 p-4 text-aura-ivory shadow-soft backdrop-blur-sm">
-                        <p class="text-xs font-bold uppercase tracking-[0.16em] text-aura-brass">{frontmatter.category}</p>
-                        <p class="mt-2 font-serif text-2xl font-semibold leading-tight">{image.overlayText}</p>
+                      <div class="image-copy-panel image-copy-panel-compact absolute bottom-4 left-4 right-4">
+                        <p class="image-copy-kicker">{frontmatter.category}</p>
+                        <p class="image-copy-title image-copy-title-sm mt-2">{image.overlayText}</p>
                       </div>
                     )}
                     <PinterestSave media={new URL(image.src, SITE.url).toString()} description={image.overlayText} class="absolute right-4 top-4 px-3 py-2 text-xs" />

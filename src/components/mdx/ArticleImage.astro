@@ -52,13 +52,13 @@ const align = position === 'top' ? 'items-start' : position === 'center' ? 'item
 <figure class="not-prose my-10">
   <div class={`image-zoom relative flex aspect-[2/3] overflow-hidden rounded-[1.25rem] shadow-premium ${align}`}>
     <img class="absolute inset-0 h-full w-full object-cover" src={imageSrc} alt={imageAlt} width="1000" height="1500" loading="lazy" decoding="async" />
-    {overlay && <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.08)_0%,rgba(12,33,24,0.30)_44%,rgba(12,33,24,0.80)_100%)]" aria-hidden="true"></div>}
+    {overlay && <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,33,24,0.16)_0%,rgba(12,33,24,0.40)_44%,rgba(12,33,24,0.88)_100%)]" aria-hidden="true"></div>}
     <div class="absolute right-4 top-4 z-10 opacity-95 transition hover:opacity-100">
       <PinterestSave media={imageSrc} description={overlay ?? imageAlt} class="px-3 py-2 text-xs" />
     </div>
     {overlay && (
-      <div class="relative m-5 max-w-lg rounded-[1rem] border border-white/15 bg-aura-forest/58 p-5 text-aura-ivory shadow-soft backdrop-blur-sm">
-        <p class="font-serif text-3xl font-semibold leading-tight text-aura-ivory">{overlay}</p>
+      <div class="image-copy-panel relative m-5 max-w-lg">
+        <p class="image-copy-title">{overlay}</p>
       </div>
     )}
   </div>
