@@ -1,6 +1,11 @@
 import pinsData from './pins-data.json';
 
 const PINTEREST_API_BASE = 'https://api.pinterest.com/v5';
+const RESEND_EMAILS_API = 'https://api.resend.com/emails';
+const CONTACT_ALLOWED_ORIGIN = 'https://frontyardaura.com';
+const CONTACT_FROM = 'Front Yard Aura <hello@frontyardaura.com>';
+const CONTACT_TO = '6243amine@gmail.com';
+const CONTACT_DEFAULT_SUBJECT = 'General inquiry';
 const DEFAULT_TIME_ZONE = 'America/New_York';
 const DEFAULT_DAILY_CAP = 5;
 const HISTORY_PREFIX = 'pinterest-publisher:v1';
@@ -8,6 +13,10 @@ const HISTORY_PREFIX = 'pinterest-publisher:v1';
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/contact') {
+      return handleContactRequest(request, env);
+    }
 
     if (url.pathname === '/' || url.pathname === '/health') {
       return jsonResponse({
@@ -44,6 +53,198 @@ export default {
     }
   }
 };
+
+async function handleContactRequest(request, env) {
+  if (request.method === 'OPTIONS') {
+    return contactOptionsResponse(request);
+  }
+
+  if (request.method !== 'POST') {
+    return contactJsonResponse(request, { ok: false, error: 'Method not allowed.' }, 405);
+  }
+
+  const origin = request.headers.get('Origin');
+  if (origin && origin !== CONTACT_ALLOWED_ORIGIN) {
+    return contactJsonResponse(request, { ok: false, error: 'Origin not allowed.' }, 403);
+  }
+
+  if (!env.RESEND_API_KEY) {
+    log('error', 'contact_missing_resend_api_key');
+    return contactJsonResponse(request, { ok: false, error: 'Email service is not configured.' }, 500);
+  }
+
+  let payload;
+  try {
+    payload = validateContactFields(await parseContactFields(request));
+  } catch (error) {
+    return contactJsonResponse(
+      request,
+      { ok: false, error: error.message || 'Invalid contact form submission.' },
+      400
+    );
+  }
+
+  try {
+    const resendResponse = await sendContactEmail(env.RESEND_API_KEY, payload);
+    log('info', 'contact_email_sent', { resend_email_id: resendResponse.id || null });
+    return contactJsonResponse(request, { ok: true }, 200);
+  } catch (error) {
+    log('error', 'contact_email_failed', {
+      status: error.status || null,
+      message: error.message
+    });
+    return contactJsonResponse(request, { ok: false, error: 'Unable to send message right now.' }, 502);
+  }
+}
+
+function contactOptionsResponse(request) {
+  const origin = request.headers.get('Origin');
+  if (!origin) {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        Allow: 'POST, OPTIONS'
+      }
+    });
+  }
+
+  if (origin !== CONTACT_ALLOWED_ORIGIN) {
+    return new Response(null, {
+      status: 403,
+      headers: {
+        Vary: 'Origin'
+      }
+    });
+  }
+
+  return new Response(null, {
+    status: 204,
+    headers: contactCorsHeaders(request)
+  });
+}
+
+async function parseContactFields(request) {
+  const contentType = (request.headers.get('Content-Type') || '').toLowerCase();
+
+  if (contentType.includes('application/json')) {
+    const body = await request.json();
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      throw new Error('Invalid JSON body.');
+    }
+
+    return body;
+  }
+
+  if (
+    contentType.includes('multipart/form-data') ||
+    contentType.includes('application/x-www-form-urlencoded')
+  ) {
+    const formData = await request.formData();
+    return Object.fromEntries(formData.entries());
+  }
+
+  throw new Error('Unsupported content type.');
+}
+
+function validateContactFields(fields) {
+  const name = cleanContactField(fields.name);
+  const email = cleanContactField(fields.email).toLowerCase();
+  const subject = cleanContactField(fields.subject);
+  const message = cleanContactField(fields.message, { multiline: true });
+
+  if (!name) throw new Error('Name is required.');
+  if (!email) throw new Error('Email is required.');
+  if (!isValidEmail(email)) throw new Error('Email must be valid.');
+  if (!message) throw new Error('Message is required.');
+
+  return {
+    name,
+    email,
+    subject: subject || CONTACT_DEFAULT_SUBJECT,
+    message
+  };
+}
+
+function cleanContactField(value, options = {}) {
+  const text = String(value || '').replace(/\u0000/g, '').replace(/\r\n?/g, '\n');
+
+  if (options.multiline) {
+    return text
+      .replace(/[\u0001-\u0009\u000B-\u001F\u007F]/g, ' ')
+      .replace(/[^\S\n]+/g, ' ')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+  }
+
+  return text.replace(/[\u0001-\u001F\u007F]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+async function sendContactEmail(apiKey, payload) {
+  const response = await fetch(RESEND_EMAILS_API, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      from: CONTACT_FROM,
+      to: CONTACT_TO,
+      reply_to: payload.email,
+      subject: `Contact Form: ${payload.subject}`,
+      text: contactEmailText(payload),
+      html: contactEmailHtml(payload)
+    })
+  });
+
+  const text = await response.text();
+  const body = parseJson(text, { raw: text });
+
+  if (!response.ok) {
+    const message = body?.message || body?.error?.message || body?.name || text || `HTTP ${response.status}`;
+    const error = new Error(message);
+    error.status = response.status;
+    throw error;
+  }
+
+  return body;
+}
+
+function contactEmailText({ name, email, subject, message }) {
+  return [
+    'New contact form message from Front Yard Aura.',
+    '',
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Subject: ${subject}`,
+    '',
+    'Message:',
+    message
+  ].join('\n');
+}
+
+function contactEmailHtml({ name, email, subject, message }) {
+  return `
+    <p>New contact form message from Front Yard Aura.</p>
+    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+    <p><strong>Message:</strong></p>
+    <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+  `;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 async function runPinterestPublisher({ env, cron, scheduledTime }) {
   const startedAt = Date.now();
@@ -467,11 +668,28 @@ function resultFor(row, extra) {
   };
 }
 
-function jsonResponse(body, status = 200) {
+function contactJsonResponse(request, body, status = 200) {
+  return jsonResponse(body, status, contactCorsHeaders(request));
+}
+
+function contactCorsHeaders(request) {
+  if (request.headers.get('Origin') !== CONTACT_ALLOWED_ORIGIN) return {};
+
+  return {
+    'Access-Control-Allow-Origin': CONTACT_ALLOWED_ORIGIN,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400',
+    Vary: 'Origin'
+  };
+}
+
+function jsonResponse(body, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(body, null, 2), {
     status,
     headers: {
-      'Content-Type': 'application/json; charset=utf-8'
+      'Content-Type': 'application/json; charset=utf-8',
+      ...extraHeaders
     }
   });
 }

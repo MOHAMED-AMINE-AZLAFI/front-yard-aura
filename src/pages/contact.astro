@@ -81,12 +81,9 @@ const inquiryTypes = [
           class="mt-8 rounded-[1.25rem] border border-aura-linen bg-white/80 p-6 shadow-premium md:p-8"
           name="contact"
           method="POST"
-          action="/contact/?success=true"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
+          action="https://front-yard-aura-pinterest-publisher.6243amine.workers.dev/contact"
           data-contact-form
         >
-          <input type="hidden" name="form-name" value="contact" />
           <p class="hidden">
             <label>
               Do not fill this out if you are human:
@@ -97,7 +94,7 @@ const inquiryTypes = [
             <p class="eyebrow">Send A Message</p>
             <h2 class="mt-3 font-serif text-4xl font-bold leading-tight text-aura-pine">Contact form</h2>
             <p class="mt-3 text-sm leading-7 text-aura-ink/72">
-              This Netlify-ready form routes editorial, business, advertising, and collaboration messages to the Front Yard Aura team on static hosting.
+              This form routes editorial, business, advertising, and collaboration messages to the Front Yard Aura team.
             </p>
           </div>
 
@@ -155,7 +152,6 @@ const inquiryTypes = [
               class="mt-2 min-h-12 w-full rounded-[0.9rem] border border-aura-linen bg-aura-ivory px-4 text-sm text-aura-ink outline-none transition focus:border-aura-clay focus:ring-2 focus:ring-aura-clay/20"
               type="text"
               name="subject"
-              required
             />
           </label>
 
@@ -212,15 +208,17 @@ const inquiryTypes = [
   </section>
 
   <script>
-    const encodeFormData = (form: HTMLFormElement) => {
+    const CONTACT_ENDPOINT = 'https://front-yard-aura-pinterest-publisher.6243amine.workers.dev/contact';
+
+    const contactPayloadFrom = (form: HTMLFormElement) => {
       const formData = new FormData(form);
-      const params = new URLSearchParams();
 
-      formData.forEach((value, key) => {
-        params.append(key, String(value));
-      });
-
-      return params.toString();
+      return {
+        name: String(formData.get('name') || ''),
+        email: String(formData.get('email') || ''),
+        subject: String(formData.get('subject') || ''),
+        message: String(formData.get('message') || '')
+      };
     };
 
     const initContactForm = () => {
@@ -234,6 +232,7 @@ const inquiryTypes = [
       const error = form.querySelector<HTMLElement>('[data-form-error]');
       const submitButton = form.querySelector<HTMLButtonElement>('[data-submit-button]');
       const originalButtonText = submitButton?.textContent?.trim() || 'Send Message';
+      const originalErrorText = error?.textContent?.trim() || 'Something went wrong while sending your message. Please try again in a moment.';
 
       const setState = (state: 'idle' | 'loading' | 'success' | 'error') => {
         loading?.classList.toggle('hidden', state !== 'loading');
@@ -246,28 +245,41 @@ const inquiryTypes = [
         }
       };
 
-      if (new URLSearchParams(window.location.search).get('success') === 'true') {
-        setState('success');
-      }
-
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const formData = new FormData(form);
+        if (String(formData.get('bot-field') || '').trim()) {
+          form.reset();
+          setState('success');
+          return;
+        }
+
+        if (error) {
+          error.textContent = originalErrorText;
+        }
+
         setState('loading');
 
         try {
-          const response = await fetch('/', {
+          const response = await fetch(CONTACT_ENDPOINT, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encodeFormData(form)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(contactPayloadFrom(form))
           });
 
           if (!response.ok) {
-            throw new Error('Form submission failed');
+            const result = await response.json().catch(() => null);
+            throw new Error(result?.error || 'Form submission failed');
           }
 
           form.reset();
           setState('success');
-        } catch {
+        } catch (submitError) {
+          if (error && submitError instanceof Error) {
+            error.textContent = submitError.message;
+          }
           setState('error');
         }
       });
