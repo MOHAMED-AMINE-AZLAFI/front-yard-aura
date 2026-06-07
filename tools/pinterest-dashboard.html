@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>Pinterest Manual Dashboard - Local Only</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f5ef;
+        --panel: #fffdf8;
+        --ink: #1f2a24;
+        --muted: #657169;
+        --line: #ddd7c9;
+        --accent: #b8324a;
+        --accent-strong: #8f2034;
+        --green: #2f7a5f;
+        --gold: #b7822d;
+        --shadow: 0 18px 55px rgba(34, 38, 32, 0.12);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0)),
+          var(--bg);
+        color: var(--ink);
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+
+      button {
+        border: 0;
+        cursor: pointer;
+      }
+
+      .shell {
+        width: min(1480px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 48px;
+      }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: end;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(28px, 4vw, 48px);
+        line-height: 1;
+      }
+
+      .subtitle {
+        margin: 0;
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .local-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 38px;
+        padding: 8px 12px;
+        border: 1px solid rgba(47, 122, 95, 0.3);
+        border-radius: 999px;
+        background: rgba(47, 122, 95, 0.1);
+        color: #245a48;
+        font-size: 13px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.9fr) minmax(340px, 1.1fr);
+        gap: 16px;
+        align-items: stretch;
+        margin-bottom: 18px;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 253, 248, 0.86);
+        box-shadow: var(--shadow);
+      }
+
+      .loader {
+        padding: 16px;
+      }
+
+      .loader-grid {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) auto;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .file-input {
+        width: 100%;
+        min-height: 44px;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+        color: var(--ink);
+      }
+
+      .paste-area {
+        width: 100%;
+        min-height: 96px;
+        resize: vertical;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+        line-height: 1.45;
+      }
+
+      .stack {
+        display: grid;
+        gap: 10px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 38px;
+        padding: 9px 12px;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        background: var(--accent-strong);
+      }
+
+      .button.secondary {
+        border: 1px solid var(--line);
+        background: white;
+        color: var(--ink);
+      }
+
+      .button.secondary:hover,
+      .button.secondary:focus-visible {
+        background: #f1ede3;
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) minmax(180px, 260px) minmax(130px, 180px);
+        gap: 10px;
+        padding: 14px 16px;
+        margin-bottom: 18px;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .input,
+      .select {
+        width: 100%;
+        min-height: 40px;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+        color: var(--ink);
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 18px;
+      }
+
+      .stat {
+        min-height: 34px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 253, 248, 0.8);
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .stat strong {
+        color: var(--ink);
+      }
+
+      .empty {
+        padding: 40px 20px;
+        border: 1px dashed #c8c0af;
+        border-radius: 8px;
+        background: rgba(255, 253, 248, 0.55);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        gap: 18px;
+      }
+
+      .pin-card {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 12px 36px rgba(31, 42, 36, 0.1);
+      }
+
+      .pin-media {
+        position: relative;
+        aspect-ratio: 2 / 3;
+        background: #e8e1d2;
+      }
+
+      .pin-media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .status-chip {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+        padding: 6px 9px;
+        border-radius: 999px;
+        background: rgba(255, 253, 248, 0.92);
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .status-chip.approved {
+        color: #215f49;
+      }
+
+      .status-chip.published {
+        color: #8f2034;
+      }
+
+      .status-chip.pending {
+        color: #7a5618;
+      }
+
+      .pin-body {
+        display: grid;
+        gap: 14px;
+        padding: 15px;
+      }
+
+      .pin-heading {
+        display: grid;
+        gap: 8px;
+      }
+
+      .board {
+        color: var(--accent-strong);
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.3;
+        text-transform: uppercase;
+      }
+
+      .pin-title {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.15;
+      }
+
+      .description {
+        margin: 0;
+        color: #405047;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .meta {
+        display: grid;
+        gap: 8px;
+      }
+
+      .copy-row {
+        display: grid;
+        grid-template-columns: 88px 1fr auto;
+        gap: 8px;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .copy-label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .copy-value {
+        min-width: 0;
+        overflow: hidden;
+        color: var(--ink);
+        font-size: 13px;
+        line-height: 1.3;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .copy-button {
+        min-width: 66px;
+        min-height: 32px;
+        padding: 7px 9px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .copy-button:hover,
+      .copy-button:focus-visible {
+        border-color: rgba(184, 50, 74, 0.35);
+        color: var(--accent-strong);
+      }
+
+      .copy-button.copied {
+        border-color: rgba(47, 122, 95, 0.35);
+        background: rgba(47, 122, 95, 0.1);
+        color: #245a48;
+      }
+
+      .copy-button[disabled] {
+        cursor: not-allowed;
+        opacity: 0.58;
+      }
+
+      .wide-copy {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .wide-copy .copy-button {
+        width: 100%;
+        min-height: 38px;
+      }
+
+      .error {
+        display: none;
+        margin-top: 10px;
+        color: #8f2034;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .error.visible {
+        display: block;
+      }
+
+      @media (max-width: 900px) {
+        .topbar,
+        .controls,
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .local-badge {
+          justify-self: start;
+          white-space: normal;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .shell {
+          width: min(100% - 20px, 1480px);
+          padding-top: 18px;
+        }
+
+        .loader-grid,
+        .copy-row,
+        .wide-copy {
+          grid-template-columns: 1fr;
+        }
+
+        .copy-value {
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Pinterest Manual Dashboard</h1>
+          <p class="subtitle">
+            Local manual publishing workspace. This file lives outside Astro routes, public assets,
+            sitemap entries, and production build output.
+          </p>
+        </div>
+        <div class="local-badge"><span class="dot"></span> Local only</div>
+      </header>
+
+      <section class="controls" aria-label="Data loading">
+        <div class="panel loader stack">
+          <div class="loader-grid">
+            <label class="field">
+              <span>CSV file</span>
+              <input id="csvFile" class="file-input" type="file" accept=".csv,text/csv" />
+            </label>
+            <button id="clearData" class="button secondary" type="button">Clear</button>
+          </div>
+          <div id="fileError" class="error" role="alert"></div>
+        </div>
+
+        <div class="panel loader stack">
+          <label class="field">
+            <span>Paste CSV</span>
+            <textarea
+              id="csvPaste"
+              class="paste-area"
+              spellcheck="false"
+              placeholder="Paste rows from data/pinterest/pinterest-pins.csv"
+            ></textarea>
+          </label>
+          <div class="actions">
+            <button id="loadPaste" class="button" type="button">Load pasted CSV</button>
+            <button id="loadSaved" class="button secondary" type="button">Reload saved</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel toolbar" aria-label="Filters">
+        <label class="field">
+          <span>Search</span>
+          <input id="searchInput" class="input" type="search" placeholder="Title, description, board, link" />
+        </label>
+        <label class="field">
+          <span>Board</span>
+          <select id="boardFilter" class="select">
+            <option value="">All boards</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Status</span>
+          <select id="statusFilter" class="select">
+            <option value="">All statuses</option>
+            <option value="approved">Approved</option>
+            <option value="published">Published</option>
+            <option value="pending">Pending or blank</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="stats" aria-live="polite">
+        <div class="stat"><strong id="visibleCount">0</strong> visible</div>
+        <div class="stat"><strong id="totalCount">0</strong> Total Pins</div>
+        <div class="stat"><strong id="publishedCount">0</strong> Published Pins</div>
+        <div class="stat"><strong id="remainingCount">0</strong> Remaining Pins</div>
+        <div class="stat"><strong id="boardCount">0</strong> boards</div>
+        <button id="exportProgress" class="button secondary" type="button">Export Progress CSV</button>
+      </section>
+
+      <section id="emptyState" class="empty">
+        Load a local CSV to begin.
+      </section>
+
+      <section id="pinGrid" class="grid" aria-label="Pins"></section>
+    </main>
+
+    <template id="pinTemplate">
+      <article class="pin-card">
+        <div class="pin-media">
+          <img alt="" loading="lazy" />
+          <span class="status-chip"></span>
+        </div>
+        <div class="pin-body">
+          <div class="pin-heading">
+            <div class="board"></div>
+            <h2 class="pin-title"></h2>
+            <p class="description"></p>
+          </div>
+
+          <div class="meta">
+            <div class="copy-row" data-field="pin_title">
+              <div class="copy-label">Title</div>
+              <div class="copy-value"></div>
+              <button class="copy-button" type="button">Copy</button>
+            </div>
+            <div class="copy-row" data-field="pin_description">
+              <div class="copy-label">Desc</div>
+              <div class="copy-value"></div>
+              <button class="copy-button" type="button">Copy</button>
+            </div>
+            <div class="copy-row" data-field="destination_url">
+              <div class="copy-label">Link</div>
+              <div class="copy-value"></div>
+              <button class="copy-button" type="button">Copy</button>
+            </div>
+            <div class="copy-row" data-field="board_name">
+              <div class="copy-label">Board</div>
+              <div class="copy-value"></div>
+              <button class="copy-button" type="button">Copy</button>
+            </div>
+          </div>
+
+          <div class="wide-copy">
+            <button class="copy-button" data-mark-published type="button">Mark as Published</button>
+            <button class="copy-button" data-copy-all type="button">Copy Pin Pack</button>
+            <button class="copy-button" data-copy-image type="button">Copy Image URL</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script>
+      const STORAGE_KEY = "front-yard-aura-pinterest-dashboard-csv";
+      const STATUS_STORAGE_KEY = "front-yard-aura-pinterest-dashboard-statuses";
+      const LOCAL_PIN_PATH = "../public/pins/";
+
+      const state = {
+        pins: [],
+        filtered: [],
+        statusOverrides: loadStatusOverrides()
+      };
+
+      const elements = {
+        csvFile: document.querySelector("#csvFile"),
+        csvPaste: document.querySelector("#csvPaste"),
+        loadPaste: document.querySelector("#loadPaste"),
+        loadSaved: document.querySelector("#loadSaved"),
+        clearData: document.querySelector("#clearData"),
+        fileError: document.querySelector("#fileError"),
+        searchInput: document.querySelector("#searchInput"),
+        boardFilter: document.querySelector("#boardFilter"),
+        statusFilter: document.querySelector("#statusFilter"),
+        visibleCount: document.querySelector("#visibleCount"),
+        totalCount: document.querySelector("#totalCount"),
+        publishedCount: document.querySelector("#publishedCount"),
+        remainingCount: document.querySelector("#remainingCount"),
+        boardCount: document.querySelector("#boardCount"),
+        exportProgress: document.querySelector("#exportProgress"),
+        emptyState: document.querySelector("#emptyState"),
+        pinGrid: document.querySelector("#pinGrid"),
+        pinTemplate: document.querySelector("#pinTemplate")
+      };
+
+      function loadStatusOverrides() {
+        const saved = localStorage.getItem(STATUS_STORAGE_KEY);
+        if (!saved) {
+          return {};
+        }
+
+        try {
+          const parsed = JSON.parse(saved);
+          return parsed && typeof parsed === "object" ? parsed : {};
+        } catch {
+          return {};
+        }
+      }
+
+      function saveStatusOverrides() {
+        localStorage.setItem(STATUS_STORAGE_KEY, JSON.stringify(state.statusOverrides));
+      }
+
+      function pinStorageKey(pin) {
+        return (
+          pin.pin_id ||
+          [pin.article_slug, pin.pin_variant, pin.image_file, pin.destination_url].filter(Boolean).join("|")
+        );
+      }
+
+      function readStatusOverride(key) {
+        const override = state.statusOverrides[key];
+        if (!override) {
+          return null;
+        }
+
+        if (typeof override === "string") {
+          return { status: override, updated_at: "" };
+        }
+
+        return override;
+      }
+
+      function normalizeStatus(status) {
+        return (status || "").trim().toLowerCase();
+      }
+
+      function displayStatus(status) {
+        return normalizeStatus(status) || "pending";
+      }
+
+      function escapeCsv(value) {
+        const text = String(value || "");
+        return /[",\n\r]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+      }
+
+      function parseCsv(text) {
+        const rows = [];
+        let row = [];
+        let field = "";
+        let inQuotes = false;
+
+        for (let index = 0; index < text.length; index += 1) {
+          const char = text[index];
+          const next = text[index + 1];
+
+          if (char === '"') {
+            if (inQuotes && next === '"') {
+              field += '"';
+              index += 1;
+            } else {
+              inQuotes = !inQuotes;
+            }
+            continue;
+          }
+
+          if (char === "," && !inQuotes) {
+            row.push(field);
+            field = "";
+            continue;
+          }
+
+          if ((char === "\n" || char === "\r") && !inQuotes) {
+            if (char === "\r" && next === "\n") {
+              index += 1;
+            }
+            row.push(field);
+            if (row.some((value) => value.trim() !== "")) {
+              rows.push(row);
+            }
+            row = [];
+            field = "";
+            continue;
+          }
+
+          field += char;
+        }
+
+        row.push(field);
+        if (row.some((value) => value.trim() !== "")) {
+          rows.push(row);
+        }
+
+        if (rows.length < 2) {
+          return [];
+        }
+
+        const headers = rows[0].map((header) => header.trim());
+        return rows.slice(1).map((values) => {
+          const entry = {};
+          headers.forEach((header, index) => {
+            entry[header] = (values[index] || "").trim();
+          });
+          return entry;
+        });
+      }
+
+      function normalizePin(pin) {
+        const imageFile = pin.image_file || "";
+        const imageUrl = pin.image_url || "";
+        const sourceStatus = pin.quality_status || "";
+
+        const normalizedPin = {
+          pin_id: pin.pin_id || "",
+          pin_title: pin.pin_title || pin.article_title || "Untitled pin",
+          pin_description: pin.pin_description || "",
+          destination_url: pin.destination_url || "",
+          board_name: pin.board_name || "",
+          image_file: imageFile,
+          image_url: imageUrl,
+          local_image_src: imageFile ? `${LOCAL_PIN_PATH}${imageFile}` : imageUrl,
+          quality_status: sourceStatus,
+          source_status: sourceStatus,
+          status_updated_at: "",
+          pin_variant: pin.pin_variant || "",
+          article_slug: pin.article_slug || ""
+        };
+
+        normalizedPin.status_key = pinStorageKey(normalizedPin);
+        const override = readStatusOverride(normalizedPin.status_key);
+        if (override && override.status) {
+          normalizedPin.quality_status = override.status;
+          normalizedPin.status_updated_at = override.updated_at || "";
+        }
+
+        return normalizedPin;
+      }
+
+      function setError(message) {
+        elements.fileError.textContent = message;
+        elements.fileError.classList.toggle("visible", Boolean(message));
+      }
+
+      function loadCsvText(text, shouldSave = true) {
+        setError("");
+        const parsed = parseCsv(text).map(normalizePin);
+
+        if (!parsed.length) {
+          setError("No pin rows found in the CSV.");
+          return;
+        }
+
+        state.pins = parsed;
+        if (shouldSave) {
+          localStorage.setItem(STORAGE_KEY, text);
+        }
+        populateBoards();
+        applyFilters();
+      }
+
+      function populateBoards() {
+        const current = elements.boardFilter.value;
+        const boards = [...new Set(state.pins.map((pin) => pin.board_name).filter(Boolean))].sort((a, b) =>
+          a.localeCompare(b)
+        );
+
+        elements.boardFilter.innerHTML = '<option value="">All boards</option>';
+        boards.forEach((board) => {
+          const option = document.createElement("option");
+          option.value = board;
+          option.textContent = board;
+          elements.boardFilter.append(option);
+        });
+
+        if (boards.includes(current)) {
+          elements.boardFilter.value = current;
+        }
+
+        elements.boardCount.textContent = String(boards.length);
+      }
+
+      function applyFilters() {
+        const query = elements.searchInput.value.trim().toLowerCase();
+        const board = elements.boardFilter.value;
+        const status = elements.statusFilter.value;
+
+        state.filtered = state.pins.filter((pin) => {
+          const haystack = [
+            pin.pin_title,
+            pin.pin_description,
+            pin.destination_url,
+            pin.board_name,
+            pin.pin_id,
+            pin.article_slug
+          ]
+            .join(" ")
+            .toLowerCase();
+
+          const matchesQuery = !query || haystack.includes(query);
+          const matchesBoard = !board || pin.board_name === board;
+          const normalizedStatus = normalizeStatus(pin.quality_status);
+          const matchesStatus =
+            !status ||
+            (status === "approved" && normalizedStatus === "approved") ||
+            (status === "published" && normalizedStatus === "published") ||
+            (status === "pending" && !["approved", "published"].includes(normalizedStatus));
+
+          return matchesQuery && matchesBoard && matchesStatus;
+        });
+
+        renderPins();
+      }
+
+      function displayValue(value) {
+        return value || "Not set";
+      }
+
+      function buildPinPack(pin) {
+        return [
+          `Title: ${pin.pin_title}`,
+          `Description: ${pin.pin_description}`,
+          `Link: ${pin.destination_url}`,
+          `Board: ${pin.board_name}`,
+          `Image: ${pin.image_url || pin.image_file}`
+        ].join("\n");
+      }
+
+      function markPinPublished(pin) {
+        const updatedAt = new Date().toISOString();
+        pin.quality_status = "published";
+        pin.status_updated_at = updatedAt;
+        state.statusOverrides[pin.status_key] = {
+          status: "published",
+          updated_at: updatedAt
+        };
+        saveStatusOverrides();
+        applyFilters();
+      }
+
+      function buildProgressCsv() {
+        const headers = [
+          "pin_id",
+          "article_slug",
+          "pin_variant",
+          "pin_title",
+          "board_name",
+          "current_status",
+          "source_status",
+          "status_updated_at",
+          "destination_url",
+          "image_url",
+          "image_file"
+        ];
+
+        const rows = state.pins.map((pin) => [
+          pin.pin_id,
+          pin.article_slug,
+          pin.pin_variant,
+          pin.pin_title,
+          pin.board_name,
+          displayStatus(pin.quality_status),
+          pin.source_status,
+          pin.status_updated_at,
+          pin.destination_url,
+          pin.image_url,
+          pin.image_file
+        ]);
+
+        return [headers, ...rows].map((row) => row.map(escapeCsv).join(",")).join("\n");
+      }
+
+      function exportProgressCsv() {
+        if (!state.pins.length) {
+          setError("Load a CSV before exporting progress.");
+          return;
+        }
+
+        const csv = buildProgressCsv();
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `pinterest-progress-${new Date().toISOString().slice(0, 10)}.csv`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function showCopied(button) {
+        const previous = button.textContent;
+        button.textContent = "Copied";
+        button.classList.add("copied");
+        window.setTimeout(() => {
+          button.textContent = previous;
+          button.classList.remove("copied");
+        }, 1100);
+      }
+
+      function fallbackCopyText(value, button) {
+        const textarea = document.createElement("textarea");
+        textarea.value = value;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+        document.body.append(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        showCopied(button);
+      }
+
+      function copyText(text, button) {
+        const value = text || "";
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(value).then(() => showCopied(button)).catch(() => fallbackCopyText(value, button));
+          return;
+        }
+
+        fallbackCopyText(value, button);
+      }
+
+      function renderPins() {
+        elements.pinGrid.innerHTML = "";
+        const publishedPins = state.pins.filter((pin) => normalizeStatus(pin.quality_status) === "published").length;
+        elements.totalCount.textContent = String(state.pins.length);
+        elements.publishedCount.textContent = String(publishedPins);
+        elements.remainingCount.textContent = String(state.pins.length - publishedPins);
+        elements.visibleCount.textContent = String(state.filtered.length);
+        elements.emptyState.hidden = state.pins.length > 0;
+
+        const fragment = document.createDocumentFragment();
+
+        state.filtered.forEach((pin) => {
+          const card = elements.pinTemplate.content.firstElementChild.cloneNode(true);
+          const image = card.querySelector("img");
+          const chip = card.querySelector(".status-chip");
+
+          image.src = pin.local_image_src;
+          image.alt = pin.pin_title;
+          image.onerror = () => {
+            if (pin.image_url && image.src !== pin.image_url) {
+              image.src = pin.image_url;
+            }
+          };
+
+          const normalizedStatus = normalizeStatus(pin.quality_status);
+          chip.textContent = displayStatus(pin.quality_status);
+          chip.classList.toggle("approved", normalizedStatus === "approved");
+          chip.classList.toggle("published", normalizedStatus === "published");
+          chip.classList.toggle("pending", !["approved", "published"].includes(normalizedStatus));
+
+          card.querySelector(".board").textContent = displayValue(pin.board_name);
+          card.querySelector(".pin-title").textContent = displayValue(pin.pin_title);
+          card.querySelector(".description").textContent = displayValue(pin.pin_description);
+
+          card.querySelectorAll(".copy-row").forEach((row) => {
+            const field = row.dataset.field;
+            const value = pin[field] || "";
+            row.querySelector(".copy-value").textContent = displayValue(value);
+            row.querySelector(".copy-button").addEventListener("click", () => {
+              copyText(value, row.querySelector(".copy-button"));
+            });
+          });
+
+          card.querySelector("[data-copy-all]").addEventListener("click", (event) => {
+            copyText(buildPinPack(pin), event.currentTarget);
+          });
+
+          card.querySelector("[data-copy-image]").addEventListener("click", (event) => {
+            copyText(pin.image_url || pin.image_file, event.currentTarget);
+          });
+
+          const markButton = card.querySelector("[data-mark-published]");
+          if (normalizedStatus === "published") {
+            markButton.textContent = "Published";
+            markButton.disabled = true;
+          } else if (normalizedStatus !== "approved") {
+            markButton.textContent = "Needs Approval";
+            markButton.disabled = true;
+          } else {
+            markButton.addEventListener("click", () => {
+              markPinPublished(pin);
+            });
+          }
+
+          fragment.append(card);
+        });
+
+        elements.pinGrid.append(fragment);
+      }
+
+      elements.csvFile.addEventListener("change", (event) => {
+        const file = event.target.files && event.target.files[0];
+        if (!file) {
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => loadCsvText(String(reader.result || ""));
+        reader.onerror = () => setError("Could not read the selected CSV file.");
+        reader.readAsText(file);
+      });
+
+      elements.loadPaste.addEventListener("click", () => {
+        loadCsvText(elements.csvPaste.value);
+      });
+
+      elements.loadSaved.addEventListener("click", () => {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) {
+          setError("No saved CSV found in this browser.");
+          return;
+        }
+        loadCsvText(saved, false);
+      });
+
+      elements.clearData.addEventListener("click", () => {
+        state.pins = [];
+        state.filtered = [];
+        localStorage.removeItem(STORAGE_KEY);
+        elements.csvFile.value = "";
+        elements.csvPaste.value = "";
+        elements.boardFilter.innerHTML = '<option value="">All boards</option>';
+        elements.searchInput.value = "";
+        elements.statusFilter.value = "";
+        elements.boardCount.textContent = "0";
+        setError("");
+        renderPins();
+      });
+
+      elements.searchInput.addEventListener("input", applyFilters);
+      elements.boardFilter.addEventListener("change", applyFilters);
+      elements.statusFilter.addEventListener("change", applyFilters);
+      elements.exportProgress.addEventListener("click", exportProgressCsv);
+
+      const savedCsv = localStorage.getItem(STORAGE_KEY);
+      if (savedCsv) {
+        loadCsvText(savedCsv, false);
+      } else {
+        renderPins();
+      }
+    </script>
+  </body>
+</html>

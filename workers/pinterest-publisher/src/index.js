@@ -7,7 +7,9 @@ const CONTACT_FROM = 'Front Yard Aura <hello@frontyardaura.com>';
 const CONTACT_TO = '6243amine@gmail.com';
 const CONTACT_DEFAULT_SUBJECT = 'General inquiry';
 const DEFAULT_TIME_ZONE = 'America/New_York';
-const DEFAULT_DAILY_CAP = 5;
+const DEFAULT_DAILY_CAP = 50;
+const DEFAULT_RAMP_START_DATE = '2026-06-05';
+const RAMP_DAILY_CAPS = [5, 10, 20, 30, 40, 50];
 const HISTORY_PREFIX = 'pinterest-publisher:v1';
 
 export default {
@@ -18,13 +20,25 @@ export default {
       return handleContactRequest(request, env);
     }
 
+    if (url.pathname === '/run-pinterest-now') {
+      return handleRunPinterestNow(request, env);
+    }
+
+    if (url.pathname === '/ramp-status') {
+      return handleRampStatus(request, env);
+    }
+
     if (url.pathname === '/' || url.pathname === '/health') {
+      const scheduleContext = currentScheduleContext(env, new Date());
       return jsonResponse({
         ok: true,
         worker: 'pinterest-publisher',
         dry_run: parseBoolean(env.DRY_RUN, true),
-        daily_cap: parseNonNegativeInteger(env.DAILY_CAP ?? DEFAULT_DAILY_CAP, 'DAILY_CAP'),
-        schedule_time_zone: env.SCHEDULE_TIME_ZONE || DEFAULT_TIME_ZONE,
+        daily_cap: scheduleContext.capInfo.calculatedDailyCap,
+        daily_cap_safety: scheduleContext.capInfo.dailyCapSafety,
+        current_week: scheduleContext.capInfo.currentWeek,
+        schedule_time_zone: scheduleContext.timeZone,
+        pinterest_ramp_start_date: scheduleContext.capInfo.rampStartDate,
         data_generated_at_utc: pinsData.generated_at_utc,
         pins: pinsData.stats?.pins ?? pinsData.pins.length,
         schedule_rows: pinsData.stats?.schedule_rows ?? pinsData.schedule.length,
@@ -53,6 +67,74 @@ export default {
     }
   }
 };
+
+async function handleRampStatus(request, env) {
+  if (request.method !== 'GET') {
+    return jsonResponse({ ok: false, error: 'Method not allowed.' }, 405, { Allow: 'GET' });
+  }
+
+  const scheduleContext = currentScheduleContext(env, new Date());
+  const pendingPins = await pendingPinsForDate(env.PINTEREST_HISTORY, scheduleContext.runDate);
+
+  return jsonResponse(
+    {
+      current_date: scheduleContext.runDate,
+      current_week: scheduleContext.capInfo.currentWeek,
+      calculated_daily_cap: scheduleContext.capInfo.calculatedDailyCap,
+      pending_pins: pendingPins
+    },
+    200,
+    { 'Cache-Control': 'no-store' }
+  );
+}
+
+async function handleRunPinterestNow(request, env) {
+  if (request.method !== 'GET') {
+    return jsonResponse({ ok: false, error: 'Method not allowed.' }, 405, { Allow: 'GET' });
+  }
+
+  try {
+    const result = await runPinterestPublisher({
+      env,
+      cron: 'manual-http',
+      scheduledTime: Date.now()
+    });
+    const summary = result.summary;
+
+    return jsonResponse(
+      {
+        mode: summary.dry_run ? 'dry-run' : 'live',
+        selected: summary.selected_this_run,
+        pending: summary.scheduled_today,
+        published: summary.published,
+        skipped: summary.skipped + summary.cap_skipped,
+        errors: summary.errors,
+        errorDetails: result.errorDetails
+      },
+      200,
+      { 'Cache-Control': 'no-store' }
+    );
+  } catch (error) {
+    log('error', 'manual_run_failed', {
+      message: error.message,
+      stack: error.stack?.split('\n').slice(0, 5).join('\n')
+    });
+
+    return jsonResponse(
+      {
+        mode: parseBoolean(env.DRY_RUN, true) ? 'dry-run' : 'live',
+        selected: 0,
+        pending: 0,
+        published: 0,
+        skipped: 0,
+        errors: 1,
+        errorDetails: []
+      },
+      500,
+      { 'Cache-Control': 'no-store' }
+    );
+  }
+}
 
 async function handleContactRequest(request, env) {
   if (request.method === 'OPTIONS') {
@@ -210,7 +292,7 @@ async function sendContactEmail(apiKey, payload) {
     throw error;
   }
 
-  return body;
+  return body || {};
 }
 
 function contactEmailText({ name, email, subject, message }) {
@@ -250,12 +332,10 @@ async function runPinterestPublisher({ env, cron, scheduledTime }) {
   const startedAt = Date.now();
   const now = new Date(scheduledTime || Date.now());
   const dryRun = parseBoolean(env.DRY_RUN, true);
-  const dailyCap = parseNonNegativeInteger(
-    env.DAILY_CAP ?? pinsData.stats?.suggested_daily_cap ?? DEFAULT_DAILY_CAP,
-    'DAILY_CAP'
-  );
-  const timeZone = env.SCHEDULE_TIME_ZONE || DEFAULT_TIME_ZONE;
-  const runDate = env.RUN_DATE ? validateDateString(env.RUN_DATE, 'RUN_DATE') : dateStringInTimeZone(now, timeZone);
+  const scheduleContext = currentScheduleContext(env, now);
+  const timeZone = scheduleContext.timeZone;
+  const runDate = scheduleContext.runDate;
+  const dailyCap = scheduleContext.capInfo.calculatedDailyCap;
   const kv = env.PINTEREST_HISTORY;
 
   if (!dryRun && !env.PINTEREST_ACCESS_TOKEN) {
@@ -267,10 +347,7 @@ async function runPinterestPublisher({ env, cron, scheduledTime }) {
   }
 
   const pinsById = new Map(pinsData.pins.map((pin) => [pin.pin_id, pin]));
-  const todaysSchedule = pinsData.schedule
-    .filter((row) => row.scheduled_date === runDate)
-    .filter((row) => !row.status || row.status === 'pending')
-    .sort(compareScheduleRows);
+  const todaysSchedule = scheduledRowsForDate(runDate);
 
   const dateHistory = normalizeDateHistory(await kvGetJson(kv, dateHistoryKey(runDate), emptyDateHistory(runDate)));
   const alreadyPublishedToday = dateHistory.published.length;
@@ -284,6 +361,10 @@ async function runPinterestPublisher({ env, cron, scheduledTime }) {
     schedule_time_zone: timeZone,
     scheduled_today: todaysSchedule.length,
     daily_cap: dailyCap,
+    ramp_week: scheduleContext.capInfo.currentWeek,
+    ramp_daily_cap: scheduleContext.capInfo.rampDailyCap,
+    daily_cap_safety: scheduleContext.capInfo.dailyCapSafety,
+    pinterest_ramp_start_date: scheduleContext.capInfo.rampStartDate,
     already_published_today: alreadyPublishedToday,
     remaining_daily_slots: remainingDailySlots,
     data_generated_at_utc: pinsData.generated_at_utc
@@ -331,13 +412,17 @@ async function runPinterestPublisher({ env, cron, scheduledTime }) {
       errors += 1;
       const error = `Missing pin metadata for ${row.pin_id}.`;
       log('error', 'pin_error', { label, error });
-      results.push(resultFor(row, { ok: false, error }));
+      results.push(resultFor(row, { ok: false, title: null, board_id: null, status: null, error, response_body: null }));
       continue;
     }
 
+    let boardId = null;
+    let title = String(pin.pin_title || '').trim() || null;
+
     try {
-      const boardId = boardIdFor(pinsData.boards, row.board_slug, dryRun);
+      boardId = boardIdFor(pinsData.boards, row.board_slug, dryRun);
       const payload = payloadFor(pin, row, boardId);
+      title = payload.title;
       publishSlotsUsed += 1;
 
       if (dryRun) {
@@ -413,9 +498,12 @@ async function runPinterestPublisher({ env, cron, scheduledTime }) {
       results.push(
         resultFor(row, {
           ok: false,
-          status: error.status || null,
-          retry_after: error.retryAfter || null,
-          error: error.message
+          title,
+          board_id: boardId,
+          status: error.status ?? null,
+          retry_after: error.retryAfter ?? null,
+          error: error.message,
+          response_body: error.responseBody ?? null
         })
       );
     }
@@ -427,6 +515,10 @@ async function runPinterestPublisher({ env, cron, scheduledTime }) {
       schedule_date: runDate,
       scheduled_today: todaysSchedule.length,
       daily_cap: dailyCap,
+      ramp_week: scheduleContext.capInfo.currentWeek,
+      ramp_daily_cap: scheduleContext.capInfo.rampDailyCap,
+      daily_cap_safety: scheduleContext.capInfo.dailyCapSafety,
+      pinterest_ramp_start_date: scheduleContext.capInfo.rampStartDate,
       already_published_today: alreadyPublishedToday,
       selected_this_run: publishSlotsUsed,
       previewed,
@@ -436,7 +528,8 @@ async function runPinterestPublisher({ env, cron, scheduledTime }) {
       errors,
       runtime_ms: Date.now() - startedAt
     },
-    results: results.slice(0, 50)
+    results: results.slice(0, 50),
+    errorDetails: errorDetailsFromResults(results)
   };
 }
 
@@ -489,18 +582,62 @@ async function createPinterestPin(accessToken, payload) {
   });
 
   const text = await response.text();
-  const body = parseJson(text, { raw: text });
+  const body = text ? parseJson(text, { raw: text }) : null;
+  const safeBody = sanitizePinterestApiBody(body, accessToken);
 
   if (!response.ok) {
     const retryAfter = response.headers.get('retry-after');
-    const message = body?.message || body?.code || text || `HTTP ${response.status}`;
+    const message = pinterestErrorMessage(safeBody, response.status);
     const error = new Error(retryAfter ? `${message} (retry-after: ${retryAfter})` : message);
     error.status = response.status;
     error.retryAfter = retryAfter;
+    error.responseBody = safeBody;
     throw error;
   }
 
   return body;
+}
+
+function pinterestErrorMessage(body, status) {
+  const candidates = [body?.message, body?.code, body?.error?.message, body?.error, body?.raw];
+  const message = candidates.map(toNonEmptyString).find(Boolean);
+  return message || `HTTP ${status}`;
+}
+
+function toNonEmptyString(value) {
+  if (value === undefined || value === null) return null;
+  if (typeof value === 'object') return null;
+  const text = String(value).trim();
+  return text || null;
+}
+
+function sanitizePinterestApiBody(value, accessToken) {
+  return sanitizeSensitiveValue(value, accessToken);
+}
+
+function sanitizeSensitiveValue(value, accessToken) {
+  if (typeof value === 'string') {
+    return accessToken ? value.split(accessToken).join('[redacted]') : value;
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => sanitizeSensitiveValue(item, accessToken));
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [
+        key,
+        isSensitiveKey(key) ? '[redacted]' : sanitizeSensitiveValue(item, accessToken)
+      ])
+    );
+  }
+
+  return value;
+}
+
+function isSensitiveKey(key) {
+  return /authorization|access[_-]?token|token|secret/i.test(key);
 }
 
 function boardIdFor(boards, boardSlug, dryRun) {
@@ -614,6 +751,70 @@ function compareScheduleRows(a, b) {
   return scheduleSortKey(a).localeCompare(scheduleSortKey(b));
 }
 
+function currentScheduleContext(env, now) {
+  const timeZone = env.SCHEDULE_TIME_ZONE || DEFAULT_TIME_ZONE;
+  const runDate = env.RUN_DATE ? validateDateString(env.RUN_DATE, 'RUN_DATE') : dateStringInTimeZone(now, timeZone);
+
+  return {
+    timeZone,
+    runDate,
+    capInfo: dailyCapInfoForDate(env, runDate)
+  };
+}
+
+function dailyCapInfoForDate(env, runDate) {
+  const rampStartDate = validateDateString(
+    env.PINTEREST_RAMP_START_DATE || DEFAULT_RAMP_START_DATE,
+    'PINTEREST_RAMP_START_DATE'
+  );
+  const currentWeek = rampWeekForDate(runDate, rampStartDate);
+  const rampDailyCap = rampDailyCapForWeek(currentWeek);
+  const dailyCapSafety = parseNonNegativeInteger(env.DAILY_CAP ?? DEFAULT_DAILY_CAP, 'DAILY_CAP');
+
+  return {
+    rampStartDate,
+    currentWeek,
+    rampDailyCap,
+    dailyCapSafety,
+    calculatedDailyCap: Math.min(rampDailyCap, dailyCapSafety)
+  };
+}
+
+function rampWeekForDate(runDate, rampStartDate) {
+  const elapsedDays = Math.floor((dateOnlyToUtcMs(runDate) - dateOnlyToUtcMs(rampStartDate)) / 86400000);
+  if (elapsedDays < 0) return 0;
+  return Math.floor(elapsedDays / 7) + 1;
+}
+
+function rampDailyCapForWeek(week) {
+  if (week <= 0) return 0;
+  return RAMP_DAILY_CAPS[Math.min(week, RAMP_DAILY_CAPS.length) - 1];
+}
+
+function dateOnlyToUtcMs(value) {
+  const [year, month, day] = value.split('-').map(Number);
+  return Date.UTC(year, month - 1, day);
+}
+
+function scheduledRowsForDate(runDate) {
+  return pinsData.schedule
+    .filter((row) => row.scheduled_date === runDate)
+    .filter((row) => !row.status || row.status === 'pending')
+    .sort(compareScheduleRows);
+}
+
+async function pendingPinsForDate(kv, runDate) {
+  const rows = scheduledRowsForDate(runDate);
+  if (!kv) return rows.length;
+
+  let pending = 0;
+  for (const row of rows) {
+    const existingRecord = await findPublishedRecord(kv, row);
+    if (!existingRecord) pending += 1;
+  }
+  return pending;
+}
+
 function scheduleSortKey(row) {
   return [
     row.scheduled_date,
@@ -666,6 +867,19 @@ function resultFor(row, extra) {
     board_slug: row.board_slug,
     ...extra
   };
+}
+
+function errorDetailsFromResults(results) {
+  return results
+    .filter((result) => result.ok === false)
+    .map((result) => ({
+      pin_id: result.pin_id,
+      title: result.title ?? null,
+      board_id: result.board_id ?? null,
+      status: result.status ?? null,
+      message: result.error || 'Unknown Pinterest publish error.',
+      response_body: result.response_body ?? null
+    }));
 }
 
 function contactJsonResponse(request, body, status = 200) {
